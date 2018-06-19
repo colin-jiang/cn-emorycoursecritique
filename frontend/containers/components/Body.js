@@ -35,7 +35,7 @@ class Body extends React.Component {
                 >
                   Emory
                 </span>{" "}
-                COURSE CRITIQUE
+                COURS CRITIQUE
               </h2>
               <div className="hide-on-small-only"
                 style={{
