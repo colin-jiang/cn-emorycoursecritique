@@ -87,13 +87,11 @@ class Inputfield extends React.Component {
          source: function(request,response){
            var filtered_profs=Array.from($.ui.autocomplete.filter(professors,request.term).slice(0,5));
            var filtered_course=Array.from($.ui.autocomplete.filter(courses,request.term).slice(0,5));
-
-           console.log(courses);
-           console.log(professors);
-           console.log(filtered_course);
-           console.log(filtered_profs);
            response(filtered_course.concat(filtered_profs))
-
+         },
+         select: function(event,ui){
+           var url = '/search?q='+ui.item.value ;
+           window.location.href =url;
          }
        });
     });
