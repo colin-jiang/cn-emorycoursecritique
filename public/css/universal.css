@@ -1,0 +1,263 @@
+
+
+.navOverride{
+  background-color:transparent;
+  width: 100%;
+  height: 56px;
+
+}
+
+.navOverride2{
+  background-color:white;
+  width: 100%;
+  height: 56px;
+  position:fixed;
+  z-index: 100;
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.card-panel:hover {
+  background-color:#f5f5f5 !important;
+}
+
+.card-panel {
+          box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.shadowOverride {
+  box-shadow:none;
+}
+.side-nav {
+          box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.nohover {  
+    pointer-events:none;
+}
+
+.nohover2:hover {  
+    background-color:white !important;
+}
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+}
+
+.input-field input[type=search]:focus {
+  color:black !important;
+  background-color:white !important;
+  border: .5px solid !important;
+  box-shadow: none !important;
+}
+
+html, lbody { height: 100%; touch-action: manipulation; }
+/*home start */
+html, body { height: 100%; touch-action: manipulation; }
+
+ body {
+    display: block;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+
+
+
+.bodyWrapper{
+   background: blue; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #002878 , #d2b000); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #002878, #d2b000); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #002878, #d2b000); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #002878 , #d2b000); /* Standard syntax */
+}
+
+.nav-split-color{
+
+  background: linear-gradient(
+    to right, 
+    #002878 0%, 
+    #002878 50%, 
+    #d2b000 50%, 
+    #d2b000 100%
+  );
+
+}
+
+.body-container {
+	  height: 100%;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5 )), url('../imgs/emory_20hospital-aerial_20shot.jpg');
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-size: cover;
+    
+}
+
+.inputOverride{
+  color: #9e9e9e!important;
+}
+
+.inputIconOverride{
+  position: absolute;
+  bottom: 8px;
+  height:56px !important;
+  color: black !important;
+}
+
+.inputIconOverride2{
+  position: absolute;
+  bottom: 10px;
+  color: black !important;
+}
+ 
+
+@media only screen and (max-width : 600px) {
+  .inputIconOverride{
+
+left: 8px;
+top: -12px;
+}
+
+.smallFontMobile{
+    font-size: 2.8rem;
+  }
+
+}
+
+/* home end */
+
+
+lbody {
+  /*display: table-cell;
+    vertical-align: middle;*/
+    display: block;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #283469 !important;
+    background: linear-gradient(0deg, #f1f1f1 60%, #002978 40%);
+}
+
+
+
+/* review start */
+
+sbody {
+  padding-left: 0;
+  background-color: #eeeeee;
+  display: block;
+}
+
+rbody {
+      background-color: #eeeeee;
+      display: block;
+    }
+
+    @media only screen and (max-width : 600px) {
+      rbody {
+        padding-left: 0;
+        background-color: #eeeeee;
+        display: block;
+      }
+    }
+
+.labelOverride {
+  padding-left:8px !important;
+  margin-left:20px;
+  padding-top:20px;
+}
+
+/* distribution bars*/
+.histogram-row {
+  vertical-align: middle;
+  padding:3px;
+  white-space:nowrap;
+}
+.a-meter {
+  border-radius:1px;
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.4), inset 0 0 0 1px rgba(0,0,0,.1);
+  overflow:hidden;
+  background:linear-gradient(to bottom,#eee,#f6f6f6);
+  background-color:#f3f3f3;
+  height:17px;
+}
+
+.a-meter .a-meter-bar {
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.05);
+  border-radius: 1px;
+  background:linear-gradient(to bottom,#ffce00,#ffa700);
+  background-color:#ffce00;
+  transition:width .5s ease;
+  float:left;
+  font-size:0;
+  height:100%;
+}
+
+.noSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+@media only screen and (max-width : 600px) {
+
+.align-toggle{
+  text-align:left;
+}
+}
+
+
+/*about page*/
+.logoNavBarWithLogo{
+  position: relative;
+    bottom: 12px;
+    left: 12px;
+}
+
+.aboutPics{
+  width: 135px;
+  display: block;
+  margin: auto;
+
+}
+
+.aboutName{
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+
+.aboutJob{
+  font-size: 1.0rem;
+  font-weight: 300;
+}
+
+.marginCol2{
+  margin-top: 48px;
+}
+@media only screen and (max-width : 600px) {
+
+.nav-wrapper .input-field.navBarInput input[type=search] {
+    
+    width: calc(100% - 2rem);
+    
+}
+.marginCol{
+  margin-top: 36px;
+}
+.marginCol2{
+  margin-top: 0px;
+}
+}
+.autocomplete-content.dropdown-content{
+max-height: 450px !important;
+
+
+
+}

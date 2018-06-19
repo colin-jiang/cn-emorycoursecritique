@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,600');
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+
+.register-body {
+  background-color: #00477F;
+  height: 590px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  height: 60px;
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 37px;
+  color: #FFD700 !important;
+  background-color: #002978;
+}
+
+.ui-autocomplete-category{
+  color:red;
+}
+
+.header-title-emory{
+  font-weight:600;
+  color: white;
+}
+
+.header-title {
+  margin: auto;
+}
+
+.register-body-title{
+  padding-left: 9px;
+  font-family: 'Raleway', sans-serif;
+  color: yellow;
+  font-size: 25px;
+  font-weight:600;
+}
+
+.register-body-main-component{
+  height: 350px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.first-last-name {
+ display: flex;
+}
+
+.name-col{
+  flex: 1; /* additionally, equal width */
+
+  padding: 9px;
+}
+
+.user-input{
+  width: 100%;
+  padding: 10px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  color: black;
+}
+
+
+.submit-button{
+  background-color: #002a78;
+  border: 2px solid #ffd802;
+  border-radius: 8px;
+  color: #ffd802;
+  padding: 3px 25px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  font-weight:600;
+  -webkit-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+}
+
+.submit-button:hover{
+  background-color: #ffd802;
+  color: #002a78;
+}
+
+.inputs-sizes{
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.submit-button-row {
+  display: flex;
+  justify-content: center;
+}
+
+.register-body-success{
+  background-color: #00477F;
+  height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-body-main-component-success{
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.register-body-title-success{
+  padding-left: 9px;
+    font-family: 'Raleway', sans-serif;
+    color: yellow;
+    font-size: 25px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}
+
+.inputs-sizes-success{
+  padding-left: 9px;
+  padding-right: 9px;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
+
+.login-body-main-component{
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.login-body-title{
+    font-family: 'Raleway', sans-serif;
+    color: yellow;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.forgot-password-button{
+  background-color: #00477F;
+  border: 1px solid #00477F;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.forgot-password-button:hover{
+  color: grey;
+}
+
+.inputs-sizes-password{
+  height: 120px;
+  padding-left: 9px;
+}
+
+.login-body-main-component{
+  height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 400px;
+}
+
+.login-form2{
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 1px 5% 5% 5%;
+}
+
+fieldset, label { margin: 0; padding: 0; }
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; }
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label {
+  color: #ddd;
+ float: right;
+}
+
+
+
+
+
+
+
+
+
+.dropdown-container, .instructions {
+    width: 150px;
+    margin: 5px auto 0px;
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+.instructions {
+    text-align: left;
+}
+
+.filter-button {
+    float: left;
+    width: 100%;
+    background: whitesmoke;
+    padding: 10px 12px;
+
+    cursor: pointer;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+
+    .dropdown-label, .dropdown-quantity {
+        float: left;
+    }
+
+    .dropdown-quantity {
+        margin-left: 4px;
+    }
+
+    .fa-filter {
+        float: right;
+    }
+}
+
+.dropdown-list {
+    float: left;
+    width: inherit;
+    position: absolute;
+    background: white;
+    margin-top:40px;
+    border: 1px solid lightgray;
+    border-top: none;
+    box-sizing: border-box;
+    padding: 10px 12px;
+
+    input[type="search"] {
+        padding: 5px 0;
+    }
+
+    ul {
+        margin: 10px 0;
+        max-height: 200px;
+        overflow-y: auto;
+        position: relative;
+
+    }
+    ul li {
+
+        input[type="checkbox"] {
+            padding-left:20px;
+        }
+
+        label {
+            font-size:10px;
+            line-height:10px;
+            padding-left:20px;
+        }
+    }
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+
+.rate-body-main-component {
+  height: 450;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.inputs-sizes-rate{
+  height: 65px;
+  padding-left: 0px;
+}
+
+.reate-body-title{
+  padding-left: 0px;
+    font-family: 'Raleway', sans-serif;
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+}
