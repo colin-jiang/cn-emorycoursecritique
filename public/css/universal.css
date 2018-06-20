@@ -255,9 +255,27 @@ rbody {
   margin-top: 0px;
 }
 }
+
 .autocomplete-content.dropdown-content{
-max-height: 450px !important;
+  max-height: 450px !important;
 
+}
 
+.ui-autocomplete-category{
+  font-size: 16px;
+  line-height: 22px;
+  padding: 14px 16px;
+}
 
+.ui-menu .ui-menu-item-wrapper {
+   /* all <a> */
+   position: inherit;
+   padding: 14px 16px;
+}
+
+.ui-state-active {
+   /* selected <a> */
+   border: none !important;
+   background: #eee !important;
+   color: #d28e00 !important;
 }

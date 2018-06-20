@@ -65,13 +65,18 @@ class Inputfield extends React.Component {
            this._super();
            this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
          },
+          _renderItem: function( ul, item ) {
+            return $( "<li></li>" )
+               .append( "<span class=''> " + item.label + "</span>" )
+            .appendTo( ul );
+          },
          _renderMenu: function( ul, items ) {
            var that = this,
              currentCategory = "";
            $.each( items, function( index, item ) {
              var li;
              if ( item.category != currentCategory ) {
-               ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+               ul.append( "<li class='ui-autocomplete-category'>" + item.category.charAt(0).toUpperCase() + item.category.slice(1) + ":</li>" );
                currentCategory = item.category;
              }
              li = that._renderItemData( ul, item );
@@ -93,6 +98,9 @@ class Inputfield extends React.Component {
          select: function(event,ui){
            var url = '/search?q='+ui.item.value ;
            window.location.href =url;
+         },
+         classes: {
+          "ui-autocomplete": "autocomplete-content dropdown-content"
          }
        });
     });
