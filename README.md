@@ -1,5 +1,5 @@
 # Emory Course Critique
-_for [live site](https://www.emorycoursecritique.com/)_
+_for [live site](http://167.99.224.65/)_
 
 ## Overview
 
