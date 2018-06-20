@@ -83,6 +83,7 @@ class Inputfield extends React.Component {
        });
 
        $( "#search" ).catcomplete({
+         appendTo:$("#input-field"),
          delay: 0,
          source: function(request,response){
            var filtered_profs=Array.from($.ui.autocomplete.filter(professors,request.term).slice(0,5));
@@ -112,7 +113,7 @@ class Inputfield extends React.Component {
       var height="inherit"
     }
     return (
-      <div className="input-field" style={{height: "54px", lineHeight:"40px"}}>
+      <div id="input-field" className="input-field" style={{height: "54px", lineHeight:"40px"}}>
         <input
           id="search"
           type="search"
