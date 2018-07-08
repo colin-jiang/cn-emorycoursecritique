@@ -5,7 +5,7 @@
 
 .register-body {
   background-color: #00477F;
-  height: 590px;
+  height : 590px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,71 @@
   color: #FFD700 !important;
   background-color: #002978;
 }
+.ui-autocomplete-category{
+  color: #ffffff !important;
+  background: #797979 !important;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+  box-sizing: border-box;
+  padding: 8px 40px;
+  will-change: width, height;
+  float: left;
+  font-family: "Raleway", sans-serif;
+  position:relative;
+  font-size: 15px;
+  width: 100%;
+}
 
+.ui-menu-item{
+  float: left;
+  color: #6d6c6c !important;
+  width: 100%;
+  background: #ffffffba !important;
+  border-top: none;
+  box-sizing: border-box;
+  padding: 0px 24px;
+  will-change: width, height;
+/*
+ui-menu-item:hover{
+  background: #bbbababa;
+  color: #ffffff;
+}
+*/
+
+  input[type="search"] {
+        padding: 5px 0;
+    }
+
+    ul {
+        margin: 10px 0;
+        max-height: 200px;
+        overflow-y: auto;
+        position: relative;
+
+    }
+    ul li {
+
+        input[type="checkbox"] {
+            padding-left:20px;
+        }
+
+        label {
+            font-size:10px;
+            line-height:10px;
+            padding-left:20px;
+        }
+    }
+}
+
+.ui-widget-content{
+  background: #ffffff6b;
+  color: #333333;
+  border-radius: 5px;
+}
+
+.ui-widget.ui-widget-content{
+  border:none !important;
+}
 .header-title-emory{
   font-weight:600;
   color: white;
