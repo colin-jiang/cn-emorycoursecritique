@@ -130,7 +130,7 @@ class SearchCard extends React.Component {
             <span
               style={{
                 fontWeight: 300,
-                fontSize: '0.9rem'
+                fontSize: '1.0rem'
                 
               }}
             >

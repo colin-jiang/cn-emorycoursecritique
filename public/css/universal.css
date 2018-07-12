@@ -262,15 +262,18 @@ rbody {
 }
 
 .ui-autocomplete-category{
+  color: #ffffff !important;
+  background: #797979 !important;
   font-size: 16px;
   line-height: 22px;
-  padding: 14px 16px;
+  padding: 8px 40px;
 }
 
 .ui-menu .ui-menu-item-wrapper {
    /* all <a> */
    position: inherit;
    padding: 14px 16px;
+   padding-left: 38px;
 }
 
 .ui-state-active {
