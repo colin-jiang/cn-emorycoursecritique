@@ -12,7 +12,7 @@ class Inputfield extends React.Component {
     super(props)
     this.state = {
       inputValue: "",
-      courses: []
+      courses: [],
 
     }
     this.updateInputValue = this.updateInputValue.bind(this);
@@ -76,12 +76,12 @@ class Inputfield extends React.Component {
            $.each( items, function( index, item ) {
              var li;
              if ( item.category != currentCategory ) {
-               ul.append( "<li class='ui-autocomplete-category'>" + item.category.charAt(0).toUpperCase() + item.category.slice(1) + ":</li>" );
+               ul.append( "<li class='ui-autocomplete-category'>" + item.category.toUpperCase() + "</li>" );
                currentCategory = item.category;
              }
              li = that._renderItemData( ul, item );
              if ( item.category ) {
-               li.attr( "aria-label", item.category + " : " + item.label );
+               li.attr( "aria-label", item.category + " : " + item.label);
              }
            });
          }
@@ -91,8 +91,8 @@ class Inputfield extends React.Component {
          appendTo:$("#input-field"),
          delay: 0,
          source: function(request,response){
-           var filtered_profs=Array.from($.ui.autocomplete.filter(professors,request.term).slice(0,5));
-           var filtered_course=Array.from($.ui.autocomplete.filter(courses,request.term).slice(0,5));
+           var filtered_profs=Array.from($.ui.autocomplete.filter(professors,request.term).slice(0,3));
+           var filtered_course=Array.from($.ui.autocomplete.filter(courses,request.term).slice(0,3));
            response(filtered_course.concat(filtered_profs))
          },
          select: function(event,ui){
