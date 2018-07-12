@@ -30,7 +30,7 @@ class SearchBody extends React.Component {
 
   }
 
-
+  
 
   componentWillMount() {
 
@@ -48,7 +48,7 @@ class SearchBody extends React.Component {
     if(urlDepts)
     {
       paramExist=true;
-      if(urlDepts.constructor===Array) {
+      if(urlDepts.constructor===Array) {     
         var tempDepts=this.state.depts;
         for(var i=0;i<urlDepts.length;i++) {
           tempDepts[this.state.lookup[urlDepts[i]]].checked=true;
@@ -99,7 +99,7 @@ class SearchBody extends React.Component {
 
     if(urlSort)
     {
-
+      
       if(urlSort==="overall") {
         paramExist=true;
         this.setState({sortOverall:true});
@@ -110,20 +110,20 @@ class SearchBody extends React.Component {
       this.props.saveFilter(false);
     else
       this.props.saveFilter(location.search);
-
+    
     console.log(this.state);
 
 
           var self=this;
       axios.get('/test'+location.search)
         .then(function (response) {
-
+          
             self.setState({
               courses:response.data.courses,
               profs:response.data.profs
             })
-
-
+          
+          
         })
         .catch(function (error) {
           console.log(error);
@@ -145,12 +145,12 @@ class SearchBody extends React.Component {
       .on('input', '.dropdown-search', function() {
           var target = $(this);
           var search = target.val().toLowerCase();
-
+        
           if (!search) {
                 $('li').show();
                 return false;
             }
-
+        
           $(event.currentTarget).find('li').each(function() {
               var text = $(this).text().toLowerCase();
                 var match = text.indexOf(search) > -1;
@@ -161,7 +161,7 @@ class SearchBody extends React.Component {
           var numChecked = $(this).parent().parent().find('[type="checkbox"]:checked').length;
           $(event.currentTarget).find('.quantity').text(numChecked || 'Any');
       });
-  });
+  });  
 
 
 
@@ -174,8 +174,8 @@ class SearchBody extends React.Component {
           bottom: $('.page-footer').offset().top - $(window).height(),
           offset: 0
         });
-
-      });
+        
+      }); 
   }
 
   componentDidUpdate() {
@@ -185,8 +185,8 @@ class SearchBody extends React.Component {
           bottom: $('.page-footer').offset().top - $(window).height(),
           offset: 0
         });
-
-      });
+        
+      }); 
   }
 /*
   componentWillReceiveProps(nextProps){
@@ -199,10 +199,10 @@ class SearchBody extends React.Component {
     var parsed = querystring.parse(location.search.slice(1));
     var newparse = {q:parsed.q};
     newUrl="search?"+querystring.stringify(newparse);
-
+    
 
     window.location.href= newUrl;
-
+    
   }
 
   clearSearch() {
@@ -211,7 +211,7 @@ class SearchBody extends React.Component {
     var parsed = querystring.parse(location.search.slice(1));
     parsed["q"] ="";
     newUrl="search?"+querystring.stringify(parsed);
-
+    
 
     window.location.href= newUrl;
   }
@@ -227,7 +227,7 @@ class SearchBody extends React.Component {
       {
         if(parsed.dept.constructor===Array)
           parsed.dept.push(event.currentTarget.id);
-        else
+        else 
         {
           var dept=[];
           dept.push(parsed.dept);
@@ -259,13 +259,13 @@ class SearchBody extends React.Component {
     var self=this;
       axios.get('/test'+location.search)
         .then(function (response) {
-
+          
             self.setState({
               courses:response.data.courses,
               profs:response.data.profs
             })
-
-
+          
+          
         })
         .catch(function (error) {
           console.log(error);
@@ -283,7 +283,7 @@ class SearchBody extends React.Component {
       {
         if(parsed.ger.constructor===Array)
           parsed.ger.push(event.currentTarget.id);
-        else
+        else 
         {
           var ger=[];
           ger.push(parsed.ger);
@@ -315,13 +315,13 @@ class SearchBody extends React.Component {
     var self=this;
       axios.get('/test'+location.search)
         .then(function (response) {
-
+          
             self.setState({
               courses:response.data.courses,
               profs:response.data.profs
             })
-
-
+          
+          
         })
         .catch(function (error) {
           console.log(error);
@@ -339,7 +339,7 @@ class SearchBody extends React.Component {
       {
         if(parsed.level.constructor===Array)
           parsed.level.push(event.currentTarget.id);
-        else
+        else 
         {
           var dept=[];
           dept.push(parsed.level);
@@ -371,13 +371,13 @@ class SearchBody extends React.Component {
     var self=this;
       axios.get('/test'+location.search)
         .then(function (response) {
-
+          
             self.setState({
               courses:response.data.courses,
               profs:response.data.profs
             })
-
-
+          
+          
         })
         .catch(function (error) {
           console.log(error);
@@ -391,7 +391,7 @@ class SearchBody extends React.Component {
     var parsed = querystring.parse(location.search.slice(1));
     if(event.target.value==="overall")
     {
-
+      
       parsed.sort=event.target.value;
       newUrl=querystring.stringify(parsed);
     }
@@ -402,7 +402,7 @@ class SearchBody extends React.Component {
         delete parsed.sort;
         newUrl=querystring.stringify(parsed);
       }
-
+      
     }
 
     window.history.replaceState('','', "search?"+newUrl);
@@ -410,13 +410,13 @@ class SearchBody extends React.Component {
     var self=this;
       axios.get('/test'+location.search)
         .then(function (response) {
-
+          
             self.setState({
               courses:response.data.courses,
               profs:response.data.profs
             })
-
-
+          
+          
         })
         .catch(function (error) {
           console.log(error);
@@ -426,7 +426,7 @@ class SearchBody extends React.Component {
 
 
   render() {
-
+    
     var cards = [];
     var profcards = [];
     var querystring = require('querystring');
@@ -473,7 +473,7 @@ class SearchBody extends React.Component {
       overallOption=<option value="overall" selected>Overall</option>;
     else
       overallOption=<option value="overall">Overall</option>;
-
+      
       if(this.state.courses)
       {
         for (var i = 0; i < this.state.courses.length; i++) {
@@ -486,17 +486,17 @@ class SearchBody extends React.Component {
           profcards.push(<SearchCard cnum= {this.state.profs[i].professor} sections={this.state.profs[i].sections} rating={this.state.profs[i].course_avg_overall} isProf={true} key={i}/>);
         }
       }
-
+    
     return (
       <sbody >
 
-
-
+        
+        
       <div style={{height: "60px"}}></div>
 
         <div className="container" style={{width: "95%", maxWidth: 1000}}>
-
-
+          
+          
           <div className="row" style={{minHeight: "-webkit-fill-available"}}>
             <div className="col hide-on-small-only m3 l2">
               <div className="wrapper" style={{minWidth:"fit-content"}}>
@@ -509,7 +509,7 @@ class SearchBody extends React.Component {
                     style={{
                       fontWeight: 500,
                       fontSize: '0.9rem'
-
+                      
                     }}
                   >
                     Filters
@@ -530,7 +530,7 @@ class SearchBody extends React.Component {
                     style={{
                       fontWeight: 5400,
                       fontSize: '0.9rem'
-
+                      
                     }}
                   >
                   Subjects:
@@ -554,7 +554,7 @@ class SearchBody extends React.Component {
                     style={{
                       fontWeight: 5400,
                       fontSize: '0.9rem'
-
+                      
                     }}
                   >
                     GER:
@@ -578,7 +578,7 @@ class SearchBody extends React.Component {
                     style={{
                       fontWeight: 5400,
                       fontSize: '0.9rem'
-
+                      
                     }}
                   >
                     Course-level: &emsp;
@@ -611,7 +611,7 @@ class SearchBody extends React.Component {
                                 cursor: "pointer"}} onClick={this.clearSearch}>Go
                     </div>
                   </div>
-
+                  
                 </div>
                 <div className="show-on-med-and-up" style={{marginTop:"36px"}}>
                     <label>Sort By:</label>
@@ -620,7 +620,7 @@ class SearchBody extends React.Component {
                         {overallOption}
                       </select>
                   </div>
-              </div>
+              </div> 
             </div>
             <div className="col hide-on-med-and-down l1" style={{width:"0px", marginRight:"15px"}}/>
             <div className="col s12 m9 l8" >
@@ -649,8 +649,8 @@ class SearchBody extends React.Component {
               </div>
             </div>
             <div className="col hide-on-small-only m2 l1">
-
-
+              
+              
             </div>
           </div>
         </div>
@@ -661,7 +661,7 @@ class SearchBody extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return{
+  return{ 
     state
   }
 }
