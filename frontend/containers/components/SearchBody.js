@@ -550,7 +550,7 @@ class SearchBody extends React.Component {
 
           <div className="row" style={{minHeight: "-webkit-fill-available"}}>
             <div className="col hide-on-small-only m3 l2" style={{height:"400px", minWidth: "20%"}}>
-              <div className="wrapper" style={{minWidth:"fit-content"}}>
+              <div className="wrapper smooth" style={{minWidth:"fit-content", marginTop: -50}}>
                 <ul className="section table-of-contents" style={{marginTop:"72px"}}>
                   <li><a href="#courses">Courses</a></li>
                   <li><a href="#professors">Professors</a></li>
