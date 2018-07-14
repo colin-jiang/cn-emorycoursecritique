@@ -57,7 +57,6 @@ class SearchBody extends React.Component {
       }
       else {
         var tempDepts=this.state.depts;
-        console.log(urlDepts)
         tempDepts[this.state.lookup[urlDepts]].checked=true;
         this.setState({depts:tempDepts});
       }
@@ -172,7 +171,7 @@ class SearchBody extends React.Component {
         $('.wrapper').pushpin({
           top: 0,
           bottom: $('.page-footer').offset().top - $(window).height(),
-          offset: 0
+          offset: 60
         });
 
       });
@@ -183,7 +182,7 @@ class SearchBody extends React.Component {
         $('.wrapper').pushpin({
           top: 0,
           bottom: $('.page-footer').offset().top - $(window).height(),
-          offset: 0
+          offset: 60 
         });
 
       });
@@ -221,6 +220,9 @@ class SearchBody extends React.Component {
     var newUrl;
     var querystring = require('querystring');
     var parsed = querystring.parse(location.search.slice(1));
+    var tempDepts=this.state.depts;
+        
+        
     if(event.target.checked)
     {
       if(parsed.dept)
@@ -238,6 +240,7 @@ class SearchBody extends React.Component {
       else
         parsed.dept=event.currentTarget.id;
       newUrl=querystring.stringify(parsed);
+      tempDepts[this.state.lookup[event.currentTarget.id]].checked=true;
     }
     else
     {
@@ -252,7 +255,11 @@ class SearchBody extends React.Component {
         delete parsed.dept;
         newUrl=querystring.stringify(parsed);
       }
+      tempDepts[this.state.lookup[event.currentTarget.id]].checked=false;
     }
+
+    if(event.currentTarget.className=="material-icons")
+      window.location.href = "search?"+newUrl
 
     window.history.replaceState('','', "search?"+newUrl);
     this.props.saveFilter(location.search);
@@ -270,6 +277,7 @@ class SearchBody extends React.Component {
         .catch(function (error) {
           console.log(error);
         });
+    this.setState({depts:tempDepts});
   }
 
   handleGER(event) {
@@ -277,6 +285,9 @@ class SearchBody extends React.Component {
     var newUrl;
     var querystring = require('querystring');
     var parsed = querystring.parse(location.search.slice(1));
+    var tempGERs=this.state.ger;
+    
+        
     if(event.target.checked)
     {
       if(parsed.ger)
@@ -294,6 +305,7 @@ class SearchBody extends React.Component {
       else
         parsed.ger=event.currentTarget.id;
       newUrl=querystring.stringify(parsed);
+      tempGERs[event.currentTarget.id]=true;
     }
     else
     {
@@ -308,7 +320,11 @@ class SearchBody extends React.Component {
         delete parsed.ger;
         newUrl=querystring.stringify(parsed);
       }
+      tempGERs[event.currentTarget.id]=false;
     }
+
+    if(event.currentTarget.className=="material-icons")
+      window.location.href = "search?"+newUrl
 
     window.history.replaceState('','', "search?"+newUrl);
     this.props.saveFilter(location.search);
@@ -326,6 +342,7 @@ class SearchBody extends React.Component {
         .catch(function (error) {
           console.log(error);
         });
+    this.setState({ger:tempGERs});
   }
 
   handleLevel(event) {
@@ -333,6 +350,8 @@ class SearchBody extends React.Component {
     var newUrl;
     var querystring = require('querystring');
     var parsed = querystring.parse(location.search.slice(1));
+    var newLevels = this.state.levels;
+
     if(event.target.checked)
     {
       if(parsed.level)
@@ -350,6 +369,8 @@ class SearchBody extends React.Component {
       else
         parsed.level=event.currentTarget.id;
       newUrl=querystring.stringify(parsed);
+
+      newLevels[event.currentTarget.id - 1] = true;
     }
     else
     {
@@ -364,7 +385,11 @@ class SearchBody extends React.Component {
         delete parsed.level;
         newUrl=querystring.stringify(parsed);
       }
+      newLevels[event.currentTarget.id - 1] = false;
     }
+
+    if(event.currentTarget.className=="material-icons")
+      window.location.href = "search?"+newUrl
 
     window.history.replaceState('','', "search?"+newUrl);
     this.props.saveFilter(location.search);
@@ -382,6 +407,9 @@ class SearchBody extends React.Component {
         .catch(function (error) {
           console.log(error);
         });
+
+    this.setState({levels:newLevels})
+
   }
 
   handleSort(event) {
@@ -421,6 +449,7 @@ class SearchBody extends React.Component {
         .catch(function (error) {
           console.log(error);
         });
+
   }
 
 
@@ -436,12 +465,20 @@ class SearchBody extends React.Component {
 
     console.log(parsed.q);
 
+    var filters = [];
+
     var subjects = [];
     for(var i=0;i<this.state.depts.length;i++)
     {
 
-      if(this.state.depts[i].checked)
+      if(this.state.depts[i].checked){
         subjects.push(<li key={i+0.2}><input id={this.state.depts[i].id} onClick={this.handleCheck} type="checkbox" defaultChecked key={i}/><label htmlFor={this.state.depts[i].id} key={i+0.5}>{this.state.depts[i].name}</label></li>);
+        filters.push(<li key={i+0.2} style={{float:"left", paddingLeft:"5px"}}>
+                    <div><label htmlFor={this.state.depts[i].id} key={i+0.5}>{this.state.depts[i].name}</label>
+                      <i className="material-icons" id={this.state.depts[i].id} onClick={this.handleCheck} style={{fontSize:"16px", verticalAlign:"text-bottom", cursor:'pointer', color:"#225894"}}>close</i>
+                    </div>
+                  </li>)
+      }
       else
         subjects.push(<li key={i+0.2}><input id={this.state.depts[i].id} onClick={this.handleCheck} type="checkbox" key={i}/><label htmlFor={this.state.depts[i].id} key={i+0.5}>{this.state.depts[i].name}</label></li>);
     }
@@ -450,8 +487,14 @@ class SearchBody extends React.Component {
     for(var i=0;i<this.state.levels.length;i++)
     {
 
-      if(this.state.levels[i])
+      if(this.state.levels[i]){
         levels.push(<li key={i+0.2}><input id={i+1} onClick={this.handleLevel} type="checkbox" defaultChecked key={i}/><label htmlFor={i+1} key={i+0.5}>{i+1}00</label></li>);
+        filters.push(<li key={i+10.2} style={{float:"left", paddingLeft:"5px"}}>
+                    <div><label htmlFor={i+1} key={i+10.5}>{i+1}00</label>
+                      <i className="material-icons" id={i+1} onClick={this.handleLevel} style={{fontSize:"16px", verticalAlign:"text-bottom", cursor:'pointer', color:"#225894"}}>close</i>
+                    </div>
+                  </li>)
+      }
       else
         levels.push(<li key={i+0.2}><input id={i+1} onClick={this.handleLevel} type="checkbox" key={i}/><label htmlFor={i+1} key={i+0.5}>{i+1}00</label></li>);
     }
@@ -461,12 +504,20 @@ class SearchBody extends React.Component {
     for(var key in this.state.ger)
     {
 
-      if(this.state.ger[key])
+      if(this.state.ger[key]) {
         gers.push(<li key={i+0.2}><input id={key} onClick={this.handleGER} type="checkbox" defaultChecked key={i}/><label htmlFor={key} key={i+0.5}>{key}</label></li>);
+        filters.push(<li key={i+20.2} style={{float:"left", paddingLeft:"5px"}}>
+                    <div><label htmlFor={key} key={i+20.5}>{key}</label>
+                      <i className="material-icons" id={key} onClick={this.handleGER} style={{fontSize:"16px", verticalAlign:"text-bottom", cursor:'pointer', color:"#225894"}}>close</i>
+                    </div>
+                  </li>)
+      }
       else
         gers.push(<li key={i+0.2}><input id={key} onClick={this.handleGER} type="checkbox" key={i}/><label htmlFor={key} key={i+0.5}>{key}</label></li>);
       i++;
     }
+
+    console.log(this.state.levels)
 
     var overallOption;
     if(this.state.sortOverall)
@@ -632,7 +683,11 @@ class SearchBody extends React.Component {
                 <br/>
                 Course Results for <span className="black-text" style={{fontWeight: "400"}}>{input}</span>
               </h5>
-              <div style={{height: "20px"}}></div>
+              <div style={{height: "20px"}}>
+                <ul>
+                  {filters}
+                </ul>
+              </div>
               <div id="courses" className="section scrollspy">
                 {cards}
               </div>
