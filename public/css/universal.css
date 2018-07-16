@@ -45,7 +45,7 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 .input-field input[type=search]:focus {
   color:black !important;
   background-color:white !important;
-  border: .5px solid !important;
+  border: .75px solid !important;
   box-shadow: none !important;
 }
 
@@ -63,7 +63,14 @@ html, body { height: 100%; touch-action: manipulation; }
     flex: 1 0 auto;
   }
 
+select {
+  -webkit-appearance: none;
+  background: white url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat right 2px center;
+}
 
+.smooth {
+  -webkit-transform: translate3d(0, 0, 0);
+}
 
 
 .bodyWrapper{
@@ -262,15 +269,18 @@ rbody {
 }
 
 .ui-autocomplete-category{
-  font-size: 16px;
+  color: #ffffff !important;
+  background: #797979 !important;
+  font-size: 1rem;
   line-height: 22px;
-  padding: 14px 16px;
+  padding: 8px 40px;
 }
 
 .ui-menu .ui-menu-item-wrapper {
    /* all <a> */
    position: inherit;
    padding: 14px 16px;
+   padding-left: 38px;
 }
 
 .ui-state-active {

@@ -130,7 +130,7 @@ class SearchCard extends React.Component {
             <span
               style={{
                 fontWeight: 300,
-                fontSize: '0.9rem'
+                fontSize: '1.0rem'
                 
               }}
             >
@@ -160,8 +160,8 @@ class SearchCard extends React.Component {
                 <i className="material-icons" style={{color:"#d38e02"}}>library_books</i>Sections
                 <i className="material-icons" style={{width:"100%", textAlign:"right"}}>arrow_drop_down</i>
               </div>
-              <div className="collapsible-body">
-                <ul style={{margin:"-28px", fontSize:"0.9rem", fontWeight:"300"}}>
+              <div className="collapsible-body" style={{padding: 0}}>
+                <ul style={{margin:"-28px", fontSize:"0.9rem", fontWeight:"300", padding:"2rem"}}>
                   {sections}
                 </ul>
               </div>

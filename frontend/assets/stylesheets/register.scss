@@ -21,29 +21,14 @@
   color: #FFD700 !important;
   background-color: #002978;
 }
-.ui-autocomplete-category{
-  color: #ffffff !important;
-  background: #797979 !important;
-  border-top-left-radius:8px;
-  border-top-right-radius:8px;
-  box-sizing: border-box;
-  padding: 8px 40px;
-  will-change: width, height;
-  float: left;
-  font-family: "Raleway", sans-serif;
-  position:relative;
-  font-size: 15px;
-  width: 100%;
-}
+
 
 .ui-menu-item{
   float: left;
   color: #6d6c6c !important;
-  width: 100%;
-  background: #ffffffba !important;
+  background: white;
   border-top: none;
   box-sizing: border-box;
-  padding: 0px 24px;
   will-change: width, height;
 /*
 ui-menu-item:hover{
