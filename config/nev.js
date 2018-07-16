@@ -13,7 +13,7 @@ module.exports = function(nev){
     var verifURL="http://localhost:"+PORT+"/account/verification/${URL}";
   }
   else{
-    var verifURL="http://emorycoursecritique.com:"+"/account/verification/${URL}";
+    var verifURL="http://professorsaid.com:"+"/account/verification/${URL}";
   }
   nev.configure({
     verificationURL:verifURL,
@@ -31,7 +31,7 @@ module.exports = function(nev){
       }
     },
     verifyMailOptions:{
-      from:"Do Not Reply - emorycoursecritique <emorycoursecritique@gmail.com>",
+      from:"Do Not Reply - professorsaid <jiaoshoushuo@gmail.com>",
       subject:"Please confirm your email address",
       html:'<p>Please verify your account by clicking <a href="${URL}">this link</a>. If you are unable to do so, copy and ' +
                 'paste the following link into your browser:</p><p>${URL}</p>',
@@ -40,7 +40,7 @@ module.exports = function(nev){
     hashingFunction:myHasher,
 
     confirmMailOptions:{
-      from:"Do Not Reply - emorycoursecritique <emorycoursecritique@gmail.com>",
+      from:"Do Not Reply - professorsaid <professorsaid@gmail.com>",
       subject:"Your email has been confirm",
       text: 'Thank you for confirming your email!'
     }
