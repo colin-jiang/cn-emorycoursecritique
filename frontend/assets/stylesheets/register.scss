@@ -133,6 +133,16 @@ ui-menu-item:hover{
   color: black;
 }
 
+.ratingFactor{
+  margin: 10px;
+  padding: 3px;
+}
+
+.page{
+  margin-top: 20px;
+  padding: 10px !important;
+  margin-bottom: 20px;
+}
 
 .submit-button{
   background-color: #002a78;
@@ -269,13 +279,6 @@ fieldset, label { margin: 0; padding: 0; }
   color: #ddd;
  float: right;
 }
-
-
-
-
-
-
-
 
 
 .dropdown-container, .instructions {
