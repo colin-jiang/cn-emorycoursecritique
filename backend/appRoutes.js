@@ -138,5 +138,10 @@ module.exports = function(app,passport,nev,transport){
     //account/reset/wfjer3r4
   })
 
+  app.post('/super-secret',(req,res,next)=>{
+    console.log("in super secret");
+    require('./service/update-keywords.js')(req,res,next)
+  })
+
 
 };

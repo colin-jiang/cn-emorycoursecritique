@@ -15,7 +15,8 @@ class SignUpPageContainer extends Component {
       success: false,
       formErrors: {Email: '', Password: ''},
       emailValid: false,
-      passwordValid: false
+      passwordValid: false,
+      signUpBtnClicked: false
     }
     this.resend = this.resend.bind(this);
   }
@@ -90,6 +91,12 @@ class SignUpPageContainer extends Component {
   }
 
   signup() {
+        if(!this.state.signUpBtnClicked){
+          this.setState({signUpBtnClicked:true});
+        }
+        else{
+          return;
+        }
         this.validateFieldName("email")
         this.validateFieldName("password")
 
