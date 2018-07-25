@@ -86,13 +86,20 @@ class Inputfield extends React.Component {
            });
          }
        });
-
        $( "#search" ).catcomplete({
          appendTo:$("#input-field"),
          delay: 0,
          source: function(request,response){
-           var filtered_profs=Array.from($.ui.autocomplete.filter(professors,request.term).slice(0,3));
-           var filtered_course=Array.from($.ui.autocomplete.filter(courses,request.term).slice(0,3));
+           var filtered_profs=Array.from($.ui.autocomplete.filter(professors,request.term)).sort(function(a,b){
+             return a.label.toLowerCase().indexOf(request.term.toLowerCase())-b.label.toLowerCase().indexOf(request.term.toLowerCase())
+           }).slice(0,3)
+           var filtered_course=Array.from($.ui.autocomplete.filter(courses,request.term)).sort(function(a,b){
+            var indexDif= a.label.toLowerCase().indexOf(request.term.toLowerCase())-b.label.toLowerCase().indexOf(request.term.toLowerCase())
+            if(indexDif!=0){
+              return indexDif
+            }
+            return parseInt(a.label.split('-')[0].replace(/\D/g,''))-parseInt(b.label.split('-')[0].replace(/\D/g,''))
+          }).slice(0,3)
            response(filtered_course.concat(filtered_profs))
          },
          select: function(event,ui){
