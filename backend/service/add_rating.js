@@ -14,6 +14,9 @@ module.exports = function(req,res,next){
     var overall_rating = req.body.overall_rating;
     var workload_rating = req.body.workload_rating;
     var comment = req.body.comment;
+    var attendence=req.body.attendence_rating;
+    var curve=req.body.curve
+    var accent=req.body.accent_rating;
 
     var user_id=(req.user);
     if(!user_id){
@@ -43,7 +46,10 @@ module.exports = function(req,res,next){
           comment: comment,
           rated_date:new Date(),
           upvotes:0,
-          downvotes:0
+          downvotes:0,
+          prof_accent:Number(accent),
+          curve:Boolean(curve),
+          attendence:Boolean(attendence)
           });
         if (this_rating) {
             // Rating already exists
@@ -55,6 +61,12 @@ module.exports = function(req,res,next){
                     this_rating.total_workload+=workload_rating;
                     this_rating.total_overall+=overall_rating;
                     this_rating.total_difficulty+=difficulty_rating;
+                    if(isNaN(this_rating.prof_accent)){
+                      this_rating.prof_accent=accent;
+                    }
+                    else{
+                      this_rating.prof_accent+=accent;
+                    }
                     this_critique.save();
                     this_rating.ratings.push(new mongoose.mongo.ObjectId(this_critique._id));
                     this_rating.save();
@@ -69,7 +81,8 @@ module.exports = function(req,res,next){
                 rating_count: 1,
                 total_workload:workload_rating,
                 total_overall:overall_rating,
-                total_difficulty:difficulty_rating
+                total_difficulty:difficulty_rating,
+                prof_accent:prof_accent
                 });
             this_critique.save();
             new_rating.ratings.push(new mongoose.mongo.ObjectId(this_critique._id));

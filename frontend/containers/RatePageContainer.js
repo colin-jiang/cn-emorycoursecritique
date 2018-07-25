@@ -71,11 +71,11 @@ class RatePageContainer extends Component {
     }
 
     setAttendance(event){
-      this.setAttendance({attendance: event.target.value});
+      this.setState({attendance: event.target.value});
     }
 
     setCurve(event){
-      this.setCurve({curve: event.target.value});
+      this.setState({curve: event.target.value});
     }
 
     submitReview() {
@@ -127,23 +127,14 @@ render() {
 
   const overallRating = (newRating) => {
     this.state.overall = (newRating)
-    console.log("overall rating is:" + this.state.overall)
-    console.log("difficulty rating is:" + this.state.difficulty)
-    console.log("workload rating is:" +this.state.workload)
   }
 
   const difficultyRating = (newRating) => {
     this.state.difficulty = (newRating)
-    console.log("overall rating is:" + this.state.overall)
-    console.log("difficulty rating is:" + this.state.difficulty)
-    console.log("workload rating is:" +this.state.workload)
   }
 
   const workloadRating = (newRating) => {
     this.state.workload = (newRating)
-    console.log("overall rating is:" + this.state.overall)
-    console.log("difficulty rating is:" + this.state.difficulty)
-    console.log("workload rating is:" +this.state.workload)
   }
 
     return(
@@ -246,10 +237,10 @@ render() {
                    <div className = "ratingFactor">
                      <span>Attendance</span>
                      <div className="center" onChange={this.setAttendance} style={{}}>
-                       <input className="width-gap" type="radio" name="group4" id="16" value="yes"/>
+                       <input className="width-gap" type="radio" name="group4" id="16" value={true}/>
                        <label className="labelOverride" htmlFor="16" style={{marginLeft: "0"}}>Yes</label>
 
-                       <input className="width-gap" type="radio" name="group4" id="17" value="no"/>
+                       <input className="width-gap" type="radio" name="group4" id="17" value={false}/>
                        <label className="labelOverride" htmlFor="17">No</label>
                      </div>
                    </div>
@@ -259,10 +250,10 @@ render() {
                    <div className = "ratingFactor">
                      <span>Curve</span>
                      <div className="center" onChange={this.setCurve} style={{}}>
-                       <input className="width-gap" type="radio" name="group5" id="18" value="yes"/>
+                       <input className="width-gap" type="radio" name="group5" id="18" value={true}/>
                        <label className="labelOverride" htmlFor="18" style={{marginLeft: "0"}}>Yes</label>
 
-                       <input className="width-gap" type="radio" name="group5" id="19" value="no"/>
+                       <input className="width-gap" type="radio" name="group5" id="19" value={false}/>
                        <label className="labelOverride" htmlFor="19">No</label>
                      </div>
                    </div>
@@ -279,6 +270,17 @@ render() {
                    </div>
                  </div>
                </div>
+               <div className="row margin">
+                <div className="input-field col s12">
+                  <div className="submit-button-row">
+                    <button
+                    className="btn-large waves-effect waves-light"
+                    type="button" onClick={() => this.submitReview()}>
+                    submit review!
+                    </button>
+                  </div>
+                </div>
+              </div>
              </form>
            </div>
          </div>

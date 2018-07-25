@@ -4,6 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const passport = require('passport');
 const mongoose = require('mongoose');
+mongoose.plugin(schema => { schema.options.usePushEach = true });
 //const key=require('./config/keys')
 const bodyParser = require('body-parser');
 const flash=require('connect-flash');
