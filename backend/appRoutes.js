@@ -3,7 +3,7 @@ var querymen = require('querymen');
 
 module.exports = function(app,passport,nev,transport){
    app.use('/users',require('connect-ensure-login').ensureLoggedIn('/login'))
-   app.use('/rate',require('connect-ensure-login').ensureLoggedIn('/login'))
+  //  app.use('/rate',require('connect-ensure-login').ensureLoggedIn('/login'))
 
   app.post('/account/signup',(req,res,next)=>{
     require('./service/signup.js')(req,res,nev,next)

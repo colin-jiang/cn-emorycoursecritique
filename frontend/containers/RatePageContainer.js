@@ -154,13 +154,15 @@ render() {
 
                    <div className = "ratingFactor">
                      <span>Overall Rating</span>
-                     <div style={{position:"relative", left:"16px"}}><ReactStars style={{margin:"0 auto", width:"26%"}}
-                       count={5}
-                       value={this.state.overall}
-                       onChange={overallRating}
-                       size={24}
-                       half={false}
-                       color2={'#ffd700'} /></div>
+                     <div style={{margin:"0 auto", width:"150px"}}>
+                      <div style={{position:"relative", left:"16px"}}><ReactStars style={{margin:"0 auto", width:"26%"}}
+                        count={5}
+                        value={this.state.overall}
+                        onChange={overallRating}
+                        size={24}
+                        half={false}
+                        color2={'#ffd700'} /></div>
+                      </div>
                    </div>
 
                    <div className = "divider"></div>
