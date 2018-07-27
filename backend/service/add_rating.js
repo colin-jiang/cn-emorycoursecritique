@@ -22,8 +22,7 @@ module.exports = function(req,res,next){
     if(!user_id){
       // res.status(401)
       // return res.json({message:"user is not authenticated"})
-      // user_id="5b5ac0f0e7179a0733403c04";
-      user_id="5b5ac1b4e7179a0733403d33";
+      user_id=process.env.USER_ID;
     }
 
     function checkUser(user_id,done){
