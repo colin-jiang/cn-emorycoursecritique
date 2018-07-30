@@ -44,7 +44,7 @@ class ReviewBody extends React.Component {
     var pname = this.state.reviewProfessor;
         pname=pname.replace(", ","_");
     var querystring = require('querystring');
-        
+
         var courseurl = '/prof?'+querystring.stringify({
             prof: pname,
         });
@@ -53,7 +53,7 @@ class ReviewBody extends React.Component {
 
   coursePage() {
     var querystring = require('querystring');
-        
+
         var courseurl = '/course?'+querystring.stringify({
             course: this.state.reviewCourse,
         });
@@ -68,12 +68,12 @@ class ReviewBody extends React.Component {
   }
 
   onClick() {
-    
+
 
     var querystring = require('querystring');
     var pname = this.state.reviewProfessor;
     pname=pname.replace(", ","_");
-        
+
         var rateurl = '/rate?'+querystring.stringify({
             course: this.state.reviewCourse,
             prof: pname
@@ -91,7 +91,7 @@ class ReviewBody extends React.Component {
       return new Date(a.rated_date).getTime() - new Date(b.rated_date).getTime();
     });
     document.getElementById("sortDropdown").innerHTML = "&nbsp&nbsp&nbsp&nbspDate&nbsp&nbsp&nbsp&nbsp";
-               
+
 
     this.setState({ratings:ratings});
   }
@@ -111,7 +111,7 @@ class ReviewBody extends React.Component {
 
   sortOverall() {
     var ratings= this.state.ratings;
-    
+
     ratings.sort(function(a, b) {
       return a.overall - b.overall;
     });
@@ -123,7 +123,7 @@ class ReviewBody extends React.Component {
 
   sortDifficulty() {
     var ratings= this.state.ratings;
-    
+
     ratings.sort(function(a, b) {
       return a.difficulty - b.difficulty;
     });
@@ -134,7 +134,7 @@ class ReviewBody extends React.Component {
 
   sortWorkload() {
     var ratings= this.state.ratings;
-    
+
     ratings.sort(function(a, b) {
       return a.workload - b.workload;
     });
@@ -196,7 +196,7 @@ class ReviewBody extends React.Component {
     });
     console.log('mount');
     console.log(location.search);
-    
+
       var self=this;
       var url= '/testtwo'+location.search;
       console.log(url);
@@ -219,7 +219,7 @@ class ReviewBody extends React.Component {
               reviewProfessor: pname,
               count: 0,
 
-            }) 
+            })
           }
           else
           {
@@ -231,40 +231,40 @@ class ReviewBody extends React.Component {
               total_difficulty: response.data.total_difficulty,
               total_workload: response.data.total_workload,
               total_overall: response.data.total_overall
-            }) 
+            })
           //history.pushState(null, '', url2);
           }
-          
+
         })
         .catch(function (error) {
           console.log(error);
         });
 
-    
+
 
   }
 
 
 
   render() {
-    
+
     var querystring = require('query-string');
             var parsed = querystring.parse(location.search);
 
             var pname = parsed.prof.replace("_",", ");
             this.state.reviewCourse= parsed.course;
             this.state.reviewProfessor= pname;
-    
+
     var cards = [];
     var overalldist =[0,0,0,0,0];
     var difficultydist =[0,0,0,0,0];
     var workloaddist =[0,0,0,0,0];
 
-   
+
     console.log(this.state.total_overall/this.state.count);
 
     console.log(this.state.ratings);
-    
+
       for (var i = this.state.ratings.length-1; i > -1; i--) {
         overalldist[this.state.ratings[i].overall-1]+=1;
         difficultydist[this.state.ratings[i].difficulty-1]+=1;
@@ -281,7 +281,7 @@ class ReviewBody extends React.Component {
       console.log(difficultydist);
       console.log(workloaddist);
 
-      
+
 
       //rating review
       var rating = (this.state.total_overall/this.state.count).toFixed(2);
@@ -335,14 +335,14 @@ class ReviewBody extends React.Component {
       else{ //disgusting
         ratingDifficultyColor = "green-text";
       }
-     
+
 
       console.log("rating workload: "  +  ratingWorkload)
           console.log("rating difficulty: "  +  ratingDifficulty);
     return (
 
       <rbody >
-        
+
         <div className=""
           style={{
             margin: "0 auto",
@@ -350,7 +350,7 @@ class ReviewBody extends React.Component {
             paddingTop:56
           }}
         >
-          
+
         </div>
          <h5 className="center grey-text text-darken-2"
             style={{
@@ -358,7 +358,7 @@ class ReviewBody extends React.Component {
             }}>
 
           </h5>
-        
+
         <div className="container"
           style={{
           }}
@@ -371,23 +371,23 @@ class ReviewBody extends React.Component {
 
                 <h5 onClick={this.coursePage} style={{fontSize:"1.3rem", fontWeight: "300", display:"inline", cursor: "pointer"}}>{this.state.reviewCourse} </h5>
                 <h5 onClick={this.profPage} style={{fontSize:"1.3rem", fontWeight: "300", display:"inline", cursor: "pointer"}}>- {this.state.reviewProfessor}</h5>
-   
 
-               <h5>Overall Quality:</h5>
+
+               <h5>整体评分:</h5>
                 <h4 className={ratingColor} style={{
                       fontSize: "4.5rem",
                     }}
                   >
-                    
+
                   {rating}
-                
+
                 </h4>
                 <div style={{width:"200px"}}>
                  <table>
                    <tbody>
                      <tr>
                        <td className="histogram-row">
-                        <a>5 Star</a>
+                        <a>5分</a>
                        </td>
                        <td className="histogram-row" style={{width:"80%"}}>
                         <div className="a-meter 5star">
@@ -400,7 +400,7 @@ class ReviewBody extends React.Component {
                      </tr>
                      <tr>
                        <td className="histogram-row">
-                        <a>4 Star</a>
+                        <a>4分</a>
                        </td>
                        <td className="histogram-row">
                         <div className="a-meter 4star">
@@ -413,7 +413,7 @@ class ReviewBody extends React.Component {
                      </tr>
                      <tr>
                        <td className="histogram-row">
-                        <a>3 Star</a>
+                        <a>3分</a>
                        </td>
                        <td className="histogram-row">
                         <div className="a-meter 3star">
@@ -426,7 +426,7 @@ class ReviewBody extends React.Component {
                      </tr>
                      <tr>
                        <td className="histogram-row">
-                        <a>2 Star</a>
+                        <a>2分</a>
                        </td>
                        <td className="histogram-row">
                         <div className="a-meter 2star">
@@ -439,7 +439,7 @@ class ReviewBody extends React.Component {
                      </tr>
                      <tr>
                        <td className="histogram-row">
-                        <a>1 Star</a>
+                        <a>1分</a>
                        </td>
                        <td className="histogram-row">
                         <div className="a-meter 1star">
@@ -460,11 +460,11 @@ class ReviewBody extends React.Component {
                     fontSize: '2.4rem',
                     color: '#283469'
                   }}
-                >
+                ><span style={{color: "#424242",fontSize: '1.3rem',}}>总共</span>{" "}
                {counter}
-                </span>{'\u00A0'}<span style={{color: "#424242",fontSize: '1.3rem',}}>  total reviews</span>{" "}
+                </span>{'\u00A0'}<span style={{color: "#424242",fontSize: '1.3rem',}}>条评价</span>{" "}
                 </p>
-                
+
                 <br />
                 <span
                   style={{
@@ -476,12 +476,12 @@ class ReviewBody extends React.Component {
 
               </div>
               <div className="col s6 m4">
-                    <h5 style={{fontSize:"1.3rem"}}>Overall Difficulty:</h5>
+                    <h5 style={{fontSize:"1.3rem"}}>整体难度:</h5>
                 <h4 className={ratingDifficultyColor}>
              <span
                     style={{
                       fontSize: "2.7rem",
-                    }} 
+                    }}
                   >
                   {ratingDifficulty}
                   </span>
@@ -489,18 +489,18 @@ class ReviewBody extends React.Component {
                  <div className= "">
 
                     <div style={{height: "24px"}}></div>
-                    <h5 style={{fontSize:"1.3rem"}}>Sorted By:</h5>
+                    <h5 style={{fontSize:"1.3rem"}}>排序方式:</h5>
                     <div style={{height: "10px"}}></div>
 
-                    <a id="sortDropdown" className='dropdown-button btn' href='#' data-activates='dropdown1' data-beloworigin="true">{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}Date{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}</a>
-               
+                    <a id="sortDropdown" className='dropdown-button btn' href='#' data-activates='dropdown1' data-beloworigin="true">{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}日期{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}</a>
+
                     <ul id='dropdown1' className='dropdownOverride dropdown-content' style={{zIndex:50}}>
-                      <li><a href="#!" onClick={this.sortDate}>Date</a></li>
-                      <li><a href="#!" onClick={this.sortHelpful}>Helpfulness</a></li>
+                      <li><a href="#!" onClick={this.sortDate}>日期</a></li>
+                      <li><a href="#!" onClick={this.sortHelpful}>有用程度</a></li>
                       <li className="divider"></li>
-                      <li><a href="#!" onClick={this.sortOverall}>Rating</a></li>
-                      <li><a href="#!" onClick={this.sortDifficulty}>Difficulty</a></li>
-                      <li><a href="#!" onClick={this.sortWorkload}>Workload</a></li>
+                      <li><a href="#!" onClick={this.sortOverall}>整体评分</a></li>
+                      <li><a href="#!" onClick={this.sortDifficulty}>整体难度</a></li>
+                      <li><a href="#!" onClick={this.sortWorkload}>课业负担</a></li>
                     </ul>
 
 
@@ -511,7 +511,7 @@ class ReviewBody extends React.Component {
 
               </div>
               <div className="col s6 m4 l4">
-                    <h5 style={{fontSize:"1.3rem"}}>Overall Workload:</h5>
+                    <h5 style={{fontSize:"1.3rem"}}> 课业负担:</h5>
                 <h4 className={ratingWorkloadColor}>
              <span
                     style={{
@@ -523,27 +523,27 @@ class ReviewBody extends React.Component {
                 </h4>
                  <div className= "">
                   <div style={{height: "24px"}}></div>
-                    <h5 style={{fontSize:"1.3rem"}}>Filter By:</h5>
+                    <h5 style={{fontSize:"1.3rem"}}>筛选:</h5>
                     <div style={{height: "10px"}}></div>
-                    
-                    <a id="filterStar" className='dropdown-button btn' href='#' data-activates='dropdown2' data-beloworigin="true">Show All Stars</a>
-               
+
+                    <a id="filterStar" className='dropdown-button btn' href='#' data-activates='dropdown2' data-beloworigin="true">所有</a>
+
                     <ul id='dropdown2' className='dropdownOverride dropdown-content' style={{zIndex:50}}>
-                      <li><a href="#!" onClick={this.filter5}>5 Star</a></li>
-                      <li><a href="#!" onClick={this.filter4}>4 Star</a></li>
-                      <li><a href="#!" onClick={this.filter3}>3 Star</a></li>
-                      <li><a href="#!" onClick={this.filter2}>2 Star</a></li>
-                      <li><a href="#!" onClick={this.filter1}>1 Star</a></li>
-                      <li><a href="#!" onClick={this.filterNone}>All</a></li>
+                      <li><a href="#!" onClick={this.filter5}>5分</a></li>
+                      <li><a href="#!" onClick={this.filter4}>4分</a></li>
+                      <li><a href="#!" onClick={this.filter3}>3分</a></li>
+                      <li><a href="#!" onClick={this.filter2}>2分</a></li>
+                      <li><a href="#!" onClick={this.filter1}>1分</a></li>
+                      <li><a href="#!" onClick={this.filterNone}>所有</a></li>
                     </ul>
                                         <div style={{height: "10px"}}></div>
 
                   </div>
                   <div className= "">
-                    <h5 style={{fontSize:"1.3rem"}}>Took this class?</h5>
+                    <h5 style={{fontSize:"1.3rem"}}>上过这门课了?</h5>
                     <div style={{height: "10px"}}></div>
 
-                    <a style={{backgroundColor: "#d2b000"}} onClick={this.onClick} onMouseOver="" className="waves-effect waves-light btn-large">Add Review Here</a>
+                    <a style={{backgroundColor: "#d2b000"}} onClick={this.onClick} onMouseOver="" className="waves-effect waves-light btn-large">添加评价</a>
 
 
                                         <div style={{height: "10px"}}></div>
@@ -552,16 +552,16 @@ class ReviewBody extends React.Component {
 
               </div>
 
-               
-              </div>
-          
 
-                  
+              </div>
+
+
+
               {cards}
 
             </div>
           </div>
-          
+
         </div>
           <div style={{height: "64px"}}></div>
 
@@ -572,7 +572,7 @@ class ReviewBody extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return{ 
+  return{
   }
 }
 

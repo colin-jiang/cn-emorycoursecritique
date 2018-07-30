@@ -80,7 +80,7 @@ class LoginPageContainer extends React.Component {
     return(
       <div onKeyDown={this.inputListener}>
       <div className = "header">
-          <Link to='/' className = "header-title" style={{color: '#FFD700'}}> <span className = "header-title-emory">Emory</span> Course Critique </Link>
+          <Link to='/' className = "header-title" style={{color: '#FFD700'}}> <span className = "header-title-emory">Emory</span>教授说</Link>
       </div>
 
       <lbody>
@@ -99,7 +99,7 @@ class LoginPageContainer extends React.Component {
                   <i className="material-icons prefix">person</i>
                   <input id="username" type="text" value={this.state.email}
                           onChange={(event) => this.updateEmail(event)}/>
-                  <label htmlFor="username" className="center-align">Email</label>
+                  <label htmlFor="username" className="center-align">邮箱</label>
                 </div>
               </div>
               <div className="row margin">
@@ -107,25 +107,25 @@ class LoginPageContainer extends React.Component {
                   <i className="material-icons prefix">lock</i>
                   <input id="password" type="password" value={this.state.password}
                          onChange={(event) => this.updatePassword(event)}/>
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="password">密码</label>
                 </div>
               </div>
 
 
               <div className="row">
                 <div className="center">
-                  <a id="loginBtn" onClick={() => this.login()} className="btn-large waves-effect waves-light">Login</a>
+                  <a id="loginBtn" onClick={() => this.login()} className="btn-large waves-effect waves-light">登录</a>
                 </div>
               </div>
               <div className="row">
                 <div className="input-field col s6 m6">
-                 <p style={{marginBottom: "0px", fontWeight: "300", fontSize: "1.2rem"}}>Don't have an account?</p>
-                  <p style={{marginTop: "4px"}} className="margin medium-small"><Link to='/signup'>Register Here</Link></p>
+                 <p style={{marginBottom: "0px", fontWeight: "300", fontSize: "1.2rem"}}>还没有账号？</p>
+                  <p style={{marginTop: "4px"}} className="margin medium-small"><Link to='/signup'>点此注册</Link></p>
                 </div>
                 <div className="input-field col s6 m6 push-m1">
-                    <p style={{marginBottom: "0px", fontWeight: "300", fontSize: "1.2rem"}}>Forgot password?</p>
+                    <p style={{marginBottom: "0px", fontWeight: "300", fontSize: "1.2rem"}}>忘记密码？</p>
 
-                    <p style={{marginTop: "4px"}} className="margin medium-small"><a href="#!" onClick={() => this.redirectResend()}>Reset it here</a></p>
+                    <p style={{marginTop: "4px"}} className="margin medium-small"><a href="#!" onClick={() => this.redirectResend()}>找回密码</a></p>
                 </div>
               </div>
 

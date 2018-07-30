@@ -16,31 +16,31 @@ class FAQPageContainer extends Component {
         </div>
         <div className="container">
           <div style={{height: "45px"}}></div>
-            <h2 className="center" style={{fontWeight: "300"}}>Frequently Asked Questions</h2>
+            <h2 className="center" style={{fontWeight: "300"}}>常见问题</h2>
           <div style={{height: "45px"}}></div>
           <div className="row">
             <div className="col s12 m10 offset-m1">
                 <ul className="collapsible" data-collapsible="accordion">
                  <li>
-                    <div className="collapsible-header active"><i className="material-icons">question_answer</i>What is this?</div>
-                    <div className="collapsible-body"><span>Emory Course Critique is a site made by a group of Emory Undergrads who want to make it easier for students to choose courses. Search for a course number or course name to get started!</span></div>
-                  </li>    
+                    <div className="collapsible-header active"><i className="material-icons">question_answer</i>Emory教授说是什么？</div>
+                    <div className="collapsible-body"><span>Emory教授说是一个由Emory本科生制作，方便中国学生更好选择课程及教授的网站。我们希望能够给中国学生提供一个可靠，时效性强的教授信息平台。现在就搜索课程编号或课程名称开始使用吧！</span></div>
+                  </li>
                   <li>
-                    <div className="collapsible-header"><i className="material-icons">whatshot</i>How do I review a course?</div>
-                    <div className="collapsible-body"><span>You need to be an Emory Undergraduate student with an active email ending in @emory.edu. After you first register, you need to activate your account through that email. </span></div>
+                    <div className="collapsible-header"><i className="material-icons">whatshot</i>如何评价一门课程？</div>
+                    <div className="collapsible-body"><span>您需要是一名埃默里大学的本科生，并有一个有效，以@emory.edu为后缀的学校邮箱。点击网站右上角“注册”输入相关信息后，您的学校邮箱会收到一封确认邮件，通过该电子邮件就可以激活您的帐户了。成功注册后，点击课程界面左下角的“评价这名教授”按钮即可填写评价 </span></div>
                   </li>
 
                   <li>
-                    <div className="collapsible-header"><i className="material-icons">person_outline</i>Is this anonymous?</div>
-                    <div className="collapsible-body"><span>Yea.</span></div>
+                    <div className="collapsible-header"><i className="material-icons">person_outline</i>这是匿名的吗？</div>
+                    <div className="collapsible-body"><span>是的</span></div>
                   </li>
                   <li>
-                    <div className="collapsible-header"><i className="material-icons">attach_money</i>Is this free?</div>
-                    <div className="collapsible-body"><span>You bet it is.</span></div>
+                    <div className="collapsible-header"><i className="material-icons">attach_money</i>这是免费的吗？</div>
+                    <div className="collapsible-body"><span>是的</span></div>
                   </li>
                   <li>
-                    <div className="collapsible-header"><i className="material-icons">school</i>Is this sponsored by the University?</div>
-                    <div className="collapsible-body"><span>Nope.</span></div>
+                    <div className="collapsible-header"><i className="material-icons">school</i>这是由校方赞助的吗？</div>
+                    <div className="collapsible-body"><span>不是</span></div>
                   </li>
                 </ul>
             </div>

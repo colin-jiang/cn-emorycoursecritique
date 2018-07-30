@@ -40,11 +40,11 @@ class NavBar extends React.Component {
     if(this.props.state.logins.loginStatus){
       Materialize.toast('You are Logged in!', 4000);
 
-      link = <li onClick={() => this.logout()} style={{cursor: "pointer"}}>Logout</li>;
+      link = <li onClick={() => this.logout()} style={{cursor: "pointer"}}>登出</li>;
     }
     else{
-      link = <li><Link to='/login'>Login</Link></li>
-      link2 = <li><Link to='/signup'>Signup</Link></li>
+      link = <li><Link to='/login'>登录</Link></li>
+      link2 = <li><Link to='/signup'>注册</Link></li>
     }
 
     return (

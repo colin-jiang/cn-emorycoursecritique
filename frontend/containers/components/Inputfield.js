@@ -133,7 +133,7 @@ class Inputfield extends React.Component {
           id="search"
           type="search"
           className="autocomplete"
-          placeholder="Search courses or professors"
+          placeholder="搜索课程或教授"
           required
           autoComplete ="off"
           value={this.state.inputValue.bind}

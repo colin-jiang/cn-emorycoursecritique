@@ -8,7 +8,7 @@ import { LogoutAction } from '../../actions.js';
 import axios from 'axios';
 
 class SearchNavBar extends React.Component {
-  
+
   constructor(props) {
     super(props)
 
@@ -30,11 +30,11 @@ class SearchNavBar extends React.Component {
     var link;
     var link2;
     if(this.props.state.logins.loginStatus){
-      link = <li onClick={() => this.logout()} style={{fontWeight:300,height:56, lineHeight:"60px", paddingRight: "12px", cursor: "pointer", color: "#d38e02"}}>LOGOUT</li>
+      link = <li onClick={() => this.logout()} style={{fontWeight:300,height:56, lineHeight:"60px", paddingRight: "12px", cursor: "pointer", color: "#d38e02"}}>登出</li>
     }
     else{
-      link = <li><Link to='/login' style={{fontWeight:300,height:56, lineHeight:"60px", color: "#d38e02"}}>LOGIN</Link></li>
-      link2 = <li className="hide-on-med-and-down"><Link to='/signup' style={{fontWeight:300,height:56, lineHeight:"60px", color: "#d38e02"}}>SIGNUP</Link></li>
+      link = <li><Link to='/login' style={{fontWeight:300,height:56, lineHeight:"60px", color: "#d38e02"}}>登录</Link></li>
+      link2 = <li className="hide-on-med-and-down"><Link to='/signup' style={{fontWeight:300,height:56, lineHeight:"60px", color: "#d38e02"}}>注册</Link></li>
     }
     return (
       <nav className= "navOverride2 z-depth-1">
@@ -51,7 +51,7 @@ class SearchNavBar extends React.Component {
                         color: "#d38e02",
                         fontSize: "smaller",
                         fontWeight:300
-                      }}>EmoryCourseCritique</Link>
+                      }}>Emory教授说</Link>
                     </span>
                   </h5>
                 </div>
@@ -73,8 +73,8 @@ class SearchNavBar extends React.Component {
             </div>
           </div>
 
-          
-          
+
+
         </div>
       </nav>
     );
