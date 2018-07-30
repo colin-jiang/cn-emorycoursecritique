@@ -67,24 +67,24 @@ class SignUpPageContainer extends Component {
       return("")
     }
     else{
-         Materialize.toast('Password must end with @emory.edu', 4000);
+         Materialize.toast('邮箱必须以“@emory.edu”结尾', 4000);
     }
   }
 
   checkPwd() {
     var str = this.state.password;
     if (str.length < 6) {
-        Materialize.toast('Password Must be at least 6 characters', 4000);
+        Materialize.toast('密码必须至少为六位', 4000);
 
     } else if (str.length > 50) {
-         Materialize.toast('Password is too long', 4000);
+         Materialize.toast('密码过长', 4000);
     } else if (str.search(/\d/) == -1) {
-         Materialize.toast('Password must contain at least one number', 4000);
+         Materialize.toast('密码必须至少包含一个数字', 4000);
     } else if (str.search(/[a-zA-Z]/) == -1) {
-        Materialize.toast('Password must contain at least one letter', 4000);
+        Materialize.toast('密码必须至少包含一个字母', 4000);
 
     } else if (str.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+\.\,\;\:]/) != -1) {
-        Materialize.toast('Password contains an invalid character', 4000);
+        Materialize.toast('密码中不能包含符号', 4000);
 
     }
     return("");
@@ -101,7 +101,7 @@ class SignUpPageContainer extends Component {
         this.validateFieldName("password")
 
         if (this.state.password !== this.state.repeated) {
-         Materialize.toast("Passwords don't match", 4000);
+         Materialize.toast("两次密码不一致", 4000);
         }
         else if (!this.state.emailValid | !this.state.passwordValid){
           for (var x in this.state.formErrors){
@@ -149,7 +149,7 @@ class SignUpPageContainer extends Component {
         })
         .then(function (response) {
           console.log(response);
-          Materialize.toast("An email has been sent to you!", 4000);
+          Materialize.toast("确认邮件已发送至您的邮箱！", 4000);
 
           //self.props.history.push('/success')
           // window.location.replace("/success");
@@ -171,7 +171,7 @@ componentDidMount() {
       $(document).on("keydown", function(e){
          if(e.keyCode == 13 ){
             document.getElementById('signUpBtn').click();
-         } 
+         }
       });
    });
   }
@@ -183,16 +183,16 @@ componentDidMount() {
 
           <div className = "register-body-success">
             <div className = "register-body-main-component-success">
-              <div className="register-body-title-success"><h2>Success!</h2></div>
+              <div className="register-body-title-success"><h2>发送成功！</h2></div>
                   <div className="inputs-sizes-success">
-                    <h3>An email has been sent to you!</h3>
+                    <h3>确认邮件已发送至您的邮箱！</h3>
                   </div>
                   <div className="submit-button-row">
                     <button
                     type="button"
                     className = "submit-button"
                     onClick ={this.resend}>
-                    click here to resend email
+                    点此重新发送
                   </button>
               </div>
             </div>
@@ -214,12 +214,12 @@ componentDidMount() {
 
 
           <div id="login-page" className="row">
-            <div className="col l6 push-l3 m10 push-m1 s12 z-depth-4 card-panel nohover2" style={{position: 'relative' , top: '50px', padding: '0 48px'}}> 
+            <div className="col l6 push-l3 m10 push-m1 s12 z-depth-4 card-panel nohover2" style={{position: 'relative' , top: '50px', padding: '0 48px'}}>
               <form className="login-form">
                 <div className="row">
                   <div className="input-field col s12 center">
 
-                    
+
                   </div>
                 </div>
                 <div className="row margin">
@@ -227,12 +227,12 @@ componentDidMount() {
                     <i className="material-icons prefix">person</i>
                     <input id="firstname" type="text" value={this.state.firstname}
              onChange={(event) => this.updateFirstname(event)}/>
-                    <label htmlFor="firstname" className="center-align">Firstname</label>
+                    <label htmlFor="firstname" className="center-align">名</label>
                   </div>
                   <div className="input-field col s6">
                     <input id="lastname" type="text" value={this.state.lastname}
              onChange={(event) => this.updateLastname(event)}/>
-                    <label htmlFor="lastname">Lastname</label>
+                    <label htmlFor="lastname">姓</label>
                   </div>
                 </div>
                 <div className="row margin">
@@ -240,7 +240,7 @@ componentDidMount() {
                     <i className="material-icons prefix">email</i>
                     <input id="username" type="text" value={this.state.email}
              onChange={(event) => this.updateEmail(event)}/>
-                    <label htmlFor="username" className="center-align">Email</label>
+                    <label htmlFor="username" className="center-align">邮箱</label>
                   </div>
                 </div>
                 <div className="row margin">
@@ -248,29 +248,29 @@ componentDidMount() {
                     <i className="material-icons prefix">lock</i>
                     <input id="password" type="password" value={this.state.password}
              onChange={(event) => this.updatePassword(event)}/>
-                    <label htmlFor="password" className="center-align">Password</label>
+                    <label htmlFor="password" className="center-align">密码</label>
                   </div>
                   <div className="input-field col s6">
                     <i className="material-icons prefix">lock</i>
                     <input id="rpassword" type="password" value={this.state.repeated}
              onChange={(event) => this.updateRepeated(event)}/>
-                    <label htmlFor="rpassword" className="center-align">Repeat Password</label>
+                    <label htmlFor="rpassword" className="center-align">重复密码</label>
                   </div>
                 </div>
                 <div className="row margin">
                   <div className="center">
-                    <a id="signUpBtn" onClick={() => this.signup()} className="btn-large waves-effect waves-light">Sign Up</a>
+                    <a id="signUpBtn" onClick={() => this.signup()} className="btn-large waves-effect waves-light">点此注册</a>
                   </div>
                 </div>
                 <div className="input-field">
-                  <p className="margin center medium-small sign-up" style={{margin: '30px'}}>Already have an account? <Link to='/login'>Login</Link></p>
+                  <p className="margin center medium-small sign-up" style={{margin: '30px'}}>已经有账号了？ <Link to='/login'>登录</Link></p>
                 </div>
 
               </form>
             </div>
           </div>
 
-    
+
 
         </lbody>
         </div>

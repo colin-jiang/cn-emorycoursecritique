@@ -148,12 +148,12 @@ render() {
            <div className="col l8 push-l2 m10 push-m1 s12 z-depth-4 card-panel nohover2" style={{position: 'relative' , top: '50px', padding: '0 48px'}}>
              <form className="login-form">
                <div className = "page col m6">
-                 <p>It is your turn to rate professor {this.state.profID}</p>
+                 <p className = "ratingFactor">请你对{this.state.profID}的{this.state.courseId}做出评价</p>
                  <div className = "divider"></div>
 
 
                    <div className = "ratingFactor">
-                     <span>Overall Rating</span>
+                     <span>整体评分</span>
                      <div style={{position:"relative", left:"16px"}}><ReactStars style={{margin:"0 auto", width:"26%"}}
                        count={5}
                        value={this.state.overall}
@@ -166,7 +166,7 @@ render() {
                    <div className = "divider"></div>
 
                    <div className = "ratingFactor">
-                     <span>Overall Workload</span>
+                     <span>课业负担</span>
                      <div className="center" onChange={this.setWorkload} style={{}}>
 
                        <input className="width-gap" type="radio" name="group1" id="1" value="1"/>
@@ -189,7 +189,7 @@ render() {
                    <div className = "divider"></div>
 
                    <div className = "ratingFactor">
-                     <span>Difficulty of getting A</span>
+                     <span>拿A难度</span>
                      <div className="center" onChange={this.setDifficulty} style={{}}>
 
                        <input className="width-gap" type="radio" name="group2" id="6" value="1"/>
@@ -212,7 +212,7 @@ render() {
                   <div className = "divider"></div>
 
                    <div className = "ratingFactor">
-                     <span>Accent</span>
+                     <span>口音</span>
                      <div className="center" onChange={this.setAccent} style={{}}>
 
                        <input className="width-gap" type="radio" name="group3" id="11" value="1"/>
@@ -235,26 +235,26 @@ render() {
                    <div className = "divider"></div>
 
                    <div className = "ratingFactor">
-                     <span>Attendance</span>
+                     <span>记不记考勤</span>
                      <div className="center" onChange={this.setAttendance} style={{}}>
                        <input className="width-gap" type="radio" name="group4" id="16" value={true}/>
-                       <label className="labelOverride" htmlFor="16" style={{marginLeft: "0"}}>Yes</label>
+                       <label className="labelOverride" htmlFor="16" style={{marginLeft: "0"}}>记</label>
 
                        <input className="width-gap" type="radio" name="group4" id="17" value={false}/>
-                       <label className="labelOverride" htmlFor="17">No</label>
+                       <label className="labelOverride" htmlFor="17">不记</label>
                      </div>
                    </div>
 
                    <div className = "divider"></div>
 
                    <div className = "ratingFactor">
-                     <span>Curve</span>
+                     <span>给不给Curve</span>
                      <div className="center" onChange={this.setCurve} style={{}}>
                        <input className="width-gap" type="radio" name="group5" id="18" value={true}/>
-                       <label className="labelOverride" htmlFor="18" style={{marginLeft: "0"}}>Yes</label>
+                       <label className="labelOverride" htmlFor="18" style={{marginLeft: "0"}}>给</label>
 
                        <input className="width-gap" type="radio" name="group5" id="19" value={false}/>
-                       <label className="labelOverride" htmlFor="19">No</label>
+                       <label className="labelOverride" htmlFor="19">不给</label>
                      </div>
                    </div>
                </div>
@@ -265,7 +265,7 @@ render() {
                      <div className="input-field col s12">
                        <i className="material-icons prefix">mode_edit</i>
                        <textarea id="icon_prefix2" type="text" className="materialize-textarea" value={this.state.comment} onChange= {(event) => this.updateComment(event)} style={{}}></textarea>
-                       <label htmlFor="icon_prefix2">Make a comment on this class</label>
+                       <label htmlFor="icon_prefix2">如有更详细的文字评价可在此处添加</label>
                      </div>
                    </div>
                  </div>
@@ -276,7 +276,7 @@ render() {
                     <button
                     className="btn-large waves-effect waves-light"
                     type="button" onClick={() => this.submitReview()}>
-                    submit review!
+                    提交评价!
                     </button>
                   </div>
                 </div>

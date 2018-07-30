@@ -30,12 +30,13 @@ class Body extends React.Component {
                 <span
                   style={{
                     fontWeight: 400,
-                    transformStyle: "color:"
+                    transformStyle: "color:",
+                    color:"#d28e00"
                   }}
                 >
                   Emory
                 </span>{" "}
-                COURSE CRITIQUE
+                教授说
               </h2>
               <div className="hide-on-small-only"
                 style={{
