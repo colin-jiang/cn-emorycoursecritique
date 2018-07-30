@@ -10,4 +10,4 @@ var professorSchema=new Schema({
 
 professorSchema.plugin(require('mongoose-keywords'), {paths: ['name']});
 
-module.exports = mongoose.model('professor',professorSchema);
+module.exports = mongoose.model('教授',professorSchema);

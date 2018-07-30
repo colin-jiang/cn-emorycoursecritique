@@ -16,4 +16,4 @@ var courseSchema=new Schema({
 
 courseSchema.plugin(require('mongoose-keywords'), {paths: ['course_num', 'course_name', 'opus_id']});
 
-module.exports = mongoose.model('course',courseSchema);
+module.exports = mongoose.model('课程',courseSchema);

@@ -29,9 +29,10 @@ class Body extends React.Component {
               >
                 <span
                   style={{
-                    fontWeight: 400,
+                    fontWeight: 380,
                     transformStyle: "color:",
-                    color:"#d28e00"
+                    color:"rgb(230,202,0)",
+                    fontsize:55,
                   }}
                 >
                   Emory

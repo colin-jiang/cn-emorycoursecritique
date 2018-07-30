@@ -51,7 +51,7 @@ class SearchNavBar extends React.Component {
                         color: "#d38e02",
                         fontSize: "smaller",
                         fontWeight:300
-                      }}>EmoryCourseCritique</Link>
+                      }}>Emory教授说</Link>
                     </span>
                   </h5>
                 </div>
