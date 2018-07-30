@@ -154,7 +154,7 @@ render() {
 
                    <div className = "ratingFactor">
                      <span>整体评分</span>
-                     <div style={{position:"relative", left:"16px"}}><ReactStars style={{margin:"0 auto", width:"26%"}}
+                     <div className = "center" style={{position:"relative"}}><ReactStars style={{margin:"0 auto", width:"26%"}}
                        count={5}
                        value={this.state.overall}
                        onChange={overallRating}
