@@ -12,28 +12,27 @@ class Footer extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col l6 s12">
-              <h5 className="white-text">Welcome!</h5>
+              <h5 className="white-text">欢迎!</h5>
               <p className="grey-text text-lighten-4">
-                Emory Course Critique is a site meant to help Emory students
-                choose the best classes and professors. All reviews are anonymous.
+                Emory教授说旨在帮助埃默里大学的在校留学生选择最适合自己的课程和教授。其中所有评论均为匿名评论。
               </p>
             </div>
             <div className="col l4 offset-l2 s12">
-              <h5 className="white-text">Useful Links</h5>
+              <h5 className="white-text">相关链接</h5>
               <ul>
                 <li>
                   <a className="grey-text text-lighten-3" href="/about">
-                    About us
+                    关于我们
                   </a>
                 </li>
                 <li>
                   <a className="grey-text text-lighten-3" href="/faq">
-                    FAQ
+                    常见问题
                   </a>
                 </li>
                 <li>
                   <a className="grey-text text-lighten-3" href="mailto:colin.jiang@emory.edu?Subject=Hey%20EmoryCourseCritque">
-                    Feedback
+                    联系我们
                   </a>
                 </li>
               </ul>

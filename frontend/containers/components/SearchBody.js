@@ -182,7 +182,7 @@ class SearchBody extends React.Component {
         $('.wrapper').pushpin({
           top: 0,
           bottom: $('.page-footer').offset().top - $(window).height(),
-          offset: 60 
+          offset: 60
         });
 
       });
@@ -221,8 +221,8 @@ class SearchBody extends React.Component {
     var querystring = require('querystring');
     var parsed = querystring.parse(location.search.slice(1));
     var tempDepts=this.state.depts;
-        
-        
+
+
     if(event.target.checked)
     {
       if(parsed.dept)
@@ -286,8 +286,8 @@ class SearchBody extends React.Component {
     var querystring = require('querystring');
     var parsed = querystring.parse(location.search.slice(1));
     var tempGERs=this.state.ger;
-    
-        
+
+
     if(event.target.checked)
     {
       if(parsed.ger)
@@ -521,9 +521,9 @@ class SearchBody extends React.Component {
 
     var overallOption;
     if(this.state.sortOverall)
-      overallOption=<option value="overall" selected>Overall</option>;
+      overallOption=<option value="overall" selected>综合评分</option>;
     else
-      overallOption=<option value="overall">Overall</option>;
+      overallOption=<option value="overall">综合评分</option>;
 
       if(this.state.courses)
       {
@@ -552,8 +552,8 @@ class SearchBody extends React.Component {
             <div className="col hide-on-small-only m3 l2" style={{height:"400px", minWidth: "20%"}}>
               <div className="wrapper smooth" style={{minWidth:"fit-content", marginTop: -50}}>
                 <ul className="section table-of-contents" style={{marginTop:"72px"}}>
-                  <li><a href="#courses">Courses</a></li>
-                  <li><a href="#professors">Professors</a></li>
+                  <li><a href="#courses">课程</a></li>
+                  <li><a href="#professors">教授</a></li>
                 </ul>
                 <div className="card-panel white nohover2 show-on-med-and-up" style={{padding:"15px"}}>
                   <span
@@ -563,7 +563,7 @@ class SearchBody extends React.Component {
 
                     }}
                   >
-                    Filters
+                    筛选
                   </span>
                   <div style={{display: "inline-block",
                                 fontSize: "12px",
@@ -573,7 +573,7 @@ class SearchBody extends React.Component {
                                 borderRadius: "5px",
                                 float: "right",
                                 color: "white",
-                                cursor: "pointer"}} onClick={this.clearFilter}>Clear
+                                cursor: "pointer"}} onClick={this.clearFilter}>重置
                     </div>
                   <li className="divider" />
                   <br/>
@@ -584,12 +584,12 @@ class SearchBody extends React.Component {
 
                     }}
                   >
-                  Subjects:
+                  科目：
                   </span>
                   <div className="dropdown-container">
                       <div className="filter-button noSelect" style={{fontSize:"12px"}}>
-                          <div className="dropdown-label">Subjects</div>
-                          <div className="dropdown-quantity">(<span className="quantity">Any</span>)</div>
+                          <div className="dropdown-label">科目</div>
+                          <div className="dropdown-quantity">(<span className="quantity">所有</span>)</div>
                           <i className="fa fa-filter"></i>
                       </div>
                       <div className="dropdown-list" style={{display: "none", fontSize:"12px"}}>
@@ -613,7 +613,7 @@ class SearchBody extends React.Component {
                   <div className="dropdown-container">
                       <div className="filter-button noSelect" style={{fontSize:"12px"}}>
                           <div className="dropdown-label">GER</div>
-                          <div className="dropdown-quantity">(<span className="quantity">Any</span>)</div>
+                          <div className="dropdown-quantity">(<span className="quantity">所有</span>)</div>
                           <i className="fa fa-filter"></i>
                       </div>
                       <div className="dropdown-list" style={{display: "none", fontSize:"12px"}}>
@@ -632,12 +632,12 @@ class SearchBody extends React.Component {
 
                     }}
                   >
-                    Course-level: &emsp;
+                    课程难度: &emsp;
                   </span>
                   <div className="dropdown-container">
                       <div className="filter-button noSelect" style={{fontSize:"12px"}}>
-                          <div className="dropdown-label">Levels</div>
-                          <div className="dropdown-quantity">(<span className="quantity">Any</span>)</div>
+                          <div className="dropdown-label">难度</div>
+                          <div className="dropdown-quantity">(<span className="quantity">所有</span>)</div>
                           <i className="fa fa-filter"></i>
                       </div>
                       <div className="dropdown-list" style={{display: "none", fontSize:"12px"}}>
@@ -650,24 +650,25 @@ class SearchBody extends React.Component {
                   <li className="divider" />
                   <br/>
                   <div>
-                    <div style={{color:"black", fontSize:"12px", display:"inline-block"}}>Clear Search Input:</div>
+                    <div style={{color:"black", fontSize:"12px", display:"inline-block", color:"white"}}>|</div>
                     <div style={{display: "inline-block",
                                 fontSize: "12px",
                                 padding: "1px 6px",
                                 background: "#2c64a4",
                                 border: "#2c64a4",
                                 borderRadius: "5px",
+                                marginTop: "5px",
                                 float: "right",
                                 color: "white",
-                                cursor: "pointer"}} onClick={this.clearSearch}>Go
+                                cursor: "pointer"}} onClick={this.clearSearch}>清除搜索
                     </div>
                   </div>
 
                 </div>
                 <div className="show-on-med-and-up" style={{marginTop:"36px"}}>
-                    <label>Sort By:</label>
+                    <label>排序:</label>
                       <select className="browser-default" onChange={this.handleSort}>
-                        <option value="">Relevance</option>
+                        <option value="">默认排序</option>
                         {overallOption}
                       </select>
                   </div>
@@ -681,7 +682,7 @@ class SearchBody extends React.Component {
                 }}>
 
                 <br/>
-                Course Results for <span className="black-text" style={{fontWeight: "400"}}>{input}</span>
+                关于课程<span className="black-text" style={{fontWeight: "400"}}>{input}</span>的搜索结果
               </h5>
               <div style={{height: "20px"}}>
                 <ul>
@@ -697,7 +698,7 @@ class SearchBody extends React.Component {
                 }}>
 
                 <br/>
-                Professor Results for <span className="black-text" style={{fontWeight: "400"}}>{input}</span>
+                关于教授<span className="black-text" style={{fontWeight: "400"}}>{input}</span>的搜索结果
               </h5>
               <div id="professors" className="section scrollspy">
               {profcards}
