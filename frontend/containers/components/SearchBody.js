@@ -650,17 +650,18 @@ class SearchBody extends React.Component {
                   <li className="divider" />
                   <br/>
                   <div>
-                    <div style={{color:"black", fontSize:"12px", display:"inline-block"}}></div>
-                    /*<div style={{display: "inline-block",
+                    <div style={{color:"black", fontSize:"12px", display:"inline-block", color:"white"}}>|</div>
+                    <div style={{display: "inline-block",
                                 fontSize: "12px",
                                 padding: "1px 6px",
                                 background: "#2c64a4",
                                 border: "#2c64a4",
                                 borderRadius: "5px",
+                                marginTop: "5px",
                                 float: "right",
                                 color: "white",
-                                cursor: "pointer"}} onClick={this.clearSearch}>Go
-                    </div>*/
+                                cursor: "pointer"}} onClick={this.clearSearch}>清除搜索
+                    </div>
                   </div>
 
                 </div>
