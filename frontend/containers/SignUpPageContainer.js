@@ -160,6 +160,7 @@ class SignUpPageContainer extends Component {
   }
 
   componentWillMount() {
+    console.log()
     if(location.search.includes("success"))
     {
       this.setState({success:true});
@@ -263,7 +264,7 @@ componentDidMount() {
                   </div>
                 </div>
                 <div className="input-field">
-                  <p className="margin center medium-small sign-up" style={{margin: '30px'}}>已经有账号了？ <Link to='/login'>登录</Link></p>
+                  <p className="margin center medium-small sign-up" style={{margin: '30px'}}>已经有账号了？ <Link to={{pathname:'/login',returnPage:"/"}}>登录</Link></p>
                 </div>
 
               </form>
