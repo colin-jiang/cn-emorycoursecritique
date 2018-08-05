@@ -462,7 +462,7 @@ class ReviewBody extends React.Component {
                   }}
                 ><span style={{color: "#424242",fontSize: '1.3rem',}}>总共</span>{" "}
                {counter}
-                </span>{'\u00A0'}<span style={{color: "#424242",fontSize: '1.3rem',}}>条评价</span>{" "}
+                </span>{'\u00A0'}<span style={{color: "#424242",fontSize: '1.3rem',}}> 条评价</span>{" "}
                 </p>
 
                 <br />

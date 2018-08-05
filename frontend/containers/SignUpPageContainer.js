@@ -207,7 +207,7 @@ componentDidMount() {
         <div>
 
         <div className = "header">
-            <Link to='/' className = "header-title" style={{color: '#FFD700'}}> <span className = "header-title-emory">Emory</span> Course Critique </Link>
+            <Link to='/' className = "header-title" style={{color: '#FFD700'}}> <span className = "header-title-emory">Emory</span>教授说</Link>
         </div>
 
         <lbody >

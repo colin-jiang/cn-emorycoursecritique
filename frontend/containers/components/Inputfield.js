@@ -58,6 +58,7 @@ class Inputfield extends React.Component {
   componentDidMount() {
     var courses=course_list.list
     var professors=prof_list.list
+    var dict={'professor':'教授','course':'课程'}
      $(document).ready(function(){
 
        $.widget( "custom.catcomplete", $.ui.autocomplete, {
@@ -76,7 +77,7 @@ class Inputfield extends React.Component {
            $.each( items, function( index, item ) {
              var li;
              if ( item.category != currentCategory ) {
-               ul.append( "<li class='ui-autocomplete-category'>" + item.category.toUpperCase() + "</li>" );
+               ul.append( "<li class='ui-autocomplete-category'>" + dict[item.category]+ "</li>" );
                currentCategory = item.category;
              }
              li = that._renderItemData( ul, item );

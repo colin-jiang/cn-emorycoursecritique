@@ -651,16 +651,6 @@ class SearchBody extends React.Component {
                   <br/>
                   <div>
                     <div style={{color:"black", fontSize:"12px", display:"inline-block"}}></div>
-                    /*<div style={{display: "inline-block",
-                                fontSize: "12px",
-                                padding: "1px 6px",
-                                background: "#2c64a4",
-                                border: "#2c64a4",
-                                borderRadius: "5px",
-                                float: "right",
-                                color: "white",
-                                cursor: "pointer"}} onClick={this.clearSearch}>Go
-                    </div>*/
                   </div>
 
                 </div>

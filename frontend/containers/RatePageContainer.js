@@ -141,7 +141,7 @@ render() {
      <div>
 
      <div className = "header">
-         <Link to={titleurl} className = "header-title" style={{color: '#FFD700'}}> <span className = "header-title-emory">Emory</span> Course Critique </Link>
+         <Link to={titleurl} className = "header-title" style={{color: '#FFD700'}}> <span className = "header-title-emory">Emory</span>教授说</Link>
      </div>
        <lbody>
          <div id="login-page" className="row">
@@ -154,7 +154,7 @@ render() {
 
                    <div className = "ratingFactor">
                      <span>整体评分</span>
-                     <div className = "center" style={{position:"relative"}}><ReactStars style={{margin:"0 auto", width:"26%"}}
+                     <div style={{position:"centered"}}><ReactStars style={{margin:"0 auto", width:"26%", float:"left"}}
                        count={5}
                        value={this.state.overall}
                        onChange={overallRating}

@@ -6,7 +6,7 @@ class SearchCard extends React.Component {
     super(props)
     this.state = {
       ratings: []
-      
+
     }
     this.onClick = this.onClick.bind(this);
     this.reviewPage=this.reviewPage.bind(this);
@@ -18,22 +18,22 @@ class SearchCard extends React.Component {
         var pname = this.props.cnum;
         pname=pname.replace(", ","_");
         var querystring = require('querystring');
-          
+
           var url2 = '/prof?'+querystring.stringify({
               prof: pname,
           });
-              window.location.href = url2; 
+              window.location.href = url2;
     }
     else
     {
       var querystring = require('querystring');
-          
+
           var url2 = '/course?'+querystring.stringify({
               course: this.props.cnum,
           });
-              window.location.href = url2;  
-             //this.props.history.push(url2); 
-    }    
+              window.location.href = url2;
+             //this.props.history.push(url2);
+    }
   }
 
   reviewPage(event) {
@@ -43,12 +43,12 @@ class SearchCard extends React.Component {
       pname=pname.replace(", ","_");
       console.log(pname);
       var querystring = require('querystring');
-          
+
           var url2 = '/rating?'+querystring.stringify({
               course: event.currentTarget.dataset.id,
               prof:pname
           });
-              window.location.href = url2; 
+              window.location.href = url2;
     }
     else
     {
@@ -56,15 +56,15 @@ class SearchCard extends React.Component {
       pname=pname.replace(", ","_");
       console.log(pname);
       var querystring = require('querystring');
-          
+
           var url2 = '/rating?'+querystring.stringify({
               course: this.props.cnum,
               prof:pname
           });
-              window.location.href = url2; 
+              window.location.href = url2;
     }
   }
-  
+
   componentWillMount() {
     $(document).ready(function(){
     $('.collapsible').collapsible();
@@ -72,7 +72,7 @@ class SearchCard extends React.Component {
   }
 
   render() {
-    
+
     var rating = 0;
     var ratingColor = "grey-text";
     if(this.props.rating === null || this.props.rating == "NaN" || this.props.rating==0){
@@ -93,7 +93,7 @@ class SearchCard extends React.Component {
       ratingColor = "red-text text-lighten-1";
     }
     var sections=[];
-    for(var i=0;i<this.props.sections.length;i++) 
+    for(var i=0;i<this.props.sections.length;i++)
     {
       var section_overall=this.props.sections[i].average_overall;
 
@@ -125,28 +125,29 @@ class SearchCard extends React.Component {
     return (
       <div className="card-panel white black-text nohover2" >
         <div className="row">
-          <div className="col s6" >
-            
+          <div className="col s9" onClick={this.onClick} style={{cursor:'pointer'}}>
+
             <span
               style={{
                 fontWeight: 300,
-                fontSize: '1.0rem'
-                
+                fontSize: '1.4rem'
+
               }}
             >
               {this.props.cnum}: {this.props.cname} {" "}
-              <i className="material-icons" onClick={this.onClick} style={{fontSize:"16px", verticalAlign:"text-bottom", cursor:'pointer', color:"#225894"}}>info_outline</i>
+
             </span>{" "}
 
           </div>
-          <div className ="col s6">
+          <div className ="col s3">
           <h5 className={ratingColor}
             style={{
               fontWeight: 300,
               float: "right",
-              fontSize: '2.5rem',
+              fontSize: '2rem',
               lineHeight: "15px",
-              marginBottom: "30px"
+              marginBottom: "30px",
+              marginTop:"5px"
             }}
           >
             {rating}

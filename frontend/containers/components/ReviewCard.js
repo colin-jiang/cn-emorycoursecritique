@@ -15,7 +15,7 @@ class ReviewCard extends React.Component {
   }
 
   uClick() {
-    
+
     // Send a POST request
     var self=this;
           axios({
@@ -27,8 +27,8 @@ class ReviewCard extends React.Component {
           })
           .then(function (response) {
             console.log(response);
-               
-    
+
+
       //self.setState({upvotes: response.data.upvotes, downvotes: response.data.downvotes});
       console.log(self.state.upvotes);
       //self.props.onUpdate(self.props.index,self.state.upvotes,self.state.downvotes);
@@ -37,11 +37,11 @@ class ReviewCard extends React.Component {
           })
           .catch(function (error) {
             //console.log(error.response.data.message);
-            
+
             Materialize.toast(error.response.data.message, 4000);
           });
-    
-    
+
+
   }
 
   dClick() {
@@ -57,20 +57,20 @@ class ReviewCard extends React.Component {
           .then(function (response) {
             console.log(response);
 
-    
+
       //self.setState({upvotes: response.data.upvotes, downvotes: response.data.downvotes});
       console.log(self.state.upvotes);
       //self.props.onUpdate(self.props.index,self.state.upvotes,self.state.downvotes);
       self.props.onUpdate(self.props.index,response.data.upvotes,response.data.downvotes);
-    
+
           })
           .catch(function (error) {
             //console.log(error.response.data.message);
-            
+
             Materialize.toast(error.response.data.message, 4000);
           });
-    
-    
+
+
   }
 /*
   componentWillMount() {
@@ -156,57 +156,58 @@ class ReviewCard extends React.Component {
       var date= new Date(this.props.rdate);
       var dateformat= ((date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear());
     }
-    
+
 
     return (
       <div className="card-panel nohover2 white black-text row" style={{position: "relative"}} >
         <div className="col s6 m3">
         <h5 style={{
             }}>
-          Rating:
+          整体评分:
             {'\u00A0'}<span className={ratingColor}
             style={{
               color: "#d18e01"
             }}
           >
-            {rating} 
-          </span> 
+            {rating}
+          </span>
         </h5>
-        
+
         <span
-          style={{
-            fontWeight: 400,  
-            fontSize: "1.25rem"
-          }}
-        >
-          Difficulty:<span style={{
-            fontWeight: 400,  
-            fontSize: "1.4rem"
-          }} className={difficultyRatingColor}> {difficultyRating}</span>
-        </span>{" "}
-        <br />
-        <span 
           style={{
             fontWeight: 400,
             fontSize: "1.25rem"
           }}
         >
-          Workload: <span style={{
-            fontWeight: 400,  
-            fontSize: "1.3rem"
+          整体难度:<span style={{
+            fontWeight: 400,
+            fontSize: "1.25rem"
+          }} className={difficultyRatingColor}> {difficultyRating}</span>
+        </span>{" "}
+        <br />
+        <span
+          style={{
+            fontWeight: 400,
+            fontSize: "1.25rem"
+          }}
+        >
+          课业负担: <span style={{
+            fontWeight: 400,
+            fontSize: "1.25rem"
           }}className={workloadRatingColor}> {workloadRating}</span>
         </span>{" "}
         <br />
         <span
           style={{
             fontWeight: 300,
-            fontSize: "1.1rem"
+            fontSize: "1.1rem",
+            marginTop: "1px"
           }}
         >
           {dateformat}
 
         </span>
-       
+
         </div>
         <div className="col s6 hide-on-med-and-up" style={{position: "absolute", top: "24px", right: "24px"}}>
         <div className="right">
@@ -220,13 +221,13 @@ class ReviewCard extends React.Component {
           </div>
         </div>
         <div className="col s12 m7">
-         <p style={{fontSize: "1.1rem", fontWeight: "300"}}>Comments:</p>
+         <p style={{fontSize: "1.1rem", fontWeight: "300"}}>评价:</p>
           <blockquote style={{fontSize: "1.0rem", overflowWrap: "break-word"}}>{this.props.comment}</blockquote>
 
         </div>
         <div className="col s1"></div>
         <div className="hide-on-small-only" style={{position: "absolute", bottom: "24px", right: "24px"}}>
-          <p style={{fontSize: "0.8rem", fontWeight: "300"}}>{'\u00A0'}Was this helpful?</p>
+          <p style={{fontSize: "0.8rem", fontWeight: "300"}}>{'\u00A0'}你觉得这条评价有用吗?</p>
           <a className="noSelect" onClick={this.uClick} onMouseOver="" style={{
               color: "#002a78", cursor:'pointer',  position: "relative", left: "12px"
             }}><i className="material-icons prefix green-text text-darken-1">thumb_up</i>{this.props.uvotes}</a>
@@ -235,7 +236,7 @@ class ReviewCard extends React.Component {
             }}><i className="material-icons prefix red-text text-lighten-2">thumb_down</i>{this.props.dvotes}</a>
           </div>
 
-    
+
       </div>
     );
   }
