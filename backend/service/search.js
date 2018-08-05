@@ -112,8 +112,8 @@ module.exports = function(req, res,next) {
         {"$limit":20},
         {"$lookup": {
             "from": "ratings",
-            "localField": "ratings",
-            "foreignField": "_id",
+            "localField": "name",
+            "foreignField": "prof_id",
             "as": "ratings"
         }},
         {"$project": {

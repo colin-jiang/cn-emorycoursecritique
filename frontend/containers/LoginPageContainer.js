@@ -12,7 +12,8 @@ class LoginPageContainer extends React.Component {
     console.log(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      returnPage:props.location.returnPage
     }
 
   }
@@ -55,21 +56,24 @@ class LoginPageContainer extends React.Component {
              Materialize.toast(response.data.message, 4000);
 
           }
+          if(self.state.returnPage){
+            self.props.history.push(self.state.returnPage);
+            // window.location.href(returnPage)
+            return;
+          }
           if(response.data.redirectUrl&&!self.props.history.location.key){
             self.updateLogin();
             self.props.history.push(response.data.redirectUrl)
             // window.location.replace(response.data.redirectUrl)
           }else{
-            // console.log("LOGIN SUCCESS")
-             //console.log(self.props);
             self.updateLogin();
             self.props.history.goBack();
           }
         })
-        .catch(function (error) {
-          Materialize.toast(error.response.data.message, 4000);
+        // .catch(function (error) {
+        //   Materialize.toast(error.response.data.message, 4000);
 
-        });
+        // });
 
 
 
