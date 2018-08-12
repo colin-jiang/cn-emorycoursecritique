@@ -139,6 +139,9 @@ class SearchBody extends React.Component {
 
     $(document).ready(function(){
       $('.dropdown-container')
+      .on('click', function(e) {
+          e.stopPropagation();
+      })
       .on('click', '.filter-button', function(e) {
           e.stopPropagation();
           var currList = $(this).siblings('.dropdown-list');
