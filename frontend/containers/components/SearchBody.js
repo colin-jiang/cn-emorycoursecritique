@@ -133,10 +133,14 @@ class SearchBody extends React.Component {
       $(document).ready(function(){
         $('.scrollspy').scrollSpy();
       });
+    $(document).click(function(){
+      $(".dropdown-list").hide();
+    });
 
     $(document).ready(function(){
       $('.dropdown-container')
-      .on('click', '.filter-button', function() {
+      .on('click', '.filter-button', function(e) {
+          e.stopPropagation();
           var currList = $(this).siblings('.dropdown-list');
           $('.dropdown-list').not(currList).hide();
           currList.toggle();
