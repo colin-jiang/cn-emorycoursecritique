@@ -177,6 +177,19 @@ class ReviewCard extends React.Component {
       var dateformat= ((date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear());
     }
 
+    var attendance;
+    var curve;
+
+    if(this.props.attendance)
+      attendance= "Required"
+    else
+      attendance= "Not Required"
+
+    if(this.props.curve)
+      curve= "Yes"
+    else
+      curve= "No"
+
 
     return (
       <div className="card-panel nohover2 white black-text row" style={{position: "relative"}} >
@@ -253,7 +266,11 @@ class ReviewCard extends React.Component {
           </div>
         </div>
         <div className="col s12 m7">
-         <p style={{fontSize: "1.1rem", fontWeight: "300"}}>评价:</p>
+         <div style={{overflow:"hidden"}}>
+          <p style={{fontSize: "1.1rem", fontWeight: "300", float:"left", marginBottom:0}}>Attendance: {attendance}</p>
+          <p style={{fontSize: "1.1rem", fontWeight: "300", float:"right", marginBottom:0}}>Curved: {curve}</p>         
+         </div>
+         <p style={{fontSize: "1.1rem", fontWeight: "300"}}></p>
           <blockquote style={{fontSize: "1.0rem", overflowWrap: "break-word"}}>{this.props.comment}</blockquote>
 
         </div>
