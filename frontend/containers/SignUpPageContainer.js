@@ -186,6 +186,13 @@ class SignUpPageContainer extends Component {
               <div className="inputs-sizes-success">
                 <h3>确认邮件已发送至您的邮箱！</h3>
               </div>
+              <Link to='/' className = "header-title" style={{color: '#FFD700'}}>
+                <div className="submit-button-row">
+                  <button type="button" className = "submit-button" style={{marginBottom: "10px"}}>
+                    返回
+                  </button>
+                </div>
+              </Link>
               <div className="submit-button-row">
                 <button
                   type="button"

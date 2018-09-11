@@ -51,7 +51,7 @@ class ResendEmailContainer extends Component {
 
 
         <div id="login-page" className="row" style={{height:'-webkit-fill-available'}}>
-          <div className="col xl4 push-xl4 l6 push-l3 m10 push-m1 s12 z-depth-4 card-panel nohover2" style={{position: 'relative' , top: '20%', padding: '0 48px'}}> 
+          <div className="col xl4 push-xl4 l6 push-l3 m10 push-m1 s12 z-depth-4 card-panel nohover2" style={{position: 'relative' , top: '20%', padding: '0 48px'}}>
             <form className="login-form">
               <div className="row">
                 <div className="input-field col s12 center">
@@ -87,15 +87,7 @@ class ResendEmailContainer extends Component {
             </form>
           </div>
         </div>
-
-
-
       </lbody>
-
-      
-
-
-
 </div>
     )
   }
