@@ -37,8 +37,8 @@ class NavBarWithLogo extends React.Component {
  render() {
     var link;
     var link2;
-    if(this.props.state.loginStatus){
-      link = <li onClick={() => this.logout()} style={{cursor: "pointer"}}>Logout</li>
+    if(this.props.state.logins.loginStatus){
+      link = <li onClick={() => this.logout()} style={{cursor: "pointer"}}>退出</li>
     }
     else{
       link = <li><Link to='/login'>登录</Link></li>

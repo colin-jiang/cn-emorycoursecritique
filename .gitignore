@@ -7,3 +7,5 @@ package-lock.json
 *hot-update.js
 *hot-update.json
 /.vscode
+prod_env.sh
+dev_env.sh

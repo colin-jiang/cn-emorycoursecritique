@@ -15,9 +15,9 @@ class FAQPageContainer extends Component {
           <NavBarWithLogo/>
         </div>
         <div className="container">
-          <div style={{height: "45px"}}></div>
+          <div style={{height: "45px"}} />
             <h2 className="center" style={{fontWeight: "300"}}>常见问题</h2>
-          <div style={{height: "45px"}}></div>
+          <div style={{height: "45px"}} />
           <div className="row">
             <div className="col s12 m10 offset-m1">
                 <ul className="collapsible" data-collapsible="accordion">
@@ -45,24 +45,22 @@ class FAQPageContainer extends Component {
                 </ul>
             </div>
           </div>
-          <div style={{height: "90px"}}></div>
+          <div style={{height: "90px"}} />
           </div>
         <div>
-
            <Footer/>
         </div>
     </div>
-    )
+    );
   }
-};
+}
 
 
 const mapStateToProps = (state) => {
   return{
     state
   }
-}
-
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
