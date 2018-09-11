@@ -22,7 +22,6 @@ class SignUpPageContainer extends Component {
   }
 
   updateFirstname(event){
-    console.log(this.state.firstname)
     this.setState({firstname: event.target.value});
   }
 
@@ -48,13 +47,19 @@ class SignUpPageContainer extends Component {
     switch (fieldName) {
       case "email":
       var emailStatus = this.checkEmail();
-      this.state.emailValid = (emailStatus.length == 0) ? true : false;
+      this.setState({
+        emailValid: emailStatus.length === 0 ? true : false
+      })
       fieldValidationErrors.Email = emailStatus;
+      this.setState({formErrors: fieldValidationErrors})
       break;
       case "password":
       var passwordStatus = this.checkPwd();
-      this.state.passwordValid = (passwordStatus.length == 0) ? true : false;
+      this.setState({
+        passwordValid: passwordStatus.length === 0 ? true : false
+      })
       fieldValidationErrors.Password = passwordStatus;
+      this.setState({formErrors: fieldValidationErrors})
       default:
       break;
     }
@@ -63,11 +68,12 @@ class SignUpPageContainer extends Component {
   checkEmail(){
     var str = this.state.email;
     var reg = /^[a-zA-Z0-9_.%+-]+@emory.edu$/
-    if (reg.test(str)){
-      return("")
+    if (reg.test(str)) {
+      return ("")
     }
     else{
       Materialize.toast('邮箱必须以“@emory.edu”结尾', 4000);
+      return "Error"
     }
   }
 
@@ -75,38 +81,40 @@ class SignUpPageContainer extends Component {
     var str = this.state.password;
     if (str.length < 6) {
       Materialize.toast('密码必须至少为六位', 4000);
-
+      return "Error";
     } else if (str.length > 50) {
       Materialize.toast('密码过长', 4000);
-    } else if (str.search(/\d/) == -1) {
+      return "Error";
+    } else if (str.search(/\d/) === -1) {
       Materialize.toast('密码必须至少包含一个数字', 4000);
-    } else if (str.search(/[a-zA-Z]/) == -1) {
+      return "Error";
+    } else if (str.search(/[a-zA-Z]/) === -1) {
       Materialize.toast('密码必须至少包含一个字母', 4000);
-
+      return "Error";
     } else if (str.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+\.\,\;\:]/) != -1) {
       Materialize.toast('密码中不能包含符号', 4000);
-
+      return "Error";
     }
     return("");
   }
 
-  signup() {
+  async signup() {
     if(!this.state.signUpBtnClicked){
-      this.setState({signUpBtnClicked:true});
+      this.setState({signUpBtnClicked: true});
     }
     else{
       return;
     }
-    this.validateFieldName("email")
-    this.validateFieldName("password")
+    await this.validateFieldName("email")
+    await this.validateFieldName("password")
 
     if (this.state.password !== this.state.repeated) {
       Materialize.toast("两次密码不一致", 4000);
     }
-    else if (!this.state.emailValid | !this.state.passwordValid){
+    else if (!this.state.emailValid || !this.state.passwordValid){
       for (var x in this.state.formErrors){
-        if(this.state.formErrors[x].length!=0){
-          Materialize.toast(x + this.state.formErrors[x], 4000);
+        if(this.state.formErrors[x].length !== 0){
+          Materialize.toast(x + this.state !== this.state.formErrors[x], 4000);
 
         }
       }
@@ -124,18 +132,16 @@ class SignUpPageContainer extends Component {
       })
 
       .then(function (response) {
-        console.log(this);
-        console.log(response);
         self.setState({success:true});
         self.props.history.push('/signup?success');
         // window.location.replace("/success");
       })
       .catch(function (error) {
-        console.log(error);
         Materialize.toast(error.response.data.message, 4000);
 
       });
     }
+    this.setState({signUpBtnClicked: false});
   }
 
   resend() {
@@ -148,7 +154,6 @@ class SignUpPageContainer extends Component {
       }
     })
     .then(function (response) {
-      console.log(response);
       Materialize.toast("确认邮件已发送至您的邮箱！", 4000);
 
       //self.props.history.push('/success')
@@ -160,7 +165,6 @@ class SignUpPageContainer extends Component {
   }
 
   componentWillMount() {
-    console.log()
     if(location.search.includes("success"))
     {
       this.setState({success:true});
