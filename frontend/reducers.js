@@ -10,10 +10,9 @@ const initFilters = {
     dept: deptArray
 }
 
-const filterUrl= {active:false,url:{}};
+const filterUrl = {active: false, url: {}};
 
 function logins(state, action) {
-
     console.log('Reducer State');
     console.log(state);
 
@@ -25,10 +24,23 @@ function logins(state, action) {
       return initialState
     }
 
+    // switch (action.type) {
+    //   case 'persist/REHYDRATE':
+    //     console.log("Rehydrate Action Type");
+    //     console.log(action.payload);
+    //     return Object.assign( {}, state, action.payload.logins);
+    //   case "login":
+    //     const token = state.loginStatus;
+    //   case "logout":
+    //
+    //   default:
+    //
+    // }
+
     switch (action.type) {
         case 'persist/REHYDRATE':
             console.log("Rehydrate Action Type");
-            console.log(action.payload);
+            console.log(action);
             return Object.assign( {}, state, action.payload.logins);
 
         case "login":

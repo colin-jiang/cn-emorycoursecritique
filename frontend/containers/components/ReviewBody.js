@@ -202,7 +202,6 @@ class ReviewBody extends React.Component {
       console.log(url);
     axios.get(url)
         .then(function (response) {
-          console.log(response);
           console.log(response.data);
           if(response.data===null)
           {
@@ -275,7 +274,7 @@ class ReviewBody extends React.Component {
         {
           if(this.state.ratings[i].overall===this.state.filterBy)
             cards.push(<ReviewCard overall={this.state.ratings[i].overall} difficulty={this.state.ratings[i].difficulty} workload={this.state.ratings[i].workload} comment={this.state.ratings[i].comment} rdate={this.state.ratings[i].rated_date} dvotes={this.state.ratings[i].downvotes} uvotes={this.state.ratings[i].upvotes} accent={this.state.ratings[i].prof_accent} attendance={this.state.ratings[i].attendance} curve={this.state.ratings[i].curve} id={this.state.ratings[i]._id} onUpdate={this.onUpdate} index={i} key={i}/>);
-        } 
+        }
       }
       console.log(overalldist);
       console.log(difficultydist);

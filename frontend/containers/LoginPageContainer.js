@@ -21,6 +21,7 @@ class LoginPageContainer extends React.Component {
 
 
   updateLogin() {
+
     this.props.loginState();
   }
 
@@ -79,8 +80,6 @@ class LoginPageContainer extends React.Component {
 
   }
   render() {
-
-
     return(
       <div onKeyDown={this.inputListener}>
       <div className = "header">

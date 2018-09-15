@@ -148,25 +148,27 @@ class ReviewCard extends React.Component {
       ratingColor = "green-text text-darken-1";
     }
 
-    var accent = this.props.accent;
-    var accentColor = "grey-text";
-    if(!accent){
-        accent = "N/A";
-    }else if(accent > 4){ //its pretty good accent
-      accent = accent;
-      accentColor = "red-text text-lighten-1";
-
-    }else if(accent > 3){ //meh accent
-      accent = accent;
-      accentColor = "orange-text";
-    }else if(accent > 2){ //garbo accent
-      accent = accent;
-      accentColor = "light-green-text";
-    }
-    else{ //disgusting
-      accent = accent;
-      accentColor = "green-text text-darken-1";
-    }
+    var accent;
+    if (this.props.accent) accent = "有";
+    else accent = "没有"
+    // var accentColor = "grey-text";
+    // if(!accent){
+    //     accent = "N/A";
+    // }else if(accent > 4){ //its pretty good accent
+    //   accent = accent;
+    //   accentColor = "red-text text-lighten-1";
+    //
+    // }else if(accent > 3){ //meh accent
+    //   accent = accent;
+    //   accentColor = "orange-text";
+    // }else if(accent > 2){ //garbo accent
+    //   accent = accent;
+    //   accentColor = "light-green-text";
+    // }
+    // else{ //disgusting
+    //   accent = accent;
+    //   accentColor = "green-text text-darken-1";
+    // }
 
 
     //var date= this.props.rdate.toString();
@@ -227,7 +229,7 @@ class ReviewCard extends React.Component {
           课业负担: <span style={{
             fontWeight: 400,
             fontSize: "1.3rem"
-          }}className={workloadRatingColor}> {workloadRating}</span>
+          }} className={workloadRatingColor}> {workloadRating}</span>
         </span>{" "}
         <br />
         <span
@@ -239,7 +241,9 @@ class ReviewCard extends React.Component {
           口音: <span style={{
             fontWeight: 400,
             fontSize: "1.3rem"
-          }}className={accentColor}> {accent}</span>
+          }}
+          // className={accentColor}
+          > {accent}</span>
 
         </span>
         <br />
@@ -268,7 +272,7 @@ class ReviewCard extends React.Component {
         <div className="col s12 m7">
          <div style={{overflow:"hidden"}}>
           <p style={{fontSize: "1.1rem", fontWeight: "300", float:"left", marginBottom:0}}>Attendance: {attendance}</p>
-          <p style={{fontSize: "1.1rem", fontWeight: "300", float:"right", marginBottom:0}}>Curved: {curve}</p>         
+          <p style={{fontSize: "1.1rem", fontWeight: "300", float:"right", marginBottom:0}}>Curved: {curve}</p>
          </div>
          <p style={{fontSize: "1.1rem", fontWeight: "300"}}></p>
           <blockquote style={{fontSize: "1.0rem", overflowWrap: "break-word"}}>{this.props.comment}</blockquote>
