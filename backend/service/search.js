@@ -132,7 +132,8 @@ module.exports = function(req, res,next) {
 
         {"$addFields": {
             "course_avg_overall": {"$avg": "$sections.average_overall"}
-        }},
+        }}
+        ,
         sort
 
         ]).exec((err, profs) => {

@@ -15,9 +15,9 @@ module.exports = function(req,res,next){
     var overall_rating = req.body.overall_rating;
     var workload_rating = req.body.workload_rating;
     var comment = req.body.comment;
-    var attendence=req.body.attendence_rating;
-    var curve=req.body.curve
-    var accent=req.body.accent_rating;
+    var attendence=req.body.attendence_rating==='true';
+    var curve=req.body.curve_rating==='true';
+    var accent=req.body.accent_rating==='true';
 
     var user_id=(req.user);
     if(!user_id){
@@ -64,11 +64,11 @@ module.exports = function(req,res,next){
                     this_rating.total_workload+=workload_rating;
                     this_rating.total_overall+=overall_rating;
                     this_rating.total_difficulty+=difficulty_rating;
-                    if(isNaN(this_rating.prof_accent)){
-                      this_rating.prof_accent=accent;
+                    if(accent){
+                      this_rating.prof_accent_yes++;
                     }
                     else{
-                      this_rating.prof_accent+=accent;
+                      this_rating.prof_accent_no++;
                     }
                     this_critique.save();
                     this_rating.ratings.push(new mongoose.mongo.ObjectId(this_critique._id));
@@ -85,8 +85,15 @@ module.exports = function(req,res,next){
                 total_workload:workload_rating,
                 total_overall:overall_rating,
                 total_difficulty:difficulty_rating,
-                prof_accent:accent
+                prof_accent_no:0,
+                prof_accent_yes:0
                 });
+            if(accent){
+              new_rating.prof_accent_yes++;
+            }
+            else{
+              new_rating.prof_accent_no++;
+            }
             this_critique.save();
             new_rating.ratings.push(new mongoose.mongo.ObjectId(this_critique._id));
             new_rating.save(function(err){

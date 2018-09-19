@@ -79,7 +79,7 @@ class RatePageContainer extends Component {
     }
 
     submitReview() {
-      if(this.state.difficulty !== 0 && this.state.overall !== 0 && this.state.workload !== 0 && this.state.accent)
+      if(this.state.difficulty !== 0 && this.state.overall !== 0 && this.state.workload !== 0)
       {
           // Send a POST request
           axios({
@@ -98,7 +98,7 @@ class RatePageContainer extends Component {
             }
           })
           .then(function (response) {
-            console.log(response, response.json());
+            console.log(response, response.status);
                if(response.data.message){
                   Materialize.toast(response.data.message, 4000);
 

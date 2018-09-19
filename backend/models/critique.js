@@ -5,7 +5,7 @@ var critiqueSchema=new Schema({
       difficulty:Number,
       overall: Number,
       workload:Number,
-      prof_accent:Number,
+      prof_accent:Boolean,
       attendence:Boolean,
       curve:Boolean,
       comment:String,

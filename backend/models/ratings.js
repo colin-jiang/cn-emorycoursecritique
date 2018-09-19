@@ -6,7 +6,8 @@ var ratingSchema=new Schema({
   prof_id:{type:String,required:true},
   rating_count: Number,
   total_difficulty:Number,
-  prof_accent: Number,
+  prof_accent_yes: Number,
+  prof_accent_no:Number,
   total_overall:Number,
   total_workload:Number,
   ratings: [{type:Schema.Types.ObjectId, ref: 'critique'}]
