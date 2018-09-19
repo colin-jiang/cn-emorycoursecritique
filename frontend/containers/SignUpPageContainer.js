@@ -160,7 +160,6 @@ class SignUpPageContainer extends Component {
   }
 
   componentWillMount() {
-    console.log()
     if(location.search.includes("success"))
     {
       this.setState({success:true});

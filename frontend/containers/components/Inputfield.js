@@ -37,7 +37,8 @@ class Inputfield extends React.Component {
       if(this.props.state.filters.active)
       {
         var parsed = querystring.parse(this.props.state.filters.url.replace("?",""));
-        parsed["q"] = this.state.inputValue;
+        parsed["q"] = this.state.inputValue.replace("-"," ");
+
         url = '/search?'+querystring.stringify(parsed);
       }
       else

@@ -29,12 +29,13 @@ module.exports=function(req,res,next){
     
     Course.find().then(function(courses) {
       courses.forEach(function(course) {
-        console.log(course.keywords[2]+' '+course.keywords[1]);
         course.keywords.push(course.keywords[2]+' '+course.keywords[1]);
         course.keywords.push(course.course_num.replace( /[^\d.]/g, '' ))
-        console.log(course.keywords);
+        var set=new Set(course.keywords);
+        course.keywords=Array.from(set);
         course.save();
       });
+      console.log('course done')
     });
     
     //WARNING: MESSING WITH DB
@@ -43,10 +44,16 @@ module.exports=function(req,res,next){
 
         prof_name=course.name.replace(',','');
         course.keywords.push(prof_name);
-        course.keywords.shift();
+        course.keywords.push(prof_name.replace('-',' '));
+        course.keywords.push(prof_name.split(' ')[0]);
+        course.keywords.push(prof_name.split(' ')[1]);
+        var set=new Set(course.keywords);
+        course.keywords=Array.from(set);
         console.log(course.keywords);
         course.save();
       });
+      console.log('prof done')
     });
     res.json();
+    console.log('done');
 }

@@ -58,7 +58,6 @@ class LoginPageContainer extends React.Component {
           }
           if(self.state.returnPage){
             self.props.history.push(self.state.returnPage);
-            // window.location.href(returnPage)
             return;
           }
           if(response.data.redirectUrl&&!self.props.history.location.key){
