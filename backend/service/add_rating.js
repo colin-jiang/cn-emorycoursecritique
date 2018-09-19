@@ -8,6 +8,7 @@ var critique=require(path.join(__dirname,'..','/models/critique.js'));
 const mongoose = require('mongoose');
 
 module.exports = function(req,res,next){
+    console.log(req.body);
     var class_id = req.body.class_id;
     var prof_id = req.body.prof_id;
     var difficulty_rating = req.body.difficulty_rating;
@@ -49,7 +50,7 @@ module.exports = function(req,res,next){
           rated_date:new Date(),
           upvotes:0,
           downvotes:0,
-          prof_accent:Number(accent),
+          prof_accent:Boolean(accent),
           curve:Boolean(curve),
           attendence:Boolean(attendence)
           });
@@ -84,7 +85,7 @@ module.exports = function(req,res,next){
                 total_workload:workload_rating,
                 total_overall:overall_rating,
                 total_difficulty:difficulty_rating,
-                prof_accent:prof_accent
+                prof_accent:accent
                 });
             this_critique.save();
             new_rating.ratings.push(new mongoose.mongo.ObjectId(this_critique._id));

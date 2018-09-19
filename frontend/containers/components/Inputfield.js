@@ -78,7 +78,7 @@ class Inputfield extends React.Component {
            $.each( items, function( index, item ) {
              var li;
              if ( item.category != currentCategory ) {
-               ul.append( "<li class='ui-autocomplete-category'>" + dict[item.category] + "</li>" );
+               ul.append( "<li class='ui-autocomplete-category'>" + dict[item.category]+ "</li>" );
                currentCategory = item.category;
              }
              li = that._renderItemData( ul, item );

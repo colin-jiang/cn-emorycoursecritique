@@ -37,8 +37,8 @@ class NavBarWithLogo extends React.Component {
  render() {
     var link;
     var link2;
-    if(this.props.state.loginStatus){
-      link = <li onClick={() => this.logout()} style={{cursor: "pointer"}}>Logout</li>
+    if(this.props.state.logins.loginStatus){
+      link = <li onClick={() => this.logout()} style={{cursor: "pointer"}}>退出</li>
     }
     else{
       link = <li><Link to='/login'>登录</Link></li>
@@ -52,6 +52,7 @@ class NavBarWithLogo extends React.Component {
             <a href="/" className="left hide-on-med-and-up" style={{fontSize: "1.7rem"}}><img className="responsive-img" src="imgs/emory-shield-white.png" style={{display: "inline" ,height: "50px", paddingTop: "10px", paddingLeft: "20px"}}/><span className="logoNavBarWithLogo hide-on-small-only">Emory教授说</span></a>
 
             <ul id="nav-mobile" className="right">
+              <li style={{marginRight: "20px"}}><Link to="/">主页</Link></li>
               {link}
               {link2}
               <li><a href="collapsible.html"></a></li>

@@ -14,7 +14,7 @@ class RatePageContainer extends Component {
         difficulty: 0.0,
         overall: 0.0,
         workload: 0.0,
-        accent: 0.0,
+        accent: null,
         attendance: null,
         curve: null
       }
@@ -67,7 +67,7 @@ class RatePageContainer extends Component {
     }
 
     setAccent(event){
-      this.setState({accent: parseInt(event.target.value)});
+      this.setState({accent: event.target.value});
     }
 
     setAttendance(event){
@@ -79,7 +79,7 @@ class RatePageContainer extends Component {
     }
 
     submitReview() {
-      if(this.state.difficulty!=0 && this.state.overall!=0 && this.state.workload!=0 && this.state.accent!=0)
+      if(this.state.difficulty !== 0 && this.state.overall !== 0 && this.state.workload !== 0 && this.state.accent)
       {
           // Send a POST request
           axios({
@@ -98,7 +98,7 @@ class RatePageContainer extends Component {
             }
           })
           .then(function (response) {
-            console.log(response.status);
+            console.log(response, response.json());
                if(response.data.message){
                   Materialize.toast(response.data.message, 4000);
 
@@ -122,7 +122,7 @@ class RatePageContainer extends Component {
     }
 
 render() {
-
+  console.log(this.state, this.state.accent === true);
   var titleurl='/rating'+location.search;
 
   const overallRating = (newRating) => {
@@ -141,7 +141,7 @@ render() {
      <div>
 
      <div className = "header">
-         <Link to={titleurl} className = "header-title" style={{color: '#FFD700'}}> <span className = "header-title-emory">Emory</span> Course Critique </Link>
+         <Link to={titleurl} className = "header-title" style={{color: '#FFD700'}}> <span className = "header-title-emory">Emory</span>教授说</Link>
      </div>
        <lbody>
          <div id="login-page" className="row">
@@ -154,8 +154,8 @@ render() {
 
                    <div className = "ratingFactor">
                      <span>整体评分</span>
-                     <div className = "center" style={{position:"relative"}}><ReactStars style={{margin:"0 auto", width:"26%"}}
-                       count={5}
+                     <div style={{position:"centered"}}><ReactStars style={{margin:"0 auto", width:"26%", float:"left"}}
+                       count={10}
                        value={this.state.overall}
                        onChange={overallRating}
                        size={24}
@@ -215,20 +215,12 @@ render() {
                      <span>口音</span>
                      <div className="center" onChange={this.setAccent} style={{}}>
 
-                       <input className="width-gap" type="radio" name="group3" id="11" value="1"/>
-                       <label className="labelOverride" htmlFor="11" style={{marginLeft: "0"}}>1</label>
+                       <input className="width-gap" type="radio" name="group3" id="11" value={true}/>
+                       <label className="labelOverride" htmlFor="11" style={{marginLeft: "0"}}>有</label>
 
-                       <input className="width-gap" type="radio" name="group3" id="12" value="2"/>
-                       <label className="labelOverride" htmlFor="12">2</label>
+                       <input className="width-gap" type="radio" name="group3" id="12" value={false}/>
+                       <label className="labelOverride" htmlFor="12">没有</label>
 
-                       <input className="width-gap" type="radio" name="group3" id="13" value="3"/>
-                       <label className="labelOverride" htmlFor="13">3</label>
-
-                       <input className="width-gap" type="radio" name="group3" id="14" value="4"/>
-                       <label className="labelOverride" htmlFor="14">4</label>
-
-                       <input className="width-gap" type="radio" name="group3" id="15" value="5"/>
-                       <label className="labelOverride" htmlFor="15">5</label>
                      </div>
                    </div>
 

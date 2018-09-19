@@ -5,10 +5,11 @@ import NavBarWithLogo from "./components/NavBarWithLogo";
 
 class AboutPageContainer extends Component {
   constructor(props) {
-    super(props)
-    console.log(props);
+    super(props);
   }
+
   render() {
+    console.log("---------------------------------");
     return(
      <div>
         <div style={{backgroundColor: "#002978", height: "64px"}}>
@@ -38,28 +39,27 @@ class AboutPageContainer extends Component {
             <div className="col s12 m4 l4 marginCol">
               <img src="https://i.pinimg.com/originals/b4/52/2e/b4522e62359b306c80283c3a057f7c66.jpg" alt="" className="circle responsive-img aboutPics"/>
               <p className="center aboutName">Justin Luo<br/> <span className="aboutJob">Designer</span></p>
-         
+
             </div>
              <div className="col s12 m4 l4 marginCol">
               <img src="https://preview.ibb.co/k4D3Zb/poro.jpg" alt="" className="circle responsive-img aboutPics" style={{width: "145px"}}/>
               <p className="center aboutName">Antonio Chan<br/> <span className="aboutJob">Frontend Man</span></p>
-           
+
             </div>
              <div className="col s12 m4 l4 marginCol">
-              <img src="https://image.ibb.co/eUufxw/matt.jpg" alt="" className="circle responsive-img aboutPics" style={{width: "145px", height:"145px"}}/>
+              <img src="https://image.ibb.co/eUufxw/matt.jpg" alt="" className="circle responsive-img aboutPics" style={{width: "145px", height: "145px"}}/>
               <p className="center aboutName">Matt Ulmer<br/> <span className="aboutJob">Frontend Man</span></p>
-           
             </div>
           </div>
         </div>
-        <div style={{height: "45px"}}></div>
+        <div style={{height: "45px"}} />
         <div>
            <Footer/>
         </div>
     </div>
-    )
+    );
   }
-};
+}
 
 
 const mapStateToProps = (state) => {

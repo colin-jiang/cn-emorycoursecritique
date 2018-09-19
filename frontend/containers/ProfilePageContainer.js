@@ -6,17 +6,14 @@ import SearchNavBar from "./components/SearchNavBar";
 
 class ProfilePageContainer extends Component {
   render() {
-
     return(
-
       <div >
         <SearchNavBar/>
         <ProfileBody />
-
       </div>
-    )
+    );
   }
-};
+}
 
 const mapStateToProps = (state) => {
   return{

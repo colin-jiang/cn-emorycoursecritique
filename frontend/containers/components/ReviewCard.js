@@ -15,7 +15,7 @@ class ReviewCard extends React.Component {
   }
 
   uClick() {
-    
+
     // Send a POST request
     var self=this;
           axios({
@@ -27,8 +27,8 @@ class ReviewCard extends React.Component {
           })
           .then(function (response) {
             console.log(response);
-               
-    
+
+
       //self.setState({upvotes: response.data.upvotes, downvotes: response.data.downvotes});
       console.log(self.state.upvotes);
       //self.props.onUpdate(self.props.index,self.state.upvotes,self.state.downvotes);
@@ -37,11 +37,11 @@ class ReviewCard extends React.Component {
           })
           .catch(function (error) {
             //console.log(error.response.data.message);
-            
+
             Materialize.toast(error.response.data.message, 4000);
           });
-    
-    
+
+
   }
 
   dClick() {
@@ -57,20 +57,20 @@ class ReviewCard extends React.Component {
           .then(function (response) {
             console.log(response);
 
-    
+
       //self.setState({upvotes: response.data.upvotes, downvotes: response.data.downvotes});
       console.log(self.state.upvotes);
       //self.props.onUpdate(self.props.index,self.state.upvotes,self.state.downvotes);
       self.props.onUpdate(self.props.index,response.data.upvotes,response.data.downvotes);
-    
+
           })
           .catch(function (error) {
             //console.log(error.response.data.message);
-            
+
             Materialize.toast(error.response.data.message, 4000);
           });
-    
-    
+
+
   }
 /*
   componentWillMount() {
@@ -148,25 +148,27 @@ class ReviewCard extends React.Component {
       ratingColor = "green-text text-darken-1";
     }
 
-    var accent = this.props.accent;
-    var accentColor = "grey-text";
-    if(!accent){
-        accent = "N/A";
-    }else if(accent > 4){ //its pretty good accent
-      accent = accent;
-      accentColor = "red-text text-lighten-1";
-
-    }else if(accent > 3){ //meh accent
-      accent = accent;
-      accentColor = "orange-text";
-    }else if(accent > 2){ //garbo accent
-      accent = accent;
-      accentColor = "light-green-text";
-    }
-    else{ //disgusting
-      accent = accent;
-      accentColor = "green-text text-darken-1";
-    }
+    var accent;
+    if (this.props.accent) accent = "有";
+    else accent = "没有"
+    // var accentColor = "grey-text";
+    // if(!accent){
+    //     accent = "N/A";
+    // }else if(accent > 4){ //its pretty good accent
+    //   accent = accent;
+    //   accentColor = "red-text text-lighten-1";
+    //
+    // }else if(accent > 3){ //meh accent
+    //   accent = accent;
+    //   accentColor = "orange-text";
+    // }else if(accent > 2){ //garbo accent
+    //   accent = accent;
+    //   accentColor = "light-green-text";
+    // }
+    // else{ //disgusting
+    //   accent = accent;
+    //   accentColor = "green-text text-darken-1";
+    // }
 
 
     //var date= this.props.rdate.toString();
@@ -189,45 +191,45 @@ class ReviewCard extends React.Component {
       curve= "Yes"
     else
       curve= "No"
-    
+
 
     return (
       <div className="card-panel nohover2 white black-text row" style={{position: "relative"}} >
         <div className="col s6 m3">
         <h5 style={{
             }}>
-          Rating:
+          整体评分:
             {'\u00A0'}<span className={ratingColor}
             style={{
               color: "#d18e01"
             }}
           >
-            {rating} 
-          </span> 
+            {rating}
+          </span>
         </h5>
-        
+
         <span
           style={{
-            fontWeight: 400,  
+            fontWeight: 400,
             fontSize: "1.25rem"
           }}
         >
-          Difficulty:<span style={{
-            fontWeight: 400,  
-            fontSize: "1.4rem"
+          整体难度:<span style={{
+            fontWeight: 400,
+            fontSize: "1.3rem"
           }} className={difficultyRatingColor}> {difficultyRating}</span>
         </span>{" "}
         <br />
-        <span 
+        <span
           style={{
             fontWeight: 400,
             fontSize: "1.25rem"
           }}
         >
-          Workload: <span style={{
-            fontWeight: 400,  
+          课业负担: <span style={{
+            fontWeight: 400,
             fontSize: "1.3rem"
-          }}className={workloadRatingColor}> {workloadRating}</span>
+          }} className={workloadRatingColor}> {workloadRating}</span>
         </span>{" "}
         <br />
         <span
@@ -236,10 +238,12 @@ class ReviewCard extends React.Component {
             fontSize: "1.25rem"
           }}
         >
-          Accent: <span style={{
-            fontWeight: 400,  
+          口音: <span style={{
+            fontWeight: 400,
             fontSize: "1.3rem"
-          }}className={accentColor}> {accent}</span>
+          }}
+          // className={accentColor}
+          > {accent}</span>
 
         </span>
         <br />
@@ -252,7 +256,7 @@ class ReviewCard extends React.Component {
           {dateformat}
 
         </span>
-       
+
         </div>
         <div className="col s6 hide-on-med-and-up" style={{position: "absolute", top: "24px", right: "24px"}}>
         <div className="right">
@@ -268,7 +272,7 @@ class ReviewCard extends React.Component {
         <div className="col s12 m7">
          <div style={{overflow:"hidden"}}>
           <p style={{fontSize: "1.1rem", fontWeight: "300", float:"left", marginBottom:0}}>Attendance: {attendance}</p>
-          <p style={{fontSize: "1.1rem", fontWeight: "300", float:"right", marginBottom:0}}>Curved: {curve}</p>         
+          <p style={{fontSize: "1.1rem", fontWeight: "300", float:"right", marginBottom:0}}>Curved: {curve}</p>
          </div>
          <p style={{fontSize: "1.1rem", fontWeight: "300"}}></p>
           <blockquote style={{fontSize: "1.0rem", overflowWrap: "break-word"}}>{this.props.comment}</blockquote>
@@ -276,7 +280,7 @@ class ReviewCard extends React.Component {
         </div>
         <div className="col s1"></div>
         <div className="hide-on-small-only" style={{position: "absolute", bottom: "24px", right: "24px"}}>
-          <p style={{fontSize: "0.8rem", fontWeight: "300"}}>{'\u00A0'}Was this helpful?</p>
+          <p style={{fontSize: "0.8rem", fontWeight: "300"}}>{'\u00A0'}你觉得这条评价有用吗?</p>
           <a className="noSelect" onClick={this.uClick} onMouseOver="" style={{
               color: "#002a78", cursor:'pointer',  position: "relative", left: "12px"
             }}><i className="material-icons prefix green-text text-darken-1">thumb_up</i>{this.props.uvotes}</a>
@@ -285,7 +289,7 @@ class ReviewCard extends React.Component {
             }}><i className="material-icons prefix red-text text-lighten-2">thumb_down</i>{this.props.dvotes}</a>
           </div>
 
-    
+
       </div>
     );
   }

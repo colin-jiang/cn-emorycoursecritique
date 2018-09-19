@@ -35,6 +35,7 @@ class NavBar extends React.Component {
   }
 
  render() {
+   console.log("NavBar ----------------------------")
     var link;
     var link2;
     if(this.props.state.logins.loginStatus){
