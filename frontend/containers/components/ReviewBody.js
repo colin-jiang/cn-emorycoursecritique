@@ -282,62 +282,56 @@ class ReviewBody extends React.Component {
 
 
 
-      //rating review
-      var rating = (this.state.total_overall/this.state.count).toFixed(2);
+      // rating review
+      var rating = (this.state.total_overall / this.state.count).toFixed(2);
       var ratingColor = "grey-text";
-      if(rating === null || rating == "NaN"){
+      if (rating === null || rating === "NaN") {
           rating = "N/A";
-      }else if(rating > 4){ //its pretty good rating
+      } else if (rating > 8) { // its pretty good rating
         ratingColor = "green-text";
-
-      }else if(rating > 3){ //meh rating
+      } else if (rating > 5) { // meh rating
         ratingColor = "light-green-text";
-      }else if(rating > 2){ //garbo rating
+      } else if (rating > 2) { // garbo rating
         ratingColor = "orange-text";
-      }
-      else{ //disgusting
+      } else{ // disgusting
         ratingColor = "red-text text-lighten-1";
       }
 
 
-      //rating workload review
-      var ratingWorkload = (this.state.total_workload/this.state.count).toFixed(2);
+      // rating workload review
+      var ratingWorkload = (this.state.total_workload / this.state.count).toFixed(2);
       var ratingWorkloadColor = "grey-text";
-      if(ratingWorkload === null || ratingWorkload == "NaN"){
+      if(ratingWorkload === null || ratingWorkload === "NaN"){
           ratingWorkload = "N/A";
-      }else if(ratingWorkload > 4){ //its pretty good ratingWorkload
+      } else if (ratingWorkload > 8) { // its pretty good ratingWorkload
         ratingWorkloadColor = "red-text text-lighten-1";
-
-      }else if(ratingWorkload > 3){ //meh ratingWorkload
+      } else if (ratingWorkload > 5) { // meh ratingWorkload
         ratingWorkloadColor = "orange-text";
-      }else if(ratingWorkload > 2){ //garbo ratingWorkload
+      } else if (ratingWorkload > 2) { // garbo ratingWorkload
         ratingWorkloadColor = "light-green-text";
-      }
-      else{ //disgusting
+      } else{ // disgusting
         ratingWorkloadColor = "green-text";
       }
       console.log(this.state.count);
       var counter = this.state.count;
-       //rating difficulty review
-      var ratingDifficulty = (this.state.total_difficulty/this.state.count).toFixed(2);
+       // rating difficulty review
+      var ratingDifficulty = (this.state.total_difficulty / this.state.count).toFixed(2);
       var ratingDifficultyColor = "grey-text";
-      if(ratingDifficulty === null || ratingDifficulty == "NaN"){
+      if(ratingDifficulty === null || ratingDifficulty === "NaN"){
           ratingDifficulty = "N/A";
-      }else if(ratingDifficulty > 4){ //its pretty good ratingDifficulty
+      } else if (ratingDifficulty > 8) { // its pretty good ratingDifficulty
         ratingDifficultyColor = "red-text text-lighten-1";
-
-      }else if(ratingDifficulty > 3){ //meh ratingDifficulty
+      } else if (ratingDifficulty > 5) { // meh ratingDifficulty
         ratingDifficultyColor = "orange-text";
-      }else if(ratingDifficulty > 2){ //garbo ratingDifficulty
+      } else if (ratingDifficulty > 2) { // garbo ratingDifficulty
         ratingDifficultyColor = "light-green-text";
-      }
-      else{ //disgusting
+      } else { // disgusting
         ratingDifficultyColor = "green-text";
       }
 
 
       console.log("rating workload: "  +  ratingWorkload)
-          console.log("rating difficulty: "  +  ratingDifficulty);
+      console.log("rating difficulty: "  +  ratingDifficulty);
     return (
 
       <rbody >

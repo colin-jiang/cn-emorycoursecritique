@@ -7,10 +7,10 @@ class Card extends React.Component {
     super(props)
     this.state = {
       ratings: []
-      
+
     }
     this.onClick = this.onClick.bind(this);
-    
+
   }
 
   onClick() {
@@ -19,34 +19,32 @@ class Card extends React.Component {
     pname=pname.replace(", ","_");
     console.log(pname);
     var querystring = require('querystring');
-        
+
         var url2 = '/rating?'+querystring.stringify({
             course: this.props.cnum,
             prof: pname
         });
-            window.location.href = url2;  
-           //this.props.history.push(url2);     
+            window.location.href = url2;
+           //this.props.history.push(url2);
   }
 
-  
+
 
   render() {
     var rating = 0;
     var ratingColor = "grey-text";
     if(this.props.rating === null || this.props.rating == "NaN" || this.props.rating==0){
         rating = "N/A";
-    }else if(this.props.rating > 4){ //its pretty good rating
+    } else if (this.props.rating > 8) { // its pretty good rating
       rating = this.props.rating;
       ratingColor = "green-text";
-
-    }else if(this.props.rating > 3){ //meh rating
+    } else if (this.props.rating > 5) { // meh rating
       rating = this.props.rating;
       ratingColor = "light-green-text";
-    }else if(this.props.rating > 2){ //garbo rating
+    } else if (this.props.rating > 2) { // garbo rating
       rating = this.props.rating;
       ratingColor = "orange-text";
-    }
-    else{ //disgusting
+    } else{ // disgusting
       rating = this.props.rating;
       ratingColor = "red-text text-lighten-1";
     }

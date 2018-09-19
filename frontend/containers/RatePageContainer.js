@@ -79,7 +79,7 @@ class RatePageContainer extends Component {
     }
 
     submitReview() {
-      if(this.state.difficulty !== 0 && this.state.overall !== 0 && this.state.workload !== 0)
+      if(this.state.difficulty !== 0 && this.state.overall !== 0 && this.state.workload !== 0 && this.state.accent)
       {
           // Send a POST request
           axios({
@@ -98,7 +98,6 @@ class RatePageContainer extends Component {
             }
           })
           .then(function (response) {
-            console.log(response, response.status);
                if(response.data.message){
                   Materialize.toast(response.data.message, 4000);
 
@@ -111,7 +110,7 @@ class RatePageContainer extends Component {
                //}
           })
           .catch(function (error) {
-            console.log(error.response.data.message);
+            console.log(error);
           });
       }
       else
@@ -122,7 +121,6 @@ class RatePageContainer extends Component {
     }
 
 render() {
-  console.log(this.state, this.state.accent === true);
   var titleurl='/rating'+location.search;
 
   const overallRating = (newRating) => {
@@ -183,6 +181,21 @@ render() {
 
                        <input className="width-gap" type="radio" name="group1" id="5" value="5"/>
                        <label className="labelOverride" htmlFor="5">5</label>
+
+                       <input className="width-gap" type="radio" name="group1" id="6" value="6"/>
+                       <label className="labelOverride" htmlFor="6">6</label>
+
+                       <input className="width-gap" type="radio" name="group1" id="7" value="7"/>
+                       <label className="labelOverride" htmlFor="7">7</label>
+
+                       <input className="width-gap" type="radio" name="group1" id="8" value="8"/>
+                       <label className="labelOverride" htmlFor="8">8</label>
+
+                       <input className="width-gap" type="radio" name="group1" id="9" value="9"/>
+                       <label className="labelOverride" htmlFor="9">9</label>
+
+                       <input className="width-gap" type="radio" name="group1" id="10" value="10"/>
+                       <label className="labelOverride" htmlFor="10">10</label>
                      </div>
                    </div>
 
@@ -192,20 +205,35 @@ render() {
                      <span>拿A难度</span>
                      <div className="center" onChange={this.setDifficulty} style={{}}>
 
-                       <input className="width-gap" type="radio" name="group2" id="6" value="1"/>
-                       <label className="labelOverride" htmlFor="6" style={{marginLeft: "0"}}>1</label>
+                       <input className="width-gap" type="radio" name="group2" id="11" value="1"/>
+                       <label className="labelOverride" htmlFor="11" style={{marginLeft: "0"}}>1</label>
 
-                       <input className="width-gap" type="radio" name="group2" id="7" value="2"/>
-                       <label className="labelOverride" htmlFor="7">2</label>
+                       <input className="width-gap" type="radio" name="group2" id="12" value="2"/>
+                       <label className="labelOverride" htmlFor="12">2</label>
 
-                       <input className="width-gap" type="radio" name="group2" id="8" value="3"/>
-                       <label className="labelOverride" htmlFor="8">3</label>
+                       <input className="width-gap" type="radio" name="group2" id="13" value="3"/>
+                       <label className="labelOverride" htmlFor="13">3</label>
 
-                       <input className="width-gap" type="radio" name="group2" id="9" value="4"/>
-                       <label className="labelOverride" htmlFor="9">4</label>
+                       <input className="width-gap" type="radio" name="group2" id="14" value="4"/>
+                       <label className="labelOverride" htmlFor="14">4</label>
 
-                       <input className="width-gap" type="radio" name="group2" id="10" value="5"/>
-                       <label className="labelOverride" htmlFor="10">5</label>
+                       <input className="width-gap" type="radio" name="group2" id="15" value="5"/>
+                       <label className="labelOverride" htmlFor="15">5</label>
+
+                       <input className="width-gap" type="radio" name="group2" id="16" value="6"/>
+                       <label className="labelOverride" htmlFor="16">6</label>
+
+                       <input className="width-gap" type="radio" name="group2" id="17" value="7"/>
+                       <label className="labelOverride" htmlFor="17">7</label>
+
+                       <input className="width-gap" type="radio" name="group2" id="18" value="8"/>
+                       <label className="labelOverride" htmlFor="18">8</label>
+
+                       <input className="width-gap" type="radio" name="group2" id="19" value="9"/>
+                       <label className="labelOverride" htmlFor="19">9</label>
+
+                       <input className="width-gap" type="radio" name="group2" id="20" value="10"/>
+                       <label className="labelOverride" htmlFor="20">10</label>
                      </div>
                   </div>
 
@@ -215,11 +243,11 @@ render() {
                      <span>口音</span>
                      <div className="center" onChange={this.setAccent} style={{}}>
 
-                       <input className="width-gap" type="radio" name="group3" id="11" value={true}/>
-                       <label className="labelOverride" htmlFor="11" style={{marginLeft: "0"}}>有</label>
+                       <input className="width-gap" type="radio" name="group3" id="21" value={true}/>
+                       <label className="labelOverride" htmlFor="21" style={{marginLeft: "0"}}>有</label>
 
-                       <input className="width-gap" type="radio" name="group3" id="12" value={false}/>
-                       <label className="labelOverride" htmlFor="12">没有</label>
+                       <input className="width-gap" type="radio" name="group3" id="22" value={false}/>
+                       <label className="labelOverride" htmlFor="22">没有</label>
 
                      </div>
                    </div>
@@ -229,11 +257,11 @@ render() {
                    <div className = "ratingFactor">
                      <span>记不记考勤</span>
                      <div className="center" onChange={this.setAttendance} style={{}}>
-                       <input className="width-gap" type="radio" name="group4" id="16" value={true}/>
-                       <label className="labelOverride" htmlFor="16" style={{marginLeft: "0"}}>记</label>
+                       <input className="width-gap" type="radio" name="group4" id="23" value={true}/>
+                       <label className="labelOverride" htmlFor="23" style={{marginLeft: "0"}}>记</label>
 
-                       <input className="width-gap" type="radio" name="group4" id="17" value={false}/>
-                       <label className="labelOverride" htmlFor="17">不记</label>
+                       <input className="width-gap" type="radio" name="group4" id="24" value={false}/>
+                       <label className="labelOverride" htmlFor="24">不记</label>
                      </div>
                    </div>
 
@@ -242,11 +270,11 @@ render() {
                    <div className = "ratingFactor">
                      <span>给不给Curve</span>
                      <div className="center" onChange={this.setCurve} style={{}}>
-                       <input className="width-gap" type="radio" name="group5" id="18" value={true}/>
-                       <label className="labelOverride" htmlFor="18" style={{marginLeft: "0"}}>给</label>
+                       <input className="width-gap" type="radio" name="group5" id="25" value={true}/>
+                       <label className="labelOverride" htmlFor="25" style={{marginLeft: "0"}}>给</label>
 
-                       <input className="width-gap" type="radio" name="group5" id="19" value={false}/>
-                       <label className="labelOverride" htmlFor="19">不给</label>
+                       <input className="width-gap" type="radio" name="group5" id="26" value={false}/>
+                       <label className="labelOverride" htmlFor="26">不给</label>
                      </div>
                    </div>
                </div>

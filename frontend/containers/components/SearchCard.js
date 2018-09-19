@@ -75,20 +75,18 @@ class SearchCard extends React.Component {
 
     var rating = 0;
     var ratingColor = "grey-text";
-    if(this.props.rating === null || this.props.rating == "NaN" || this.props.rating==0){
+    if (this.props.rating === null || this.props.rating === "NaN" || this.props.rating === 0) {
         rating = "N/A";
-    }else if(this.props.rating > 4){ //its pretty good rating
+    } else if (this.props.rating > 8) { // its pretty good rating
       rating = this.props.rating.toFixed(2);
       ratingColor = "green-text";
-
-    }else if(this.props.rating > 3){ //meh rating
+    } else if (this.props.rating > 5) { // meh rating
       rating = this.props.rating.toFixed(2);
       ratingColor = "light-green-text";
-    }else if(this.props.rating > 2){ //garbo rating
+    } else if (this.props.rating > 2) { // garbo rating
       rating = this.props.rating.toFixed(2);
       ratingColor = "orange-text";
-    }
-    else{ //disgusting
+    } else{ //disgusting
       rating = this.props.rating.toFixed(2);
       ratingColor = "red-text text-lighten-1";
     }
@@ -98,19 +96,18 @@ class SearchCard extends React.Component {
       var section_overall=this.props.sections[i].average_overall;
 
       var ratingColor2 = "grey-text";
-      if(section_overall === null || section_overall == "NaN" || section_overall==0){
+      if (section_overall === null || section_overall === "NaN" || section_overall === 0){
         section_overall = "N/A";
-      }else if(section_overall > 4){ //its pretty good rating
+      } else if (section_overall > 8) { // its pretty good rating
         ratingColor2 = "green-text";
         section_overall=section_overall.toFixed(2);
-      }else if(section_overall > 3){ //meh rating
+      } else if (section_overall > 5) { // meh rating
         ratingColor2 = "light-green-text";
         section_overall=section_overall.toFixed(2);
-      }else if(section_overall > 2){ //garbo rating
+      } else if (section_overall > 2) { // garbo rating
         ratingColor2 = "orange-text";
         section_overall=section_overall.toFixed(2);
-      }
-      else if(section_overall>0){ //disgusting
+      } else if (section_overall > 0) { // disgusting
         ratingColor2 = "red-text text-lighten-1";
         section_overall=section_overall.toFixed(2);
       }

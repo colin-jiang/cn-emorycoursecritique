@@ -87,89 +87,52 @@ class ReviewCard extends React.Component {
   render() {
     var rating = this.props.overall;
     var ratingColor = "grey-text";
-    if(!rating){
+    if (!rating){
         rating = "N/A";
-    }else if(rating > 4){ //its pretty good rating
-      rating = rating;
+    } else if(rating > 8) { // its pretty good rating
       ratingColor = "green-text text-darken-1";
-
-    }else if(rating > 3){ //meh rating
-      rating = rating;
+    } else if (rating > 5) { // meh rating
       ratingColor = "light-green-text";
-    }else if(rating > 2){ //garbo rating
-      rating = rating;
+    } else if(rating > 2) { // garbo rating
       ratingColor = "orange-text";
-    }
-    else{ //disgusting
-      rating = rating;
+    } else { // disgusting
       ratingColor = "red-text text-lighten-1";
     }
 
     //difficulty rating
     var difficultyRating = this.props.difficulty;
     var difficultyRatingColor = "grey-text";
-    if(!difficultyRating){
-        difficultyRating = "N/A";
-    }else if(difficultyRating > 4){ //its pretty good difficultyRating
-      difficultyRating = difficultyRating;
+    if (!difficultyRating) {
+      difficultyRating = "N/A";
+    } else if(difficultyRating > 8) { // its pretty good difficultyRating
       difficultyRatingColor = "red-text text-lighten-1";
-
-    }else if(difficultyRating > 3){ //meh difficultyRating
-      difficultyRating = difficultyRating;
+    } else if (difficultyRating > 5) { // meh difficultyRating
       difficultyRatingColor = "orange-text";
-    }else if(difficultyRating > 2){ //garbo difficultyRating
-      difficultyRating = difficultyRating;
+    } else if (difficultyRating > 2) { // garbo difficultyRating
       difficultyRatingColor = "light-green-text";
-    }
-    else{ //disgusting
-      difficultyRating = difficultyRating;
-      ratingColor = "green-text text-darken-1";
+    } else{ // disgusting
+      difficultyRatingColor = "green-text text-darken-1";
     }
 
 
-    //workload rating
+    // workload rating
     var workloadRating = this.props.workload;
     var workloadRatingColor = "grey-text";
-    if(!workloadRating){
-        workloadRating = "N/A";
-    }else if(workloadRating > 4){ //its pretty good workloadRating
-      workloadRating = workloadRating;
+    if (!workloadRating){
+      workloadRating = "N/A";
+    } else if (workloadRating > 8) { // its pretty good workloadRating
       workloadRatingColor = "red-text text-lighten-1";
-
-    }else if(workloadRating > 3){ //meh workloadRating
-      workloadRating = workloadRating;
+    } else if (workloadRating > 5) { // meh workloadRating
       workloadRatingColor = "orange-text";
-    }else if(workloadRating > 2){ //garbo workloadRating
-      workloadRating = workloadRating;
+    } else if (workloadRating > 2) { // garbo workloadRating
       workloadRatingColor = "light-green-text";
-    }
-    else{ //disgusting
-      workloadRating = workloadRating;
-      ratingColor = "green-text text-darken-1";
+    } else{ // disgusting
+      workloadRatingColor = "green-text text-darken-1";
     }
 
     var accent;
     if (this.props.accent) accent = "有";
     else accent = "没有"
-    // var accentColor = "grey-text";
-    // if(!accent){
-    //     accent = "N/A";
-    // }else if(accent > 4){ //its pretty good accent
-    //   accent = accent;
-    //   accentColor = "red-text text-lighten-1";
-    //
-    // }else if(accent > 3){ //meh accent
-    //   accent = accent;
-    //   accentColor = "orange-text";
-    // }else if(accent > 2){ //garbo accent
-    //   accent = accent;
-    //   accentColor = "light-green-text";
-    // }
-    // else{ //disgusting
-    //   accent = accent;
-    //   accentColor = "green-text text-darken-1";
-    // }
-
 
     //var date= this.props.rdate.toString();
     console.log(this.props.uvotes);
@@ -199,11 +162,7 @@ class ReviewCard extends React.Component {
         <h5 style={{
             }}>
           整体评分:
-            {'\u00A0'}<span className={ratingColor}
-            style={{
-              color: "#d18e01"
-            }}
-          >
+            {'\u00A0'}<span className={ratingColor}>
             {rating}
           </span>
         </h5>
