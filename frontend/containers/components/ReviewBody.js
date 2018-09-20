@@ -264,16 +264,44 @@ class ReviewBody extends React.Component {
 
     console.log(this.state.ratings);
 
-      for (var i = this.state.ratings.length-1; i > -1; i--) {
-        overalldist[this.state.ratings[i].overall-1]+=1;
+      for (var i = this.state.ratings.length-1; i >= 0; i--) {
+        overalldist[parseInt((this.state.ratings[i].overall-1) / 2)]+=1;
         difficultydist[this.state.ratings[i].difficulty-1]+=1;
         workloaddist[this.state.ratings[i].workload-1]+=1;
-        if(this.state.filterBy===0)
-          cards.push(<ReviewCard overall={this.state.ratings[i].overall} difficulty={this.state.ratings[i].difficulty} workload={this.state.ratings[i].workload} comment={this.state.ratings[i].comment} rdate={this.state.ratings[i].rated_date} dvotes={this.state.ratings[i].downvotes} uvotes={this.state.ratings[i].upvotes} accent={this.state.ratings[i].prof_accent} attendance={this.state.ratings[i].attendance} curve={this.state.ratings[i].curve} id={this.state.ratings[i]._id} onUpdate={this.onUpdate} index={i} key={i}/>);
+        if(this.state.filterBy === 0)
+          cards.push(<ReviewCard
+            overall={this.state.ratings[i].overall}
+            difficulty={this.state.ratings[i].difficulty}
+            workload={this.state.ratings[i].workload}
+            comment={this.state.ratings[i].comment}
+            rdate={this.state.ratings[i].rated_date}
+            dvotes={this.state.ratings[i].downvotes}
+            uvotes={this.state.ratings[i].upvotes}
+            accent={this.state.ratings[i].prof_accent}
+            attendance={this.state.ratings[i].attendance}
+            curve={this.state.ratings[i].curve}
+            id={this.state.ratings[i]._id}
+            onUpdate={this.onUpdate}
+            index={i}
+            key={i}/>);
         else
         {
           if(this.state.ratings[i].overall===this.state.filterBy)
-            cards.push(<ReviewCard overall={this.state.ratings[i].overall} difficulty={this.state.ratings[i].difficulty} workload={this.state.ratings[i].workload} comment={this.state.ratings[i].comment} rdate={this.state.ratings[i].rated_date} dvotes={this.state.ratings[i].downvotes} uvotes={this.state.ratings[i].upvotes} accent={this.state.ratings[i].prof_accent} attendance={this.state.ratings[i].attendance} curve={this.state.ratings[i].curve} id={this.state.ratings[i]._id} onUpdate={this.onUpdate} index={i} key={i}/>);
+            cards.push(<ReviewCard
+              overall={this.state.ratings[i].overall}
+              difficulty={this.state.ratings[i].difficulty}
+              workload={this.state.ratings[i].workload}
+              comment={this.state.ratings[i].comment}
+              rdate={this.state.ratings[i].rated_date}
+              dvotes={this.state.ratings[i].downvotes}
+              uvotes={this.state.ratings[i].upvotes}
+              accent={this.state.ratings[i].prof_accent}
+              attendance={this.state.ratings[i].attendance}
+              curve={this.state.ratings[i].curve}
+              id={this.state.ratings[i]._id}
+              onUpdate={this.onUpdate}
+              index={i}
+              key={i}/>);
         }
       }
       console.log(overalldist);
@@ -380,7 +408,7 @@ class ReviewBody extends React.Component {
                    <tbody>
                      <tr>
                        <td className="histogram-row">
-                        <a>5分</a>
+                        <a>9-10分</a>
                        </td>
                        <td className="histogram-row" style={{width:"80%"}}>
                         <div className="a-meter 5star">
@@ -393,7 +421,7 @@ class ReviewBody extends React.Component {
                      </tr>
                      <tr>
                        <td className="histogram-row">
-                        <a>4分</a>
+                        <a>7-8分</a>
                        </td>
                        <td className="histogram-row">
                         <div className="a-meter 4star">
@@ -406,7 +434,7 @@ class ReviewBody extends React.Component {
                      </tr>
                      <tr>
                        <td className="histogram-row">
-                        <a>3分</a>
+                        <a>5-6分</a>
                        </td>
                        <td className="histogram-row">
                         <div className="a-meter 3star">
@@ -419,7 +447,7 @@ class ReviewBody extends React.Component {
                      </tr>
                      <tr>
                        <td className="histogram-row">
-                        <a>2分</a>
+                        <a>3-4分</a>
                        </td>
                        <td className="histogram-row">
                         <div className="a-meter 2star">
@@ -432,7 +460,7 @@ class ReviewBody extends React.Component {
                      </tr>
                      <tr>
                        <td className="histogram-row">
-                        <a>1分</a>
+                        <a>1-2分</a>
                        </td>
                        <td className="histogram-row">
                         <div className="a-meter 1star">
