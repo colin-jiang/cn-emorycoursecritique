@@ -167,8 +167,8 @@ render() {
                      <span>课业负担</span>
                      <div className="center" onChange={this.setWorkload} style={{}}>
 
-                       <input className="width-gap" type="radio" name="group1" id="1" value="10"/>
-                       <label className="labelOverride" htmlFor="1" style={{marginLeft: "0"}}>10</label>
+                       <input className="width-gap" type="radio" name="group1" id="1" value="1"/>
+                       <label className="labelOverride" htmlFor="1" style={{marginLeft: "-5px"}}>轻</label>
 
                        <input className="width-gap" type="radio" name="group1" id="2" value="20"/>
                        <label className="labelOverride" htmlFor="2">20</label>
@@ -195,7 +195,7 @@ render() {
                        <label className="labelOverride" htmlFor="9">9</label>
 
                        <input className="width-gap" type="radio" name="group1" id="10" value="10"/>
-                       <label className="labelOverride" htmlFor="10">10</label>
+                       <label className="labelOverride" htmlFor="10">重</label>
                      </div>
                    </div>
 
@@ -206,7 +206,7 @@ render() {
                      <div className="center" onChange={this.setDifficulty} style={{}}>
 
                        <input className="width-gap" type="radio" name="group2" id="11" value="1"/>
-                       <label className="labelOverride" htmlFor="11" style={{marginLeft: "0"}}>1</label>
+                       <label className="labelOverride" htmlFor="11" style={{marginLeft: "-5px"}}>易</label>
 
                        <input className="width-gap" type="radio" name="group2" id="12" value="2"/>
                        <label className="labelOverride" htmlFor="12">2</label>
@@ -233,7 +233,7 @@ render() {
                        <label className="labelOverride" htmlFor="19">9</label>
 
                        <input className="width-gap" type="radio" name="group2" id="20" value="10"/>
-                       <label className="labelOverride" htmlFor="20">10</label>
+                       <label className="labelOverride" htmlFor="20">难</label>
                      </div>
                   </div>
 
@@ -281,11 +281,10 @@ render() {
                <div className ="page col m6">
                  <div className="col s12">
                    <div className="row">
-                   <div></div>
                      <div className="input-field col s12">
                        <i className="material-icons prefix">mode_edit</i>
-                       <textarea id="icon_prefix2" type="text" className="materialize-textarea" value={this.state.comment} onChange= {(event) => this.updateComment(event)} style={{}}></textarea>
                        <label htmlFor="icon_prefix2">如有更详细的文字评价可在此处添加</label>
+                       <textarea id="icon_prefix2" type="text" className="materialize-textarea" value={this.state.comment} onChange= {(event) => this.updateComment(event)} style={{}} />
                      </div>
                    </div>
                  </div>

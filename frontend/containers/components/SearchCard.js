@@ -147,7 +147,7 @@ class SearchCard extends React.Component {
               marginTop:"5px"
             }}
           >
-            {rating}
+            {rating}/10.0
           </h5>
           </div>
         </div>

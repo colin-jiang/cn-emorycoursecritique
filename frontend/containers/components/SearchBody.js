@@ -475,13 +475,15 @@ class SearchBody extends React.Component {
     var filters = [];
 
     var subjects = [];
-    for(var i=0;i<this.state.depts.length;i++)
-    {
-
+    for (var i=0;i<this.state.depts.length;i++) {
       if(this.state.depts[i].checked){
-        subjects.push(<li key={i+0.2}><input id={this.state.depts[i].id} onClick={this.handleCheck} type="checkbox" defaultChecked key={i}/><label htmlFor={this.state.depts[i].id} key={i+0.5}>{this.state.depts[i].name}</label></li>);
+        subjects.push(<li key={i+0.2}>
+          <input id={this.state.depts[i].id} onClick={this.handleCheck} type="checkbox" defaultChecked key={i}/>
+          <label htmlFor={this.state.depts[i].id} key={i+0.5}>{this.state.depts[i].name}</label>
+        </li>);
         filters.push(<li key={i+0.2} style={{float:"left", paddingLeft:"5px"}}>
-                    <div><label htmlFor={this.state.depts[i].id} key={i+0.5}>{this.state.depts[i].name}</label>
+                    <div>
+                      <label htmlFor={this.state.depts[i].id} key={i+0.5}>{this.state.depts[i].name}</label>
                       <i className="material-icons" id={this.state.depts[i].id} onClick={this.handleCheck} style={{fontSize:"16px", verticalAlign:"text-bottom", cursor:'pointer', color:"#225894"}}>close</i>
                     </div>
                   </li>)
@@ -497,7 +499,8 @@ class SearchBody extends React.Component {
       if(this.state.levels[i]){
         levels.push(<li key={i+0.2}><input id={i+1} onClick={this.handleLevel} type="checkbox" defaultChecked key={i}/><label htmlFor={i+1} key={i+0.5}>{i+1}00</label></li>);
         filters.push(<li key={i+10.2} style={{float:"left", paddingLeft:"5px"}}>
-                    <div><label htmlFor={i+1} key={i+10.5}>{i+1}00</label>
+                    <div>
+                      <label htmlFor={i+1} key={i+10.5}>{i+1}00</label>
                       <i className="material-icons" id={i+1} onClick={this.handleLevel} style={{fontSize:"16px", verticalAlign:"text-bottom", cursor:'pointer', color:"#225894"}}>close</i>
                     </div>
                   </li>)
@@ -683,37 +686,29 @@ class SearchBody extends React.Component {
             </div>
             <div className="col hide-on-med-and-down l1" style={{width:"0px", marginRight:"15px"}}/>
             <div className="col s12 m9 l8" >
-              <h5 className="center grey-text text-darken-2"
-                style={{
-                  fontWeight: 300
-                }}>
-
+              {cards.length !== 0 ? <div><h5 className="center grey-text text-darken-2"
+                style={{fontWeight: 300}}>
                 <br/>
                 关于课程<span className="black-text" style={{fontWeight: "400"}}>{input}</span>的搜索结果
               </h5>
-              <div style={{height: "20px"}}>
+              {/* <div style={{height: "20px"}}>
                 <ul>
                   {filters}
                 </ul>
-              </div>
+              </div> */}
               <div id="courses" className="section scrollspy">
                 {cards}
-              </div>
-              <h5 className="center grey-text text-darken-2"
-                style={{
-                  fontWeight: 300
-                }}>
-
+              </div></div> : ""}
+              {profcards.length !== 0 ? <div><h5 className="center grey-text text-darken-2"
+                style={{fontWeight: 300}}>
                 <br/>
                 关于教授<span className="black-text" style={{fontWeight: "400"}}>{input}</span>的搜索结果
               </h5>
               <div id="professors" className="section scrollspy">
               {profcards}
-              </div>
+            </div></div> : ""}
             </div>
             <div className="col hide-on-small-only m2 l1">
-
-
             </div>
           </div>
         </div>
