@@ -167,17 +167,17 @@ render() {
                      <span>课业负担</span>
                      <div className="center" onChange={this.setWorkload} style={{}}>
 
-                       <input className="width-gap" type="radio" name="group1" id="1" value="1"/>
-                       <label className="labelOverride" htmlFor="1" style={{marginLeft: "0"}}>1</label>
+                       <input className="width-gap" type="radio" name="group1" id="1" value="10"/>
+                       <label className="labelOverride" htmlFor="1" style={{marginLeft: "0"}}>10</label>
 
-                       <input className="width-gap" type="radio" name="group1" id="2" value="2"/>
-                       <label className="labelOverride" htmlFor="2">2</label>
+                       <input className="width-gap" type="radio" name="group1" id="2" value="20"/>
+                       <label className="labelOverride" htmlFor="2">20</label>
 
-                       <input className="width-gap" type="radio" name="group1" id="3" value="3"/>
-                       <label className="labelOverride" htmlFor="3">3</label>
+                       <input className="width-gap" type="radio" name="group1" id="3" value="30"/>
+                       <label className="labelOverride" htmlFor="3">30</label>
 
-                       <input className="width-gap" type="radio" name="group1" id="4" value="4"/>
-                       <label className="labelOverride" htmlFor="4">4</label>
+                       <input className="width-gap" type="radio" name="group1" id="4" value="40"/>
+                       <label className="labelOverride" htmlFor="4">40</label>
 
                        <input className="width-gap" type="radio" name="group1" id="5" value="5"/>
                        <label className="labelOverride" htmlFor="5">5</label>
@@ -240,7 +240,7 @@ render() {
                   <div className = "divider"></div>
 
                    <div className = "ratingFactor">
-                     <span>口音</span>
+                     <span>口音（理解是否有难度）</span>
                      <div className="center" onChange={this.setAccent} style={{}}>
 
                        <input className="width-gap" type="radio" name="group3" id="21" value={true}/>

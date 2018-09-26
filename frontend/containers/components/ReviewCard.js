@@ -146,14 +146,14 @@ class ReviewCard extends React.Component {
     var curve;
 
     if(this.props.attendance)
-      attendance= "Required"
+      attendance= "记考勤"
     else
-      attendance= "Not Required"
+      attendance= "不记考勤"
 
     if(this.props.curve)
-      curve= "Yes"
+      curve= "有"
     else
-      curve= "No"
+      curve= "没有"
 
 
     return (
@@ -219,7 +219,7 @@ class ReviewCard extends React.Component {
         </div>
         <div className="col s6 hide-on-med-and-up" style={{position: "absolute", top: "24px", right: "24px"}}>
         <div className="right">
-          <p style={{fontSize: "0.8rem", fontWeight: "300"}}>{'\u00A0'}Was this helpful?</p>
+          <p style={{fontSize: "0.8rem", fontWeight: "300"}}>{'\u00A0'}你觉得这条有帮助吗？</p>
           <a className="noSelect" onClick={this.uClick} onMouseOver="" style={{
               color: "#002a78", cursor:'pointer',  position: "relative", left: "12px"
             }}><i className="material-icons prefix green-text text-darken-1">thumb_up</i>{this.props.uvotes}</a>
@@ -230,8 +230,8 @@ class ReviewCard extends React.Component {
         </div>
         <div className="col s12 m7">
          <div style={{overflow:"hidden"}}>
-          <p style={{fontSize: "1.1rem", fontWeight: "300", float:"left", marginBottom:0}}>Attendance: {attendance}</p>
-          <p style={{fontSize: "1.1rem", fontWeight: "300", float:"right", marginBottom:0}}>Curved: {curve}</p>
+          <p style={{fontSize: "1.1rem", fontWeight: "300", float:"left", marginBottom:0}}>考勤: {attendance}</p>
+          <p style={{fontSize: "1.1rem", fontWeight: "300", float:"right", marginBottom:0}}>是否有curve: {curve}</p>
          </div>
          <p style={{fontSize: "1.1rem", fontWeight: "300"}}></p>
           <blockquote style={{fontSize: "1.0rem", overflowWrap: "break-word"}}>{this.props.comment}</blockquote>
