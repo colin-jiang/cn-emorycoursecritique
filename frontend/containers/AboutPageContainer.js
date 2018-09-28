@@ -9,7 +9,6 @@ class AboutPageContainer extends Component {
   }
 
   render() {
-    console.log("---------------------------------");
     return(
      <div>
         <div style={{backgroundColor: "#002978", height: "64px"}}>

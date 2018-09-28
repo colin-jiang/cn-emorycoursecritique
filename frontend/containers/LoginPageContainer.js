@@ -21,7 +21,6 @@ class LoginPageContainer extends React.Component {
 
 
   updateLogin() {
-
     this.props.loginState();
   }
 
@@ -38,11 +37,8 @@ class LoginPageContainer extends React.Component {
   }
   login() {
         // Send a POST request
-        console.log(this.state.email)
-        console.log(this.state.password)
         //this refers to the window object when referenced inside a fucntion
         var self = this;
-
         axios({
           method: 'post',
           url: '/account/login',
@@ -52,10 +48,9 @@ class LoginPageContainer extends React.Component {
           }
         })
         .then(function (response) {
-          console.log(response.status);
+          console.log(response.data.message);
           if(response.data.message){
              Materialize.toast(response.data.message, 4000);
-
           }
           if(self.state.returnPage){
             self.props.history.push(self.state.returnPage);
@@ -70,10 +65,9 @@ class LoginPageContainer extends React.Component {
             self.props.history.goBack();
           }
         })
-        // .catch(function (error) {
-        //   Materialize.toast(error.response.data.message, 4000);
-
-        // });
+        .catch(function (error) {
+          Materialize.toast(error.response.data.message, 4000);
+        });
 
 
 

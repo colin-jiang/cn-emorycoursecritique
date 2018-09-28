@@ -67,12 +67,11 @@ class SearchCard extends React.Component {
 
   componentWillMount() {
     $(document).ready(function(){
-    $('.collapsible').collapsible();
-  });
+      $('.collapsible').collapsible();
+    });
   }
 
   render() {
-
     var rating = 0;
     var ratingColor = "grey-text";
     if (this.props.rating === null || this.props.rating === "NaN" || this.props.rating === 0) {
@@ -96,7 +95,7 @@ class SearchCard extends React.Component {
       var section_overall=this.props.sections[i].average_overall;
 
       var ratingColor2 = "grey-text";
-      if (section_overall === null || section_overall === "NaN" || section_overall === 0){
+      if (section_overall === null || section_overall === "NaN" || section_overall === 0) {
         section_overall = "N/A";
       } else if (section_overall > 8) { // its pretty good rating
         ratingColor2 = "green-text";
@@ -111,11 +110,16 @@ class SearchCard extends React.Component {
         ratingColor2 = "red-text text-lighten-1";
         section_overall=section_overall.toFixed(2);
       }
-
+      if (this.props.sections[i].section_name.length === 0) continue;
       if(i>0)
         sections.push(<li className="divider" key={i-0.5}></li>);
-      sections.push(<li onClick={this.reviewPage} data-id={this.props.sections[i].section_name} key={i} style={{cursor:"pointer", margin:"18px 24px"}}>
-                      <div style={{display:"inline"}}>{this.props.sections[i].section_name}</div>
+        sections.push(<li onClick={this.reviewPage} data-id={this.props.sections[i].section_name} key={i} style={{cursor:"pointer", margin:"18px 24px"}}>
+                      <div style={{display:"inline"}}>
+                        {this.props.sections[i].section_name.indexOf(", ") >= 0 ?
+                        this.props.sections[i].section_name.split(", ")[1] + " " + this.props.sections[i].section_name.split(", ")[0]
+                        :
+                        this.props.sections[i].section_name}
+                      </div>
                       <div className={ratingColor2} style={{display:"inline", float:"right"}}>{section_overall}</div>
                     </li>);
     }
@@ -123,18 +127,15 @@ class SearchCard extends React.Component {
       <div className="card-panel white black-text nohover2" >
         <div className="row">
           <div className="col s9" onClick={this.onClick} style={{cursor:'pointer'}}>
-
-            <span
-              style={{
-                fontWeight: 300,
-                fontSize: '1.4rem'
-
-              }}
-            >
-              {this.props.cnum}: {this.props.cname} {" "}
-
-            </span>{" "}
-
+            {this.props.cname ?
+              <span style={{fontWeight: 300, fontSize: '1.4rem'}}>
+                {this.props.cnum}: {this.props.cname}
+              </span>
+              :
+              <span style={{fontWeight: 300, fontSize: '1.4rem'}}>
+                {this.props.cnum.split(", ")[1] + " " + this.props.cnum.split(", ")[0]}
+              </span>
+            }
           </div>
           <div className ="col s3">
           <h5 className={ratingColor}
@@ -151,7 +152,6 @@ class SearchCard extends React.Component {
           </h5>
           </div>
         </div>
-
           <ul className="collapsible shadowOverride" data-collapsible="accordion" style={{margin:-25}}>
             <li>
               <div className="collapsible-header" style={{width:"100%"}}>
@@ -165,10 +165,7 @@ class SearchCard extends React.Component {
               </div>
             </li>
           </ul>
-
-
       </div>
-
     );
   }
 }

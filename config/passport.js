@@ -18,10 +18,10 @@ module.exports = function(passport){
         return done(err);
       }
       if(!user){
-        return done(null,false,{message:"该用户不存在"});
+        return done(null,false,{message:"该用户不存在或密码错误"});
       }
       if(!user.validPassword(password)){
-        return done(null,false,{message:'密码错误'});
+        return done(null,false,{message:'该用户不存在或密码错误'});
       }
       return done(null,user);
 

@@ -170,15 +170,12 @@ class ReviewBody extends React.Component {
   filter1() {
     this.setState({filterBy:1});
     document.getElementById("filterStar").innerHTML = "Show only 1 Stars";
-
   }
 
   filterNone() {
     this.setState({filterBy:0});
     document.getElementById("filterStar").innerHTML = "Show All Stars";
-
   }
-
 
   componentWillMount() {
     $(document).ready(function(){
@@ -194,17 +191,13 @@ class ReviewBody extends React.Component {
         }
       );
     });
-    console.log('mount');
-    console.log(location.search);
 
       var self=this;
       var url= '/testtwo'+location.search;
-      console.log(url);
-    axios.get(url)
+        axios.get(url)
         .then(function (response) {
           console.log(response.data);
-          if(response.data===null)
-          {
+          if(response.data===null) {
             var querystring = require('query-string');
             var parsed = querystring.parse(location.search);
             console.log(parsed);
@@ -217,11 +210,8 @@ class ReviewBody extends React.Component {
               reviewCourse: parsed.course,
               reviewProfessor: pname,
               count: 0,
-
             })
-          }
-          else
-          {
+          } else {
             self.setState({
               ratings:response.data.ratings,
               reviewCourse: response.data.class_id,
@@ -233,20 +223,15 @@ class ReviewBody extends React.Component {
             })
           //history.pushState(null, '', url2);
           }
-
         })
         .catch(function (error) {
           console.log(error);
         });
-
-
-
   }
 
-
-
   render() {
-
+    var professorNameArr = this.state.reviewProfessor.split(", ");
+    var professorName = professorNameArr[1] + " " + professorNameArr[0];
     var querystring = require('query-string');
             var parsed = querystring.parse(location.search);
 
@@ -304,11 +289,6 @@ class ReviewBody extends React.Component {
               key={i}/>);
         }
       }
-      console.log(overalldist);
-      console.log(difficultydist);
-      console.log(workloaddist);
-
-
 
       // rating review
       var rating = (this.state.total_overall / this.state.count).toFixed(2);
@@ -391,7 +371,7 @@ class ReviewBody extends React.Component {
                <div className="col s12 m4">
 
                 <h5 onClick={this.coursePage} style={{fontSize:"1.3rem", fontWeight: "300", display:"inline", cursor: "pointer"}}>{this.state.reviewCourse} </h5>
-                <h5 onClick={this.profPage} style={{fontSize:"1.3rem", fontWeight: "300", display:"inline", cursor: "pointer"}}>- {this.state.reviewProfessor}</h5>
+                <h5 onClick={this.profPage} style={{fontSize:"1.3rem", fontWeight: "300", display:"inline", cursor: "pointer"}}>- {professorName}</h5>
 
 
                <h5>整体评分:</h5>

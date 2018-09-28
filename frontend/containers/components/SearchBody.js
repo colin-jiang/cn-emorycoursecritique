@@ -223,7 +223,6 @@ class SearchBody extends React.Component {
   }
 
   handleCheck(event) {
-    console.log(event.currentTarget);
     var newUrl;
     var querystring = require('querystring');
     var parsed = querystring.parse(location.search.slice(1));
@@ -470,8 +469,6 @@ class SearchBody extends React.Component {
     console.log(Object.values(parsed));
     var input = parsed.q;
 
-    console.log(parsed.q);
-
     var filters = [];
 
     var subjects = [];
@@ -527,32 +524,10 @@ class SearchBody extends React.Component {
       i++;
     }
 
-    console.log(this.state.levels)
 
-    var overallOption;
-    if(this.state.sortOverall)
-      overallOption=<option value="overall" selected>综合评分</option>;
-    else
-      overallOption=<option value="overall">综合评分</option>;
-
-      if(this.state.courses)
-      {
-        for (var i = 0; i < this.state.courses.length; i++) {
-          cards.push(<SearchCard cnum= {this.state.courses[i].course_num} cname={this.state.courses[i].course_name} sections={this.state.courses[i].sections} rating={this.state.courses[i].course_avg_overall} key={i}/>);
-        }
-      }
-      if(this.state.profs)
-      {
-        for (var i = 0; i < this.state.profs.length; i++) {
-          profcards.push(<SearchCard cnum= {this.state.profs[i].professor} sections={this.state.profs[i].sections} rating={this.state.profs[i].course_avg_overall} isProf={true} key={i}/>);
-        }
-      }
 
     return (
       <sbody >
-
-
-
       <div style={{height: "60px"}}></div>
 
         <div className="container" style={{width: "95%", maxWidth: 1000}}>
@@ -679,33 +654,33 @@ class SearchBody extends React.Component {
                     <label>排序:</label>
                       <select className="browser-default" onChange={this.handleSort}>
                         <option value="">默认排序</option>
-                        {overallOption}
+                        {this.state.sortOverall ? <option value="overall" selected>综合评分</option> : <option value="overall">综合评分</option>}
                       </select>
                   </div>
               </div>
             </div>
             <div className="col hide-on-med-and-down l1" style={{width:"0px", marginRight:"15px"}}/>
             <div className="col s12 m9 l8" >
-              {cards.length !== 0 ? <div><h5 className="center grey-text text-darken-2"
+              {this.state.courses.length !== 0 ? <div><h5 className="center grey-text text-darken-2"
                 style={{fontWeight: 300}}>
                 <br/>
                 关于课程<span className="black-text" style={{fontWeight: "400"}}>{input}</span>的搜索结果
               </h5>
-              {/* <div style={{height: "20px"}}>
-                <ul>
-                  {filters}
-                </ul>
-              </div> */}
               <div id="courses" className="section scrollspy">
-                {cards}
+                {this.state.courses.map((course, index) => <SearchCard cnum= {course.course_num} cname={course.course_name} sections={course.sections} rating={course.course_avg_overall} key={index}/>)}
               </div></div> : ""}
-              {profcards.length !== 0 ? <div><h5 className="center grey-text text-darken-2"
+              {this.state.profs.length !== 0 ? <div><h5 className="center grey-text text-darken-2"
                 style={{fontWeight: 300}}>
                 <br/>
-                关于教授<span className="black-text" style={{fontWeight: "400"}}>{input}</span>的搜索结果
+                关于教授<span className="black-text" style={{fontWeight: "400"}}>
+                  {input.indexOf(", ") >= 0 ?
+                  input.split(", ")[1] + " " + input.split(", ")[0]
+                  :
+                  input}
+                </span>的搜索结果
               </h5>
               <div id="professors" className="section scrollspy">
-              {profcards}
+                {this.state.profs.map((prof, index) => <SearchCard cnum= {prof.professor} sections={prof.sections} rating={prof.course_avg_overall} isProf={true} key={index}/>)}
             </div></div> : ""}
             </div>
             <div className="col hide-on-small-only m2 l1">
