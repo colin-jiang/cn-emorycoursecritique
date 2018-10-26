@@ -53,7 +53,7 @@ class Card extends React.Component {
         <div className="row">
           <div className="col s6">
             <h6>
-              {this.props.title1}<span
+              {this.props.title1.indexOf(", ") >= 0 ? this.props.title1.split(", ")[1] + " " + this.props.title1.split(", ")[0] : this.props.title1}<span
                 style={{
                   color: "#d18e01",
                 }}
@@ -67,7 +67,7 @@ class Card extends React.Component {
                 fontSize: '0.9rem'
               }}
             >
-              {this.props.title2}
+              {this.props.title2.indexOf(", ") >= 0 ? this.props.title2.split(", ")[1] + " " + this.props.title2.split(", ")[0] : this.props.title2}
             </span>{" "}
           </div>
           <div className ="col s5">

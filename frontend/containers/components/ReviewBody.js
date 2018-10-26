@@ -90,7 +90,7 @@ class ReviewBody extends React.Component {
     ratings.sort(function(a, b) {
       return new Date(a.rated_date).getTime() - new Date(b.rated_date).getTime();
     });
-    document.getElementById("sortDropdown").innerHTML = "&nbsp&nbsp&nbsp&nbspDate&nbsp&nbsp&nbsp&nbsp";
+    document.getElementById("sortDropdown").innerHTML = "日期";
 
 
     this.setState({ratings:ratings});
@@ -104,7 +104,7 @@ class ReviewBody extends React.Component {
       return ((a.upvotes+1)/(a.downvotes+1)) - ((b.upvotes+1)/(b.downvotes+1));
     });
     console.log(ratings);
-    document.getElementById("sortDropdown").innerHTML = "Helpfulness";
+    document.getElementById("sortDropdown").innerHTML = "有用程度";
 
     this.setState({ratings:ratings});
   }
@@ -115,7 +115,7 @@ class ReviewBody extends React.Component {
     ratings.sort(function(a, b) {
       return a.overall - b.overall;
     });
-    document.getElementById("sortDropdown").innerHTML = "&nbspRating&nbsp";
+    document.getElementById("sortDropdown").innerHTML = "整体评分";
 
     this.setState({ratings:ratings});
 
@@ -127,7 +127,7 @@ class ReviewBody extends React.Component {
     ratings.sort(function(a, b) {
       return a.difficulty - b.difficulty;
     });
-    document.getElementById("sortDropdown").innerHTML = "Difficulty";
+    document.getElementById("sortDropdown").innerHTML = "整体难度";
 
     this.setState({ratings:ratings});
   }
@@ -138,43 +138,43 @@ class ReviewBody extends React.Component {
     ratings.sort(function(a, b) {
       return a.workload - b.workload;
     });
-    document.getElementById("sortDropdown").innerHTML = "WorkLoad";
+    document.getElementById("sortDropdown").innerHTML = "课业负担";
 
     this.setState({ratings:ratings});
   }
 
   filter5() {
-    this.setState({filterBy:5});
-    document.getElementById("filterStar").innerHTML = "Show only 5 Stars";
+    this.setState({filterBy: 9});
+    document.getElementById("filterStar").innerHTML = "仅显示9-10星";
 
   }
 
   filter4() {
-    this.setState({filterBy:4});
-    document.getElementById("filterStar").innerHTML = "Show only 4 Stars";
+    this.setState({filterBy: 7});
+    document.getElementById("filterStar").innerHTML = "仅显示7-8星";
 
   }
 
   filter3() {
-    this.setState({filterBy:3});
-    document.getElementById("filterStar").innerHTML = "Show only 3 Stars";
+    this.setState({filterBy: 5});
+    document.getElementById("filterStar").innerHTML = "仅显示5-6星";
 
   }
 
   filter2() {
-    this.setState({filterBy:2});
-    document.getElementById("filterStar").innerHTML = "Show only 2 Stars";
+    this.setState({filterBy: 3});
+    document.getElementById("filterStar").innerHTML = "仅显示3-4星";
 
   }
 
   filter1() {
-    this.setState({filterBy:1});
-    document.getElementById("filterStar").innerHTML = "Show only 1 Stars";
+    this.setState({filterBy: 1});
+    document.getElementById("filterStar").innerHTML = "仅显示1-2星";
   }
 
   filterNone() {
-    this.setState({filterBy:0});
-    document.getElementById("filterStar").innerHTML = "Show All Stars";
+    this.setState({filterBy: 0});
+    document.getElementById("filterStar").innerHTML = "显示所有";
   }
 
   componentWillMount() {
@@ -271,7 +271,7 @@ class ReviewBody extends React.Component {
             key={i}/>);
         else
         {
-          if(this.state.ratings[i].overall===this.state.filterBy)
+          if(this.state.ratings[i].overall === this.state.filterBy || this.state.ratings[i].overall === this.state.filterBy + 1)
             cards.push(<ReviewCard
               overall={this.state.ratings[i].overall}
               difficulty={this.state.ratings[i].difficulty}
@@ -530,11 +530,11 @@ class ReviewBody extends React.Component {
                     <a id="filterStar" className='dropdown-button btn' href='#' data-activates='dropdown2' data-beloworigin="true">所有</a>
 
                     <ul id='dropdown2' className='dropdownOverride dropdown-content' style={{zIndex:50}}>
-                      <li><a href="#!" onClick={this.filter5}>5分</a></li>
-                      <li><a href="#!" onClick={this.filter4}>4分</a></li>
-                      <li><a href="#!" onClick={this.filter3}>3分</a></li>
-                      <li><a href="#!" onClick={this.filter2}>2分</a></li>
-                      <li><a href="#!" onClick={this.filter1}>1分</a></li>
+                      <li><a href="#!" onClick={this.filter5}>9-10分</a></li>
+                      <li><a href="#!" onClick={this.filter4}>7-8分</a></li>
+                      <li><a href="#!" onClick={this.filter3}>5-6分</a></li>
+                      <li><a href="#!" onClick={this.filter2}>3-4分</a></li>
+                      <li><a href="#!" onClick={this.filter1}>1-2分</a></li>
                       <li><a href="#!" onClick={this.filterNone}>所有</a></li>
                     </ul>
                                         <div style={{height: "10px"}}></div>

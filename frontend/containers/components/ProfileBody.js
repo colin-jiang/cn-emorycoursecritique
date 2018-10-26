@@ -174,7 +174,7 @@ render() {
   }
   else if(location.pathname==="/prof")
   {
-    header=this.state.name;
+    header = this.state.name.indexOf(", ") ? this.state.name.split(", ")[1] + " " + this.state.name.split(", ")[0] : this.state.name;
     description="";
     ger="";
     credits="";

@@ -36,8 +36,7 @@ class RatePageContainer extends Component {
     console.log(parsed.course);
     console.log(parsed.prof);
     var pname = parsed.prof.replace("_",", ");
-    this.state.courseId= parsed.course;
-    this.state.profID= pname;
+    this.setState({courseId: parsed.course, profID: pname});
     console.log(this.state.courseId);
     console.log(this.state.profID);
 
@@ -146,7 +145,7 @@ render() {
            <div className="col l8 push-l2 m10 push-m1 s12 z-depth-4 card-panel nohover2" style={{position: 'relative' , top: '50px', padding: '0 48px'}}>
              <form className="login-form">
                <div className = "page col m6">
-                 <p className = "ratingFactor">请你对{this.state.profID}的{this.state.courseId}做出评价</p>
+                 <p className = "ratingFactor">请你对{this.state.profID.indexOf(", ") >= 0 ? this.state.profID.split(", ")[1] + " " + this.state.profID.split(", ")[0] : this.state.profID}的{this.state.courseId}做出评价</p>
                  <div className = "divider"></div>
 
 
@@ -171,13 +170,13 @@ render() {
                        <label className="labelOverride" htmlFor="1" style={{marginLeft: "-5px"}}>轻</label>
 
                        <input className="width-gap" type="radio" name="group1" id="2" value="20"/>
-                       <label className="labelOverride" htmlFor="2">20</label>
+                       <label className="labelOverride" htmlFor="2">2</label>
 
                        <input className="width-gap" type="radio" name="group1" id="3" value="30"/>
-                       <label className="labelOverride" htmlFor="3">30</label>
+                       <label className="labelOverride" htmlFor="3">3</label>
 
                        <input className="width-gap" type="radio" name="group1" id="4" value="40"/>
-                       <label className="labelOverride" htmlFor="4">40</label>
+                       <label className="labelOverride" htmlFor="4">4</label>
 
                        <input className="width-gap" type="radio" name="group1" id="5" value="5"/>
                        <label className="labelOverride" htmlFor="5">5</label>
