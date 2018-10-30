@@ -118,7 +118,7 @@ class Inputfield extends React.Component {
 
 
   render() {
-    console.log(this.props.search);
+    console.log(this.state.inputValue);
     if(this.props.search)
     {
       var icon="material-icons inputIconOverride2";

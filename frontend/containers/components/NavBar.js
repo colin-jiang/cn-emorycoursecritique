@@ -35,13 +35,12 @@ class NavBar extends React.Component {
   }
 
  render() {
-   console.log("NavBar ----------------------------")
     var link;
     var link2;
     if(this.props.state.logins.loginStatus){
       Materialize.toast('You are Logged in!', 4000);
-
-      link = <li onClick={() => this.logout()} style={{cursor: "pointer"}}>登出</li>;
+      link = <li><Link to='/quickrating'>快速评分</Link></li>
+      link2 = <li onClick={() => this.logout()} style={{cursor: "pointer"}}>登出</li>;
     }
     else{
       link = <li><Link to='/login'>登录</Link></li>

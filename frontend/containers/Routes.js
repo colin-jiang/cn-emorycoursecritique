@@ -11,6 +11,7 @@ import SearchPageContainer from './SearchPageContainer';
 import ResendEmailContainer from './ResendEmailContainer';
 import RatePageContainer from './RatePageContainer';
 import ReviewPageContainer from './ReviewPageContainer';
+import QuickRatingContainer from './QuickRatingContainer';
 
 
 export default class Routes extends Component {
@@ -29,7 +30,7 @@ export default class Routes extends Component {
            <Route path="/search" exact={true} component={SearchPageContainer}/>
            <Route path="/rating" exact={true} component={ReviewPageContainer}/>
            <Route path="/resend" exact={true} component={ResendEmailContainer}/>
-
+           <Route path="/quickrating" exact={true} component={QuickRatingContainer}/>
          </Switch>
        </div>
      )
