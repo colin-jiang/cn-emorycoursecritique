@@ -191,7 +191,7 @@ class ReviewCard extends React.Component {
           }} className={workloadRatingColor}> {workloadRating}</span>
         </span>{" "}
         <br />
-        <span
+        {/*<span
           style={{
             fontWeight: 400,
             fontSize: "1.25rem"
@@ -204,7 +204,7 @@ class ReviewCard extends React.Component {
           // className={accentColor}
           > {accent}</span>
 
-        </span>
+        </span>*/}
         <br />
         <span
           style={{

@@ -5,7 +5,6 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import course_list from './components/course.json';
 import prof_list from './components/profs.json';
-import Autocomplete from 'react-autocomplete';
 import Select from 'react-select';
 
 class QuickRatingContainer extends Component {
@@ -178,10 +177,11 @@ render() {
   for (var i = 0; i < prof_list.list.length; i++) {
     professorItem.push({value: prof_list.list[i].value, label: prof_list.list[i].label})
   }
+  professorItem.sort(function(a, b) {return a.label.localeCompare(b.label)});
   for (var i = 0; i < course_list.list.length; i++) {
     courseItem.push({value: course_list.list[i].value, label: course_list.list[i].label})
   }
-  console.log(this.state.profID,this.state.courseId);
+  courseItem.sort(function(a, b) {return a.label.localeCompare(b.label)});
 
   var titleurl='/rating'+location.search;
 
@@ -211,7 +211,7 @@ render() {
              <form className="login-form">
                <div className = "page col m6">
                <div className = "ratingFactor">
-               <span>课程</span>
+               <span>课程（输入关键字搜索）</span>
                </div>
                <Select
                   value={selectedOptionCourse}
@@ -220,7 +220,7 @@ render() {
                 />
                 <div className = "divider" style={{marginTop: "20px"}}></div>
                 <div className = "ratingFactor">
-                <span>教授</span>
+                <span>教授（输入关键字搜索）</span>
                 </div>
                <Select
                   value={selectedOptionProfessor}
