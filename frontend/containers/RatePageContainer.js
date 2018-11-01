@@ -169,13 +169,13 @@ render() {
                        <input className="width-gap" type="radio" name="group1" id="1" value="1"/>
                        <label className="labelOverride" htmlFor="1" style={{marginLeft: "-5px"}}>轻</label>
 
-                       <input className="width-gap" type="radio" name="group1" id="2" value="20"/>
+                       <input className="width-gap" type="radio" name="group1" id="2" value="2"/>
                        <label className="labelOverride" htmlFor="2">2</label>
 
-                       <input className="width-gap" type="radio" name="group1" id="3" value="30"/>
+                       <input className="width-gap" type="radio" name="group1" id="3" value="3"/>
                        <label className="labelOverride" htmlFor="3">3</label>
 
-                       <input className="width-gap" type="radio" name="group1" id="4" value="40"/>
+                       <input className="width-gap" type="radio" name="group1" id="4" value="4"/>
                        <label className="labelOverride" htmlFor="4">4</label>
 
                        <input className="width-gap" type="radio" name="group1" id="5" value="5"/>

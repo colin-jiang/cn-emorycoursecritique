@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import course_list from './components/course.json';
 import prof_list from './components/profs.json';
 import Autocomplete from 'react-autocomplete';
+import Select from 'react-select';
 
 class QuickRatingContainer extends Component {
     constructor(props) {
@@ -87,20 +88,20 @@ class QuickRatingContainer extends Component {
     }
 
     setCourse(e) {
-      this.setState({courseId: e.target.value})
+      this.setState({courseId: e.value})
     }
 
     setProfessor(e) {
-      this.setState({profID: e.target.value})
+      this.setState({profID: e.value})
     }
-
-    selectProfessor(val) {
-      this.setState({profID: val})
-    }
-
-    selectCourse(val) {
-      this.setState({courseId: val})
-    }
+    //
+    // selectProfessor(val) {
+    //   this.setState({profID: val})
+    // }
+    //
+    // selectCourse(val) {
+    //   this.setState({courseId: val})
+    // }
 
     setWorkload(event) {
       this.setState({workload: parseInt(event.target.value)});
@@ -122,11 +123,15 @@ class QuickRatingContainer extends Component {
       this.setState({curve: event.target.value});
     }
 
+    back() {
+      window.location.href ='/';
+    }
+
     async submitReview() {
       if (this.state.courseId.indexOf(" - ") >= 0) {
         await this.setState({courseId: this.state.courseId.split(" - ")[0]})
       }
-      if(this.state.difficulty !== 0 && this.state.overall !== 0 && this.state.workload !== 0 && this.state.accent)
+      if(this.state.difficulty !== 0 && this.state.overall !== 0 && this.state.workload !== 0 && this.state.accent && this.state.profID.length !== 0 && this.state.courseId.length !== 0)
       {
           // Send a POST request
           axios({
@@ -153,7 +158,7 @@ class QuickRatingContainer extends Component {
                  window.location.href =response.data.redirectUrl;
                }else{ */
 
-                 window.location.href ='/';
+                 window.location.href ='/quickrating';
                //}
           })
           .catch(function (error) {
@@ -170,20 +175,13 @@ class QuickRatingContainer extends Component {
 render() {
   var professorItem = [];
   var courseItem = [];
-  if (this.state.profID.length >= 2) {
-    for (var i = 0; i < prof_list.list.length; i++) {
-      if (prof_list.list[i].value.indexOf(this.state.profID) >= 0) {
-        professorItem.push({label: prof_list.list[i].value})
-      }
-    }
+  for (var i = 0; i < prof_list.list.length; i++) {
+    professorItem.push({value: prof_list.list[i].value, label: prof_list.list[i].label})
   }
-  if (this.state.courseId.length >= 2) {
-    for (var i = 0; i < course_list.list.length; i++) {
-      if (course_list.list[i].label.indexOf(this.state.courseId) >= 0) {
-        courseItem.push({label: course_list.list[i].label})
-      }
-    }
+  for (var i = 0; i < course_list.list.length; i++) {
+    courseItem.push({value: course_list.list[i].value, label: course_list.list[i].label})
   }
+  console.log(this.state.profID,this.state.courseId);
 
   var titleurl='/rating'+location.search;
 
@@ -198,6 +196,8 @@ render() {
   const workloadRating = (newRating) => {
     this.state.workload = (newRating)
   }
+  const { selectedOptionProfessor } = this.state.profID;
+  const { selectedOptionCourse } = this.state.courseId;
 
     return(
      <div>
@@ -211,6 +211,24 @@ render() {
              <form className="login-form">
                <div className = "page col m6">
                <div className = "ratingFactor">
+               <span>课程</span>
+               </div>
+               <Select
+                  value={selectedOptionCourse}
+                  onChange={(e) => this.setCourse(e)}
+                  options={courseItem}
+                />
+                <div className = "divider" style={{marginTop: "20px"}}></div>
+                <div className = "ratingFactor">
+                <span>教授</span>
+                </div>
+               <Select
+                  value={selectedOptionProfessor}
+                  onChange={(e) => this.setProfessor(e)}
+                  options={professorItem}
+                />
+                <div className = "divider" style={{marginTop: "20px"}}></div>
+               {/*<div className = "ratingFactor">
                <span>课程</span>
                </div>
                <Autocomplete
@@ -239,7 +257,7 @@ render() {
                  value={this.state.profID}
                  onChange={(e) => this.setProfessor(e)}
                  onSelect={(val) => this.selectProfessor(val)}
-               />
+               />*/}
 
 {/*<div className="row">
   <div className="col s12">
@@ -295,13 +313,13 @@ render() {
                        <input className="width-gap" type="radio" name="group1" id="1" value="1"/>
                        <label className="labelOverride" htmlFor="1" style={{marginLeft: "-5px"}}>轻</label>
 
-                       <input className="width-gap" type="radio" name="group1" id="2" value="20"/>
+                       <input className="width-gap" type="radio" name="group1" id="2" value="2"/>
                        <label className="labelOverride" htmlFor="2">2</label>
 
-                       <input className="width-gap" type="radio" name="group1" id="3" value="30"/>
+                       <input className="width-gap" type="radio" name="group1" id="3" value="3"/>
                        <label className="labelOverride" htmlFor="3">3</label>
 
-                       <input className="width-gap" type="radio" name="group1" id="4" value="40"/>
+                       <input className="width-gap" type="radio" name="group1" id="4" value="4"/>
                        <label className="labelOverride" htmlFor="4">4</label>
 
                        <input className="width-gap" type="radio" name="group1" id="5" value="5"/>
@@ -418,9 +436,16 @@ render() {
                 <div className="input-field col s12">
                   <div className="submit-button-row">
                     <button
+                    style={{width: "130px"}}
                     className="btn-large waves-effect waves-light"
                     type="button" onClick={() => this.submitReview()}>
                     提交评价!
+                    </button>
+                    <button
+                    style={{marginLeft: "60px", width: "130px"}}
+                    className="btn-large waves-effect waves-light"
+                    type="button" onClick={() => this.back()}>
+                    返回
                     </button>
                   </div>
                 </div>
