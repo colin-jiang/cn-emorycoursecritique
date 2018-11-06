@@ -144,14 +144,14 @@ render() {
          <div id="login-page" className="row">
            <div className="col l8 push-l2 m10 push-m1 s12 z-depth-4 card-panel nohover2" style={{position: 'relative' , top: '50px', padding: '0 48px'}}>
              <form className="login-form">
-               <div className = "page col m6">
+               <div className = "page col m12">
                  <p className = "ratingFactor">请你对{this.state.profID.indexOf(", ") >= 0 ? this.state.profID.split(", ")[1] + " " + this.state.profID.split(", ")[0] : this.state.profID}的{this.state.courseId}做出评价</p>
                  <div className = "divider"></div>
 
 
                    <div className = "ratingFactor">
                      <span>整体评分</span>
-                     <div style={{position:"centered"}}><ReactStars style={{margin:"0 auto", width:"26%", float:"left"}}
+                     <div className = "ratingFactor"><ReactStars style={{margin:"0 auto", width:"26%", float:"left", posiiton:"centered"}}
                        count={10}
                        value={this.state.overall}
                        onChange={overallRating}
@@ -164,7 +164,7 @@ render() {
 
                    <div className = "ratingFactor">
                      <span>课业负担</span>
-                     <div className="center" onChange={this.setWorkload} style={{}}>
+                     <div className="center ratingFactor" onChange={this.setWorkload} style={{}}>
 
                        <input className="width-gap" type="radio" name="group1" id="1" value="1"/>
                        <label className="labelOverride" htmlFor="1" style={{marginLeft: "-5px"}}>轻</label>
@@ -202,7 +202,7 @@ render() {
 
                    <div className = "ratingFactor">
                      <span>拿A难度</span>
-                     <div className="center" onChange={this.setDifficulty} style={{}}>
+                     <div className="center ratingFactor" onChange={this.setDifficulty} style={{}}>
 
                        <input className="width-gap" type="radio" name="group2" id="11" value="1"/>
                        <label className="labelOverride" htmlFor="11" style={{marginLeft: "-5px"}}>易</label>
@@ -240,7 +240,7 @@ render() {
 
                    <div className = "ratingFactor">
                      <span>口音（理解是否有难度）</span>
-                     <div className="center" onChange={this.setAccent} style={{}}>
+                     <div className="center ratingFactor" onChange={this.setAccent} style={{}}>
 
                        <input className="width-gap" type="radio" name="group3" id="21" value={true}/>
                        <label className="labelOverride" htmlFor="21" style={{marginLeft: "0"}}>有</label>
@@ -255,7 +255,7 @@ render() {
 
                    <div className = "ratingFactor">
                      <span>记不记考勤</span>
-                     <div className="center" onChange={this.setAttendance} style={{}}>
+                     <div className="center ratingFactor" onChange={this.setAttendance} style={{}}>
                        <input className="width-gap" type="radio" name="group4" id="23" value={true}/>
                        <label className="labelOverride" htmlFor="23" style={{marginLeft: "0"}}>记</label>
 
@@ -268,7 +268,7 @@ render() {
 
                    <div className = "ratingFactor">
                      <span>给不给Curve</span>
-                     <div className="center" onChange={this.setCurve} style={{}}>
+                     <div className="center ratingFactor" onChange={this.setCurve} style={{}}>
                        <input className="width-gap" type="radio" name="group5" id="25" value={true}/>
                        <label className="labelOverride" htmlFor="25" style={{marginLeft: "0"}}>给</label>
 
@@ -276,18 +276,19 @@ render() {
                        <label className="labelOverride" htmlFor="26">不给</label>
                      </div>
                    </div>
-               </div>
-               <div className ="page col m6">
-                 <div className="col s12">
-                   <div className="row">
-                     <div className="input-field col s12">
-                       <i className="material-icons prefix">mode_edit</i>
-                       <label htmlFor="icon_prefix2">如有更详细的文字评价可在此处添加</label>
-                       <textarea id="icon_prefix2" type="text" className="materialize-textarea" value={this.state.comment} onChange= {(event) => this.updateComment(event)} style={{}} />
+
+                   <div className="col s12">
+                     <div className="row">
+                       <div className="input-field col s12">
+                         <i className="material-icons prefix">mode_edit</i>
+                         <label htmlFor="icon_prefix2">如有更详细的文字评价可在此处添加</label>
+                         <textarea id="icon_prefix2" type="text" className="materialize-textarea" value={this.state.comment} onChange= {(event) => this.updateComment(event)} style={{}} />
+                       </div>
                      </div>
                    </div>
-                 </div>
+
                </div>
+
                <div className="row margin">
                 <div className="input-field col s12">
                   <div className="submit-button-row">
