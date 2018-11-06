@@ -31,6 +31,13 @@ module.exports=function(req,res,next){
       courses.forEach(function(course) {
         course.keywords.push(course.keywords[2]+' '+course.keywords[1]);
         course.keywords.push(course.course_num.replace( /[^\d.]/g, '' ))
+        let dep=course.course_num.replace(/\d+.*/g,'');
+        course.keywords.push(dep);
+        console.log(dep);
+        
+        let num=course.course_num.replace(/^\D+/g,'');
+        course.keywords.push(num);
+        course.keywords.push(dep+' '+num+' '+course.course_num.toLowerCase());
         var set=new Set(course.keywords);
         course.keywords=Array.from(set);
         course.save();
