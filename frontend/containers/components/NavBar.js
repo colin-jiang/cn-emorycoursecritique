@@ -35,14 +35,17 @@ class NavBar extends React.Component {
   }
 
  render() {
+    var link0;
     var link;
     var link2;
     if(this.props.state.logins.loginStatus){
       Materialize.toast('You are Logged in!', 4000);
+      link0 = <li />
       link = <li><Link to='/quickrating'>快速评分</Link></li>
       link2 = <li onClick={() => this.logout()} style={{cursor: "pointer"}}>登出</li>;
     }
     else{
+      link0 = <li><Link to='/quickrating'>快速评分</Link></li>
       link = <li><Link to='/login'>登录</Link></li>
       link2 = <li><Link to='/signup'>注册</Link></li>
     }
@@ -51,6 +54,7 @@ class NavBar extends React.Component {
       <nav className= "navOverride z-depth-0">
           <div className="nav-wrapper">
             <ul id="nav-mobile" className="right">
+              {link0}
               {link}
               {link2}
               <li><a href="collapsible.html"></a></li>
