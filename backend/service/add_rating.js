@@ -15,15 +15,15 @@ module.exports = function(req,res,next){
     var overall_rating = req.body.overall_rating;
     var workload_rating = req.body.workload_rating;
     var comment = req.body.comment;
-    var attendence=req.body.attendence_rating==='true';
+    var attendence=req.body.attendance_rating==='true';
     var curve=req.body.curve_rating==='true';
     var accent=req.body.accent_rating==='true';
 
     var user_id=(req.user);
     if(!user_id){
-      // res.status(401)
-      // return res.json({message:"user is not authenticated"})
-      user_id=process.env.USER_ID;
+      res.status(401)
+      return res.json({message:"user is not authenticated"})
+      // user_id=process.env.USER_ID;
     }
 
     function checkUser(user_id,done){
@@ -32,8 +32,8 @@ module.exports = function(req,res,next){
           return next(err)
         }
         if(user){
-        //   return res.json({message:"This user has already rated this course"})
-          done(null,user_id)
+           return res.json({message:"This user has already rated this course"})
+          // done(null,user_id)
         }
         else{
           done(null,user_id)

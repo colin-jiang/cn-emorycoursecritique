@@ -263,7 +263,7 @@ class ReviewBody extends React.Component {
             dvotes={this.state.ratings[i].downvotes}
             uvotes={this.state.ratings[i].upvotes}
             accent={this.state.ratings[i].prof_accent}
-            attendance={this.state.ratings[i].attendance}
+            attendence={this.state.ratings[i].attendence}
             curve={this.state.ratings[i].curve}
             id={this.state.ratings[i]._id}
             onUpdate={this.onUpdate}
@@ -281,7 +281,7 @@ class ReviewBody extends React.Component {
               dvotes={this.state.ratings[i].downvotes}
               uvotes={this.state.ratings[i].upvotes}
               accent={this.state.ratings[i].prof_accent}
-              attendance={this.state.ratings[i].attendance}
+              attendence={this.state.ratings[i].attendence}
               curve={this.state.ratings[i].curve}
               id={this.state.ratings[i]._id}
               onUpdate={this.onUpdate}

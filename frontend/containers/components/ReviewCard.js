@@ -144,8 +144,8 @@ class ReviewCard extends React.Component {
 
     var attendance;
     var curve;
-
-    if(this.props.attendance)
+  
+    if(this.props.attendence)
       attendance= "记考勤"
     else
       attendance= "不记考勤"
