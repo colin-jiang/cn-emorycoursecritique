@@ -19,7 +19,13 @@ var transport=nodemailer.createTransport({
 })
 
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI,{
+  server:{
+    auto_reconnect:true,
+    reconnectTries:Number.MAX_VALUE,
+    reconnectInterval:1000,
+    socketOptions: {keepAlive: 1, connectTimeoutMS: 30000}
+  }});
 app.set('views',__dirname+'/frontend');
 app.set('view engine','ejs')
 app.use(bodyParser.json());
